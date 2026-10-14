@@ -1,0 +1,5582 @@
+[
+  {
+    "id": "russian_001",
+    "role": "russian",
+    "brand": "ГПЗ-1",
+    "name": "Подшипник 6209-2RS ГПЗ-1 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 25,
+    "outer_diameter": 45,
+    "width": 22,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_001"
+    ]
+  },
+  {
+    "id": "russian_002",
+    "role": "russian",
+    "brand": "VBF",
+    "name": "Подшипник 6209-2RS VBF ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 25,
+    "outer_diameter": 45,
+    "width": 22,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_001"
+    ]
+  },
+  {
+    "id": "import_001",
+    "role": "import",
+    "brand": "FAG",
+    "name": "Подшипник FAG 6209-2RS",
+    "category": "Подшипник",
+    "material": "Нержавеющая сталь",
+    "inner_diameter": 25,
+    "outer_diameter": 45,
+    "width": 22,
+    "standard": "DIN 625-1",
+    "analogue_ids": [
+      "russian_001",
+      "russian_002"
+    ]
+  },
+  {
+    "id": "russian_003",
+    "role": "russian",
+    "brand": "ГПЗ-1",
+    "name": "Подшипник 6009-2Z ГПЗ-1 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 20,
+    "outer_diameter": 40,
+    "width": 12,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_002"
+    ]
+  },
+  {
+    "id": "russian_004",
+    "role": "russian",
+    "brand": "ГПЗ-2",
+    "name": "Подшипник 6009-2Z ГПЗ-2 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 20,
+    "outer_diameter": 40,
+    "width": 12,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_002"
+    ]
+  },
+  {
+    "id": "import_002",
+    "role": "import",
+    "brand": "Timken",
+    "name": "Подшипник Timken 6009-2Z",
+    "category": "Подшипник",
+    "material": "Нержавеющая сталь",
+    "inner_diameter": 20,
+    "outer_diameter": 40,
+    "width": 12,
+    "standard": "ISO 492:2014",
+    "analogue_ids": [
+      "russian_003",
+      "russian_004"
+    ]
+  },
+  {
+    "id": "russian_005",
+    "role": "russian",
+    "brand": "ГПЗ-2",
+    "name": "Подшипник 6220-2RSH ГПЗ-2 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 60,
+    "outer_diameter": 100,
+    "width": 15,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_003"
+    ]
+  },
+  {
+    "id": "russian_006",
+    "role": "russian",
+    "brand": "ЕПК",
+    "name": "Подшипник 6220-2RSH ЕПК ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 60,
+    "outer_diameter": 100,
+    "width": 15,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_003"
+    ]
+  },
+  {
+    "id": "import_003",
+    "role": "import",
+    "brand": "SKF",
+    "name": "Подшипник SKF 6220-2RSH",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 60,
+    "outer_diameter": 100,
+    "width": 15,
+    "standard": "DIN 625-1",
+    "analogue_ids": [
+      "russian_005",
+      "russian_006"
+    ]
+  },
+  {
+    "id": "russian_007",
+    "role": "russian",
+    "brand": "ГПЗ-1",
+    "name": "Подшипник 6205 ГПЗ-1 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 30,
+    "outer_diameter": 60,
+    "width": 25,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_004"
+    ]
+  },
+  {
+    "id": "russian_008",
+    "role": "russian",
+    "brand": "ГПЗ-4",
+    "name": "Подшипник 6205 ГПЗ-4 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 30,
+    "outer_diameter": 60,
+    "width": 25,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_004"
+    ]
+  },
+  {
+    "id": "import_004",
+    "role": "import",
+    "brand": "NTN",
+    "name": "Подшипник NTN 6205",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 30,
+    "outer_diameter": 60,
+    "width": 25,
+    "standard": "ISO 492:2014",
+    "analogue_ids": [
+      "russian_007",
+      "russian_008"
+    ]
+  },
+  {
+    "id": "russian_009",
+    "role": "russian",
+    "brand": "ГПЗ-1",
+    "name": "Подшипник 6219 ГПЗ-1 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 40,
+    "outer_diameter": 60,
+    "width": 22,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_005"
+    ]
+  },
+  {
+    "id": "russian_010",
+    "role": "russian",
+    "brand": "ГПЗ-4",
+    "name": "Подшипник 6219 ГПЗ-4 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 40,
+    "outer_diameter": 60,
+    "width": 22,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_005"
+    ]
+  },
+  {
+    "id": "import_005",
+    "role": "import",
+    "brand": "NTN",
+    "name": "Подшипник NTN 6219",
+    "category": "Подшипник",
+    "material": "Нержавеющая сталь",
+    "inner_diameter": 40,
+    "outer_diameter": 60,
+    "width": 22,
+    "standard": "ISO 492:2014",
+    "analogue_ids": [
+      "russian_009",
+      "russian_010"
+    ]
+  },
+  {
+    "id": "russian_011",
+    "role": "russian",
+    "brand": "ГПЗ-4",
+    "name": "Подшипник 6003 C3 ГПЗ-4 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 45,
+    "outer_diameter": 75,
+    "width": 22,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_006"
+    ]
+  },
+  {
+    "id": "russian_012",
+    "role": "russian",
+    "brand": "ГПЗ-1",
+    "name": "Подшипник 6003 C3 ГПЗ-1 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 45,
+    "outer_diameter": 75,
+    "width": 22,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_006"
+    ]
+  },
+  {
+    "id": "import_006",
+    "role": "import",
+    "brand": "FAG",
+    "name": "Подшипник FAG 6003 C3",
+    "category": "Подшипник",
+    "material": "Сталь",
+    "inner_diameter": 45,
+    "outer_diameter": 75,
+    "width": 22,
+    "standard": "ISO 15:2011",
+    "analogue_ids": [
+      "russian_011",
+      "russian_012"
+    ]
+  },
+  {
+    "id": "russian_013",
+    "role": "russian",
+    "brand": "ГПЗ-4",
+    "name": "Подшипник 6328-2RSH ГПЗ-4 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 50,
+    "outer_diameter": 82,
+    "width": 18,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_007"
+    ]
+  },
+  {
+    "id": "russian_014",
+    "role": "russian",
+    "brand": "VBF",
+    "name": "Подшипник 6328-2RSH VBF ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 50,
+    "outer_diameter": 82,
+    "width": 18,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_007"
+    ]
+  },
+  {
+    "id": "import_007",
+    "role": "import",
+    "brand": "FAG",
+    "name": "Подшипник FAG 6328-2RSH",
+    "category": "Подшипник",
+    "material": "Сталь",
+    "inner_diameter": 50,
+    "outer_diameter": 82,
+    "width": 18,
+    "standard": "ISO 492:2014",
+    "analogue_ids": [
+      "russian_013",
+      "russian_014"
+    ]
+  },
+  {
+    "id": "russian_015",
+    "role": "russian",
+    "brand": "ГПЗ-2",
+    "name": "Подшипник 6307-2Z ГПЗ-2 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 40,
+    "outer_diameter": 65,
+    "width": 20,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_008"
+    ]
+  },
+  {
+    "id": "russian_016",
+    "role": "russian",
+    "brand": "VBF",
+    "name": "Подшипник 6307-2Z VBF ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 40,
+    "outer_diameter": 65,
+    "width": 20,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_008"
+    ]
+  },
+  {
+    "id": "import_008",
+    "role": "import",
+    "brand": "KOYO",
+    "name": "Подшипник KOYO 6307-2Z",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 40,
+    "outer_diameter": 65,
+    "width": 20,
+    "standard": "DIN 625-1",
+    "analogue_ids": [
+      "russian_015",
+      "russian_016"
+    ]
+  },
+  {
+    "id": "russian_017",
+    "role": "russian",
+    "brand": "ГПЗ-1",
+    "name": "Подшипник 6228 ГПЗ-1 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 40,
+    "outer_diameter": 70,
+    "width": 22,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_009"
+    ]
+  },
+  {
+    "id": "russian_018",
+    "role": "russian",
+    "brand": "ГПЗ-4",
+    "name": "Подшипник 6228 ГПЗ-4 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 40,
+    "outer_diameter": 70,
+    "width": 22,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_009"
+    ]
+  },
+  {
+    "id": "import_009",
+    "role": "import",
+    "brand": "FAG",
+    "name": "Подшипник FAG 6228",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 40,
+    "outer_diameter": 70,
+    "width": 22,
+    "standard": "DIN 625-1",
+    "analogue_ids": [
+      "russian_017",
+      "russian_018"
+    ]
+  },
+  {
+    "id": "russian_019",
+    "role": "russian",
+    "brand": "ЕПК",
+    "name": "Подшипник 6312-2RS ЕПК ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 25,
+    "outer_diameter": 55,
+    "width": 20,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_010"
+    ]
+  },
+  {
+    "id": "russian_020",
+    "role": "russian",
+    "brand": "VBF",
+    "name": "Подшипник 6312-2RS VBF ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 25,
+    "outer_diameter": 55,
+    "width": 20,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_010"
+    ]
+  },
+  {
+    "id": "import_010",
+    "role": "import",
+    "brand": "KOYO",
+    "name": "Подшипник KOYO 6312-2RS",
+    "category": "Подшипник",
+    "material": "Нержавеющая сталь",
+    "inner_diameter": 25,
+    "outer_diameter": 55,
+    "width": 20,
+    "standard": "DIN 625-1",
+    "analogue_ids": [
+      "russian_019",
+      "russian_020"
+    ]
+  },
+  {
+    "id": "russian_021",
+    "role": "russian",
+    "brand": "ГПЗ-4",
+    "name": "Подшипник 6025-2Z ГПЗ-4 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 30,
+    "outer_diameter": 62,
+    "width": 15,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_011"
+    ]
+  },
+  {
+    "id": "russian_022",
+    "role": "russian",
+    "brand": "ЕПК",
+    "name": "Подшипник 6025-2Z ЕПК ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 30,
+    "outer_diameter": 62,
+    "width": 15,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_011"
+    ]
+  },
+  {
+    "id": "import_011",
+    "role": "import",
+    "brand": "Timken",
+    "name": "Подшипник Timken 6025-2Z",
+    "category": "Подшипник",
+    "material": "Нержавеющая сталь",
+    "inner_diameter": 30,
+    "outer_diameter": 62,
+    "width": 15,
+    "standard": "DIN 625-1",
+    "analogue_ids": [
+      "russian_021",
+      "russian_022"
+    ]
+  },
+  {
+    "id": "russian_023",
+    "role": "russian",
+    "brand": "ГПЗ-1",
+    "name": "Подшипник 6317 ГПЗ-1 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 45,
+    "outer_diameter": 75,
+    "width": 15,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_012"
+    ]
+  },
+  {
+    "id": "russian_024",
+    "role": "russian",
+    "brand": "ГПЗ-2",
+    "name": "Подшипник 6317 ГПЗ-2 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 45,
+    "outer_diameter": 75,
+    "width": 15,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_012"
+    ]
+  },
+  {
+    "id": "import_012",
+    "role": "import",
+    "brand": "SKF",
+    "name": "Подшипник SKF 6317",
+    "category": "Подшипник",
+    "material": "Нержавеющая сталь",
+    "inner_diameter": 45,
+    "outer_diameter": 75,
+    "width": 15,
+    "standard": "ISO 15:2011",
+    "analogue_ids": [
+      "russian_023",
+      "russian_024"
+    ]
+  },
+  {
+    "id": "russian_025",
+    "role": "russian",
+    "brand": "ГПЗ-4",
+    "name": "Подшипник 6221-ZZ ГПЗ-4 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 50,
+    "outer_diameter": 75,
+    "width": 18,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_013"
+    ]
+  },
+  {
+    "id": "russian_026",
+    "role": "russian",
+    "brand": "ГПЗ-1",
+    "name": "Подшипник 6221-ZZ ГПЗ-1 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 50,
+    "outer_diameter": 75,
+    "width": 18,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_013"
+    ]
+  },
+  {
+    "id": "import_013",
+    "role": "import",
+    "brand": "Timken",
+    "name": "Подшипник Timken 6221-ZZ",
+    "category": "Подшипник",
+    "material": "Нержавеющая сталь",
+    "inner_diameter": 50,
+    "outer_diameter": 75,
+    "width": 18,
+    "standard": "ISO 492:2014",
+    "analogue_ids": [
+      "russian_025",
+      "russian_026"
+    ]
+  },
+  {
+    "id": "russian_027",
+    "role": "russian",
+    "brand": "ЕПК",
+    "name": "Подшипник 6312 ЕПК ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 25,
+    "outer_diameter": 57,
+    "width": 25,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_014"
+    ]
+  },
+  {
+    "id": "russian_028",
+    "role": "russian",
+    "brand": "ГПЗ-2",
+    "name": "Подшипник 6312 ГПЗ-2 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 25,
+    "outer_diameter": 57,
+    "width": 25,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_014"
+    ]
+  },
+  {
+    "id": "import_014",
+    "role": "import",
+    "brand": "NSK",
+    "name": "Подшипник NSK 6312",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 25,
+    "outer_diameter": 57,
+    "width": 25,
+    "standard": "ISO 15:2011",
+    "analogue_ids": [
+      "russian_027",
+      "russian_028"
+    ]
+  },
+  {
+    "id": "russian_029",
+    "role": "russian",
+    "brand": "VBF",
+    "name": "Подшипник 6029 C3 VBF ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 40,
+    "outer_diameter": 68,
+    "width": 20,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_015"
+    ]
+  },
+  {
+    "id": "russian_030",
+    "role": "russian",
+    "brand": "ГПЗ-2",
+    "name": "Подшипник 6029 C3 ГПЗ-2 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 40,
+    "outer_diameter": 68,
+    "width": 20,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_015"
+    ]
+  },
+  {
+    "id": "import_015",
+    "role": "import",
+    "brand": "NSK",
+    "name": "Подшипник NSK 6029 C3",
+    "category": "Подшипник",
+    "material": "Сталь",
+    "inner_diameter": 40,
+    "outer_diameter": 68,
+    "width": 20,
+    "standard": "DIN 625-1",
+    "analogue_ids": [
+      "russian_029",
+      "russian_030"
+    ]
+  },
+  {
+    "id": "russian_031",
+    "role": "russian",
+    "brand": "ГПЗ-4",
+    "name": "Подшипник 6217 ГПЗ-4 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 30,
+    "outer_diameter": 50,
+    "width": 20,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_016"
+    ]
+  },
+  {
+    "id": "russian_032",
+    "role": "russian",
+    "brand": "VBF",
+    "name": "Подшипник 6217 VBF ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 30,
+    "outer_diameter": 50,
+    "width": 20,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_016"
+    ]
+  },
+  {
+    "id": "import_016",
+    "role": "import",
+    "brand": "SKF",
+    "name": "Подшипник SKF 6217",
+    "category": "Подшипник",
+    "material": "Сталь",
+    "inner_diameter": 30,
+    "outer_diameter": 50,
+    "width": 20,
+    "standard": "ISO 15:2011",
+    "analogue_ids": [
+      "russian_031",
+      "russian_032"
+    ]
+  },
+  {
+    "id": "russian_033",
+    "role": "russian",
+    "brand": "ГПЗ-2",
+    "name": "Подшипник 6317 ГПЗ-2 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 35,
+    "outer_diameter": 60,
+    "width": 12,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_017"
+    ]
+  },
+  {
+    "id": "russian_034",
+    "role": "russian",
+    "brand": "VBF",
+    "name": "Подшипник 6317 VBF ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 35,
+    "outer_diameter": 60,
+    "width": 12,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_017"
+    ]
+  },
+  {
+    "id": "import_017",
+    "role": "import",
+    "brand": "Timken",
+    "name": "Подшипник Timken 6317",
+    "category": "Подшипник",
+    "material": "Нержавеющая сталь",
+    "inner_diameter": 35,
+    "outer_diameter": 60,
+    "width": 12,
+    "standard": "DIN 625-1",
+    "analogue_ids": [
+      "russian_033",
+      "russian_034"
+    ]
+  },
+  {
+    "id": "russian_035",
+    "role": "russian",
+    "brand": "ГПЗ-2",
+    "name": "Подшипник 6329-2Z ГПЗ-2 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 60,
+    "outer_diameter": 88,
+    "width": 17,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_018"
+    ]
+  },
+  {
+    "id": "russian_036",
+    "role": "russian",
+    "brand": "VBF",
+    "name": "Подшипник 6329-2Z VBF ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 60,
+    "outer_diameter": 88,
+    "width": 17,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_018"
+    ]
+  },
+  {
+    "id": "import_018",
+    "role": "import",
+    "brand": "NTN",
+    "name": "Подшипник NTN 6329-2Z",
+    "category": "Подшипник",
+    "material": "Нержавеющая сталь",
+    "inner_diameter": 60,
+    "outer_diameter": 88,
+    "width": 17,
+    "standard": "DIN 625-1",
+    "analogue_ids": [
+      "russian_035",
+      "russian_036"
+    ]
+  },
+  {
+    "id": "russian_037",
+    "role": "russian",
+    "brand": "ГПЗ-2",
+    "name": "Подшипник 6316 ГПЗ-2 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 50,
+    "outer_diameter": 85,
+    "width": 18,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_019"
+    ]
+  },
+  {
+    "id": "russian_038",
+    "role": "russian",
+    "brand": "ГПЗ-1",
+    "name": "Подшипник 6316 ГПЗ-1 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 50,
+    "outer_diameter": 85,
+    "width": 18,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_019"
+    ]
+  },
+  {
+    "id": "import_019",
+    "role": "import",
+    "brand": "FAG",
+    "name": "Подшипник FAG 6316",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 50,
+    "outer_diameter": 85,
+    "width": 18,
+    "standard": "ISO 15:2011",
+    "analogue_ids": [
+      "russian_037",
+      "russian_038"
+    ]
+  },
+  {
+    "id": "russian_039",
+    "role": "russian",
+    "brand": "ГПЗ-1",
+    "name": "Подшипник 6002 ГПЗ-1 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 65,
+    "outer_diameter": 95,
+    "width": 20,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_020"
+    ]
+  },
+  {
+    "id": "russian_040",
+    "role": "russian",
+    "brand": "ГПЗ-2",
+    "name": "Подшипник 6002 ГПЗ-2 ГОСТ 8338-75",
+    "category": "Подшипник",
+    "material": "Сталь ШХ15",
+    "inner_diameter": 65,
+    "outer_diameter": 95,
+    "width": 20,
+    "standard": "ГОСТ 8338-75",
+    "original_ids": [
+      "import_020"
+    ]
+  },
+  {
+    "id": "import_020",
+    "role": "import",
+    "brand": "KOYO",
+    "name": "Подшипник KOYO 6002",
+    "category": "Подшипник",
+    "material": "Сталь",
+    "inner_diameter": 65,
+    "outer_diameter": 95,
+    "width": 20,
+    "standard": "ISO 15:2011",
+    "analogue_ids": [
+      "russian_039",
+      "russian_040"
+    ]
+  },
+  {
+    "id": "russian_041",
+    "role": "russian",
+    "brand": "Камоззи-Рус",
+    "name": "Цилиндр пневматический 63x80 Камоззи-Рус ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 63,
+    "stroke": 80,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_021"
+    ]
+  },
+  {
+    "id": "russian_042",
+    "role": "russian",
+    "brand": "Пневмостроймашина",
+    "name": "Цилиндр пневматический 63x80 Пневмостроймашина ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 63,
+    "stroke": 80,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_021"
+    ]
+  },
+  {
+    "id": "import_021",
+    "role": "import",
+    "brand": "SMC",
+    "name": "Цилиндр пневматический SMC DSNU-63-80",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 63,
+    "stroke": 80,
+    "pressure": 6,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_041",
+      "russian_042"
+    ]
+  },
+  {
+    "id": "russian_043",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 20x125 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 20,
+    "stroke": 125,
+    "pressure": 8,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_022"
+    ]
+  },
+  {
+    "id": "russian_044",
+    "role": "russian",
+    "brand": "Камоззи-Рус",
+    "name": "Цилиндр пневматический 20x125 Камоззи-Рус ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 20,
+    "stroke": 125,
+    "pressure": 8,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_022"
+    ]
+  },
+  {
+    "id": "import_022",
+    "role": "import",
+    "brand": "Parker",
+    "name": "Цилиндр пневматический Parker DSNU-20-125",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 20,
+    "stroke": 125,
+    "pressure": 8,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_043",
+      "russian_044"
+    ]
+  },
+  {
+    "id": "russian_045",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 63x100 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 63,
+    "stroke": 100,
+    "pressure": 8,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_023"
+    ]
+  },
+  {
+    "id": "russian_046",
+    "role": "russian",
+    "brand": "Камоззи-Рус",
+    "name": "Цилиндр пневматический 63x100 Камоззи-Рус ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 63,
+    "stroke": 100,
+    "pressure": 8,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_023"
+    ]
+  },
+  {
+    "id": "import_023",
+    "role": "import",
+    "brand": "Festo",
+    "name": "Цилиндр пневматический Festo DSNU-63-100",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 63,
+    "stroke": 100,
+    "pressure": 8,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_045",
+      "russian_046"
+    ]
+  },
+  {
+    "id": "russian_047",
+    "role": "russian",
+    "brand": "Пневмостроймашина",
+    "name": "Цилиндр пневматический 25x100 Пневмостроймашина ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 25,
+    "stroke": 100,
+    "pressure": 12,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_024"
+    ]
+  },
+  {
+    "id": "russian_048",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 25x100 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 25,
+    "stroke": 100,
+    "pressure": 12,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_024"
+    ]
+  },
+  {
+    "id": "import_024",
+    "role": "import",
+    "brand": "Parker",
+    "name": "Цилиндр пневматический Parker DSNU-25-100",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 25,
+    "stroke": 100,
+    "pressure": 12,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_047",
+      "russian_048"
+    ]
+  },
+  {
+    "id": "russian_049",
+    "role": "russian",
+    "brand": "Камоззи-Рус",
+    "name": "Цилиндр пневматический 50x160 Камоззи-Рус ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 50,
+    "stroke": 160,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_025"
+    ]
+  },
+  {
+    "id": "russian_050",
+    "role": "russian",
+    "brand": "Пневмостроймашина",
+    "name": "Цилиндр пневматический 50x160 Пневмостроймашина ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 50,
+    "stroke": 160,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_025"
+    ]
+  },
+  {
+    "id": "import_025",
+    "role": "import",
+    "brand": "Festo",
+    "name": "Цилиндр пневматический Festo DSNU-50-160",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 50,
+    "stroke": 160,
+    "pressure": 6,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_049",
+      "russian_050"
+    ]
+  },
+  {
+    "id": "russian_051",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 63x200 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 63,
+    "stroke": 200,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_026"
+    ]
+  },
+  {
+    "id": "russian_052",
+    "role": "russian",
+    "brand": "Пневмостроймашина",
+    "name": "Цилиндр пневматический 63x200 Пневмостроймашина ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 63,
+    "stroke": 200,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_026"
+    ]
+  },
+  {
+    "id": "import_026",
+    "role": "import",
+    "brand": "SMC",
+    "name": "Цилиндр пневматический SMC DSNU-63-200",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 63,
+    "stroke": 200,
+    "pressure": 6,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_051",
+      "russian_052"
+    ]
+  },
+  {
+    "id": "russian_053",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 40x100 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 40,
+    "stroke": 100,
+    "pressure": 8,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_027"
+    ]
+  },
+  {
+    "id": "russian_054",
+    "role": "russian",
+    "brand": "Камоззи-Рус",
+    "name": "Цилиндр пневматический 40x100 Камоззи-Рус ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 40,
+    "stroke": 100,
+    "pressure": 8,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_027"
+    ]
+  },
+  {
+    "id": "import_027",
+    "role": "import",
+    "brand": "Parker",
+    "name": "Цилиндр пневматический Parker DSNU-40-100",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 40,
+    "stroke": 100,
+    "pressure": 8,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_053",
+      "russian_054"
+    ]
+  },
+  {
+    "id": "russian_055",
+    "role": "russian",
+    "brand": "Пневмостроймашина",
+    "name": "Цилиндр пневматический 32x50 Пневмостроймашина ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 50,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_028"
+    ]
+  },
+  {
+    "id": "russian_056",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 32x50 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 50,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_028"
+    ]
+  },
+  {
+    "id": "import_028",
+    "role": "import",
+    "brand": "Parker",
+    "name": "Цилиндр пневматический Parker DSNU-32-50",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 50,
+    "pressure": 6,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_055",
+      "russian_056"
+    ]
+  },
+  {
+    "id": "russian_057",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 16x160 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 16,
+    "stroke": 160,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_029"
+    ]
+  },
+  {
+    "id": "russian_058",
+    "role": "russian",
+    "brand": "Пневмостроймашина",
+    "name": "Цилиндр пневматический 16x160 Пневмостроймашина ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 16,
+    "stroke": 160,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_029"
+    ]
+  },
+  {
+    "id": "import_029",
+    "role": "import",
+    "brand": "Festo",
+    "name": "Цилиндр пневматический Festo DSNU-16-160",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 16,
+    "stroke": 160,
+    "pressure": 6,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_057",
+      "russian_058"
+    ]
+  },
+  {
+    "id": "russian_059",
+    "role": "russian",
+    "brand": "Камоззи-Рус",
+    "name": "Цилиндр пневматический 32x100 Камоззи-Рус ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 100,
+    "pressure": 12,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_030"
+    ]
+  },
+  {
+    "id": "russian_060",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 32x100 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 100,
+    "pressure": 12,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_030"
+    ]
+  },
+  {
+    "id": "import_030",
+    "role": "import",
+    "brand": "SMC",
+    "name": "Цилиндр пневматический SMC DSNU-32-100",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 100,
+    "pressure": 12,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_059",
+      "russian_060"
+    ]
+  },
+  {
+    "id": "russian_061",
+    "role": "russian",
+    "brand": "Камоззи-Рус",
+    "name": "Цилиндр пневматический 20x100 Камоззи-Рус ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 20,
+    "stroke": 100,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_031"
+    ]
+  },
+  {
+    "id": "russian_062",
+    "role": "russian",
+    "brand": "Пневмостроймашина",
+    "name": "Цилиндр пневматический 20x100 Пневмостроймашина ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 20,
+    "stroke": 100,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_031"
+    ]
+  },
+  {
+    "id": "import_031",
+    "role": "import",
+    "brand": "Parker",
+    "name": "Цилиндр пневматический Parker DSNU-20-100",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 20,
+    "stroke": 100,
+    "pressure": 6,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_061",
+      "russian_062"
+    ]
+  },
+  {
+    "id": "russian_063",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 25x100 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 25,
+    "stroke": 100,
+    "pressure": 12,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_032"
+    ]
+  },
+  {
+    "id": "russian_064",
+    "role": "russian",
+    "brand": "Камоззи-Рус",
+    "name": "Цилиндр пневматический 25x100 Камоззи-Рус ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 25,
+    "stroke": 100,
+    "pressure": 12,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_032"
+    ]
+  },
+  {
+    "id": "import_032",
+    "role": "import",
+    "brand": "SMC",
+    "name": "Цилиндр пневматический SMC DSNU-25-100",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 25,
+    "stroke": 100,
+    "pressure": 12,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_063",
+      "russian_064"
+    ]
+  },
+  {
+    "id": "russian_065",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 20x25 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 20,
+    "stroke": 25,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_033"
+    ]
+  },
+  {
+    "id": "russian_066",
+    "role": "russian",
+    "brand": "Пневмостроймашина",
+    "name": "Цилиндр пневматический 20x25 Пневмостроймашина ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 20,
+    "stroke": 25,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_033"
+    ]
+  },
+  {
+    "id": "import_033",
+    "role": "import",
+    "brand": "Camozzi",
+    "name": "Цилиндр пневматический Camozzi DSNU-20-25",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 20,
+    "stroke": 25,
+    "pressure": 6,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_065",
+      "russian_066"
+    ]
+  },
+  {
+    "id": "russian_067",
+    "role": "russian",
+    "brand": "Пневмостроймашина",
+    "name": "Цилиндр пневматический 40x100 Пневмостроймашина ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 40,
+    "stroke": 100,
+    "pressure": 8,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_034"
+    ]
+  },
+  {
+    "id": "russian_068",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 40x100 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 40,
+    "stroke": 100,
+    "pressure": 8,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_034"
+    ]
+  },
+  {
+    "id": "import_034",
+    "role": "import",
+    "brand": "Festo",
+    "name": "Цилиндр пневматический Festo DSNU-40-100",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 40,
+    "stroke": 100,
+    "pressure": 8,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_067",
+      "russian_068"
+    ]
+  },
+  {
+    "id": "russian_069",
+    "role": "russian",
+    "brand": "Пневмостроймашина",
+    "name": "Цилиндр пневматический 63x50 Пневмостроймашина ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 63,
+    "stroke": 50,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_035"
+    ]
+  },
+  {
+    "id": "russian_070",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 63x50 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 63,
+    "stroke": 50,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_035"
+    ]
+  },
+  {
+    "id": "import_035",
+    "role": "import",
+    "brand": "Festo",
+    "name": "Цилиндр пневматический Festo DSNU-63-50",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 63,
+    "stroke": 50,
+    "pressure": 6,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_069",
+      "russian_070"
+    ]
+  },
+  {
+    "id": "russian_071",
+    "role": "russian",
+    "brand": "Пневмостроймашина",
+    "name": "Цилиндр пневматический 32x25 Пневмостроймашина ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 25,
+    "pressure": 8,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_036"
+    ]
+  },
+  {
+    "id": "russian_072",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 32x25 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 25,
+    "pressure": 8,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_036"
+    ]
+  },
+  {
+    "id": "import_036",
+    "role": "import",
+    "brand": "Festo",
+    "name": "Цилиндр пневматический Festo DSNU-32-25",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 25,
+    "pressure": 8,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_071",
+      "russian_072"
+    ]
+  },
+  {
+    "id": "russian_073",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 32x160 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 160,
+    "pressure": 10,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_037"
+    ]
+  },
+  {
+    "id": "russian_074",
+    "role": "russian",
+    "brand": "Камоззи-Рус",
+    "name": "Цилиндр пневматический 32x160 Камоззи-Рус ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 160,
+    "pressure": 10,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_037"
+    ]
+  },
+  {
+    "id": "import_037",
+    "role": "import",
+    "brand": "Camozzi",
+    "name": "Цилиндр пневматический Camozzi DSNU-32-160",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 160,
+    "pressure": 10,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_073",
+      "russian_074"
+    ]
+  },
+  {
+    "id": "russian_075",
+    "role": "russian",
+    "brand": "Пневмостроймашина",
+    "name": "Цилиндр пневматический 20x80 Пневмостроймашина ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 20,
+    "stroke": 80,
+    "pressure": 12,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_038"
+    ]
+  },
+  {
+    "id": "russian_076",
+    "role": "russian",
+    "brand": "Камоззи-Рус",
+    "name": "Цилиндр пневматический 20x80 Камоззи-Рус ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 20,
+    "stroke": 80,
+    "pressure": 12,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_038"
+    ]
+  },
+  {
+    "id": "import_038",
+    "role": "import",
+    "brand": "SMC",
+    "name": "Цилиндр пневматический SMC DSNU-20-80",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 20,
+    "stroke": 80,
+    "pressure": 12,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_075",
+      "russian_076"
+    ]
+  },
+  {
+    "id": "russian_077",
+    "role": "russian",
+    "brand": "Камоззи-Рус",
+    "name": "Цилиндр пневматический 32x80 Камоззи-Рус ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 80,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_039"
+    ]
+  },
+  {
+    "id": "russian_078",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 32x80 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 80,
+    "pressure": 6,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_039"
+    ]
+  },
+  {
+    "id": "import_039",
+    "role": "import",
+    "brand": "Festo",
+    "name": "Цилиндр пневматический Festo DSNU-32-80",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 32,
+    "stroke": 80,
+    "pressure": 6,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_077",
+      "russian_078"
+    ]
+  },
+  {
+    "id": "russian_079",
+    "role": "russian",
+    "brand": "Пневмоаппарат",
+    "name": "Цилиндр пневматический 16x125 Пневмоаппарат ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 16,
+    "stroke": 125,
+    "pressure": 8,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_040"
+    ]
+  },
+  {
+    "id": "russian_080",
+    "role": "russian",
+    "brand": "Камоззи-Рус",
+    "name": "Цилиндр пневматический 16x125 Камоззи-Рус ГОСТ 15608-81",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 16,
+    "stroke": 125,
+    "pressure": 8,
+    "standard": "ГОСТ 15608-81",
+    "original_ids": [
+      "import_040"
+    ]
+  },
+  {
+    "id": "import_040",
+    "role": "import",
+    "brand": "Camozzi",
+    "name": "Цилиндр пневматический Camozzi DSNU-16-125",
+    "category": "Пневматика",
+    "material": "Алюминий",
+    "inner_diameter": 16,
+    "stroke": 125,
+    "pressure": 8,
+    "standard": "ISO 6432",
+    "analogue_ids": [
+      "russian_079",
+      "russian_080"
+    ]
+  },
+  {
+    "id": "russian_081",
+    "role": "russian",
+    "brand": "EKF",
+    "name": "Автомат EKF 3P 25A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 25,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_041"
+    ]
+  },
+  {
+    "id": "russian_082",
+    "role": "russian",
+    "brand": "Автоматика",
+    "name": "Автомат Автоматика 3P 25A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 25,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_041"
+    ]
+  },
+  {
+    "id": "import_041",
+    "role": "import",
+    "brand": "Siemens",
+    "name": "Автомат Siemens iC60N 3P 25A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 25,
+    "poles": 3,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_081",
+      "russian_082"
+    ]
+  },
+  {
+    "id": "russian_083",
+    "role": "russian",
+    "brand": "IEK",
+    "name": "Автомат IEK 1P 32A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 32,
+    "poles": 1,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_042"
+    ]
+  },
+  {
+    "id": "russian_084",
+    "role": "russian",
+    "brand": "Автоматика",
+    "name": "Автомат Автоматика 1P 32A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 32,
+    "poles": 1,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_042"
+    ]
+  },
+  {
+    "id": "import_042",
+    "role": "import",
+    "brand": "Siemens",
+    "name": "Автомат Siemens iC60N 1P 32A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 32,
+    "poles": 1,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_083",
+      "russian_084"
+    ]
+  },
+  {
+    "id": "russian_085",
+    "role": "russian",
+    "brand": "КЭАЗ",
+    "name": "Автомат КЭАЗ 1P 10A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 10,
+    "poles": 1,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_043"
+    ]
+  },
+  {
+    "id": "russian_086",
+    "role": "russian",
+    "brand": "EKF",
+    "name": "Автомат EKF 1P 10A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 10,
+    "poles": 1,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_043"
+    ]
+  },
+  {
+    "id": "import_043",
+    "role": "import",
+    "brand": "ABB",
+    "name": "Автомат ABB iC60N 1P 10A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 10,
+    "poles": 1,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_085",
+      "russian_086"
+    ]
+  },
+  {
+    "id": "russian_087",
+    "role": "russian",
+    "brand": "КЭАЗ",
+    "name": "Автомат КЭАЗ 3P 25A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 25,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_044"
+    ]
+  },
+  {
+    "id": "russian_088",
+    "role": "russian",
+    "brand": "Автоматика",
+    "name": "Автомат Автоматика 3P 25A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 25,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_044"
+    ]
+  },
+  {
+    "id": "import_044",
+    "role": "import",
+    "brand": "ABB",
+    "name": "Автомат ABB iC60N 3P 25A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 25,
+    "poles": 3,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_087",
+      "russian_088"
+    ]
+  },
+  {
+    "id": "russian_089",
+    "role": "russian",
+    "brand": "Автоматика",
+    "name": "Автомат Автоматика 1P 32A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 32,
+    "poles": 1,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_045"
+    ]
+  },
+  {
+    "id": "russian_090",
+    "role": "russian",
+    "brand": "EKF",
+    "name": "Автомат EKF 1P 32A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 32,
+    "poles": 1,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_045"
+    ]
+  },
+  {
+    "id": "import_045",
+    "role": "import",
+    "brand": "Schneider",
+    "name": "Автомат Schneider iC60N 1P 32A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 32,
+    "poles": 1,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_089",
+      "russian_090"
+    ]
+  },
+  {
+    "id": "russian_091",
+    "role": "russian",
+    "brand": "КЭАЗ",
+    "name": "Автомат КЭАЗ 3P 6A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 6,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_046"
+    ]
+  },
+  {
+    "id": "russian_092",
+    "role": "russian",
+    "brand": "IEK",
+    "name": "Автомат IEK 3P 6A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 6,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_046"
+    ]
+  },
+  {
+    "id": "import_046",
+    "role": "import",
+    "brand": "ABB",
+    "name": "Автомат ABB iC60N 3P 6A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 6,
+    "poles": 3,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_091",
+      "russian_092"
+    ]
+  },
+  {
+    "id": "russian_093",
+    "role": "russian",
+    "brand": "IEK",
+    "name": "Автомат IEK 4P 100A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 100,
+    "poles": 4,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_047"
+    ]
+  },
+  {
+    "id": "russian_094",
+    "role": "russian",
+    "brand": "Автоматика",
+    "name": "Автомат Автоматика 4P 100A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 100,
+    "poles": 4,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_047"
+    ]
+  },
+  {
+    "id": "import_047",
+    "role": "import",
+    "brand": "Schneider",
+    "name": "Автомат Schneider iC60N 4P 100A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 100,
+    "poles": 4,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_093",
+      "russian_094"
+    ]
+  },
+  {
+    "id": "russian_095",
+    "role": "russian",
+    "brand": "EKF",
+    "name": "Автомат EKF 1P 16A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 16,
+    "poles": 1,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_048"
+    ]
+  },
+  {
+    "id": "russian_096",
+    "role": "russian",
+    "brand": "Автоматика",
+    "name": "Автомат Автоматика 1P 16A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 16,
+    "poles": 1,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_048"
+    ]
+  },
+  {
+    "id": "import_048",
+    "role": "import",
+    "brand": "Siemens",
+    "name": "Автомат Siemens iC60N 1P 16A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 16,
+    "poles": 1,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_095",
+      "russian_096"
+    ]
+  },
+  {
+    "id": "russian_097",
+    "role": "russian",
+    "brand": "IEK",
+    "name": "Автомат IEK 3P 6A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 6,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_049"
+    ]
+  },
+  {
+    "id": "russian_098",
+    "role": "russian",
+    "brand": "EKF",
+    "name": "Автомат EKF 3P 6A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 6,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_049"
+    ]
+  },
+  {
+    "id": "import_049",
+    "role": "import",
+    "brand": "Siemens",
+    "name": "Автомат Siemens iC60N 3P 6A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 6,
+    "poles": 3,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_097",
+      "russian_098"
+    ]
+  },
+  {
+    "id": "russian_099",
+    "role": "russian",
+    "brand": "Автоматика",
+    "name": "Автомат Автоматика 1P 25A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 25,
+    "poles": 1,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_050"
+    ]
+  },
+  {
+    "id": "russian_100",
+    "role": "russian",
+    "brand": "КЭАЗ",
+    "name": "Автомат КЭАЗ 1P 25A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 25,
+    "poles": 1,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_050"
+    ]
+  },
+  {
+    "id": "import_050",
+    "role": "import",
+    "brand": "Siemens",
+    "name": "Автомат Siemens iC60N 1P 25A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 25,
+    "poles": 1,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_099",
+      "russian_100"
+    ]
+  },
+  {
+    "id": "russian_101",
+    "role": "russian",
+    "brand": "EKF",
+    "name": "Автомат EKF 2P 16A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 16,
+    "poles": 2,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_051"
+    ]
+  },
+  {
+    "id": "russian_102",
+    "role": "russian",
+    "brand": "Автоматика",
+    "name": "Автомат Автоматика 2P 16A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 16,
+    "poles": 2,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_051"
+    ]
+  },
+  {
+    "id": "import_051",
+    "role": "import",
+    "brand": "ABB",
+    "name": "Автомат ABB iC60N 2P 16A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 16,
+    "poles": 2,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_101",
+      "russian_102"
+    ]
+  },
+  {
+    "id": "russian_103",
+    "role": "russian",
+    "brand": "EKF",
+    "name": "Автомат EKF 3P 16A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 16,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_052"
+    ]
+  },
+  {
+    "id": "russian_104",
+    "role": "russian",
+    "brand": "Автоматика",
+    "name": "Автомат Автоматика 3P 16A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 16,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_052"
+    ]
+  },
+  {
+    "id": "import_052",
+    "role": "import",
+    "brand": "Legrand",
+    "name": "Автомат Legrand iC60N 3P 16A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 16,
+    "poles": 3,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_103",
+      "russian_104"
+    ]
+  },
+  {
+    "id": "russian_105",
+    "role": "russian",
+    "brand": "Автоматика",
+    "name": "Автомат Автоматика 4P 10A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 10,
+    "poles": 4,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_053"
+    ]
+  },
+  {
+    "id": "russian_106",
+    "role": "russian",
+    "brand": "IEK",
+    "name": "Автомат IEK 4P 10A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 10,
+    "poles": 4,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_053"
+    ]
+  },
+  {
+    "id": "import_053",
+    "role": "import",
+    "brand": "Schneider",
+    "name": "Автомат Schneider iC60N 4P 10A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 10,
+    "poles": 4,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_105",
+      "russian_106"
+    ]
+  },
+  {
+    "id": "russian_107",
+    "role": "russian",
+    "brand": "EKF",
+    "name": "Автомат EKF 3P 100A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 100,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_054"
+    ]
+  },
+  {
+    "id": "russian_108",
+    "role": "russian",
+    "brand": "IEK",
+    "name": "Автомат IEK 3P 100A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 100,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_054"
+    ]
+  },
+  {
+    "id": "import_054",
+    "role": "import",
+    "brand": "Siemens",
+    "name": "Автомат Siemens iC60N 3P 100A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 100,
+    "poles": 3,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_107",
+      "russian_108"
+    ]
+  },
+  {
+    "id": "russian_109",
+    "role": "russian",
+    "brand": "КЭАЗ",
+    "name": "Автомат КЭАЗ 4P 25A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 25,
+    "poles": 4,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_055"
+    ]
+  },
+  {
+    "id": "russian_110",
+    "role": "russian",
+    "brand": "IEK",
+    "name": "Автомат IEK 4P 25A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 25,
+    "poles": 4,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_055"
+    ]
+  },
+  {
+    "id": "import_055",
+    "role": "import",
+    "brand": "Siemens",
+    "name": "Автомат Siemens iC60N 4P 25A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 230,
+    "current": 25,
+    "poles": 4,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_109",
+      "russian_110"
+    ]
+  },
+  {
+    "id": "russian_111",
+    "role": "russian",
+    "brand": "IEK",
+    "name": "Автомат IEK 4P 40A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 40,
+    "poles": 4,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_056"
+    ]
+  },
+  {
+    "id": "russian_112",
+    "role": "russian",
+    "brand": "Автоматика",
+    "name": "Автомат Автоматика 4P 40A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 40,
+    "poles": 4,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_056"
+    ]
+  },
+  {
+    "id": "import_056",
+    "role": "import",
+    "brand": "Siemens",
+    "name": "Автомат Siemens iC60N 4P 40A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 40,
+    "poles": 4,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_111",
+      "russian_112"
+    ]
+  },
+  {
+    "id": "russian_113",
+    "role": "russian",
+    "brand": "IEK",
+    "name": "Автомат IEK 3P 16A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 16,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_057"
+    ]
+  },
+  {
+    "id": "russian_114",
+    "role": "russian",
+    "brand": "КЭАЗ",
+    "name": "Автомат КЭАЗ 3P 16A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 16,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_057"
+    ]
+  },
+  {
+    "id": "import_057",
+    "role": "import",
+    "brand": "Schneider",
+    "name": "Автомат Schneider iC60N 3P 16A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 16,
+    "poles": 3,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_113",
+      "russian_114"
+    ]
+  },
+  {
+    "id": "russian_115",
+    "role": "russian",
+    "brand": "IEK",
+    "name": "Автомат IEK 3P 40A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 40,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_058"
+    ]
+  },
+  {
+    "id": "russian_116",
+    "role": "russian",
+    "brand": "EKF",
+    "name": "Автомат EKF 3P 40A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 40,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_058"
+    ]
+  },
+  {
+    "id": "import_058",
+    "role": "import",
+    "brand": "Legrand",
+    "name": "Автомат Legrand iC60N 3P 40A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 400,
+    "current": 40,
+    "poles": 3,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_115",
+      "russian_116"
+    ]
+  },
+  {
+    "id": "russian_117",
+    "role": "russian",
+    "brand": "Автоматика",
+    "name": "Автомат Автоматика 3P 25A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 25,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_059"
+    ]
+  },
+  {
+    "id": "russian_118",
+    "role": "russian",
+    "brand": "IEK",
+    "name": "Автомат IEK 3P 25A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 25,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_059"
+    ]
+  },
+  {
+    "id": "import_059",
+    "role": "import",
+    "brand": "Schneider",
+    "name": "Автомат Schneider iC60N 3P 25A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 25,
+    "poles": 3,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_117",
+      "russian_118"
+    ]
+  },
+  {
+    "id": "russian_119",
+    "role": "russian",
+    "brand": "IEK",
+    "name": "Автомат IEK 3P 25A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 25,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_060"
+    ]
+  },
+  {
+    "id": "russian_120",
+    "role": "russian",
+    "brand": "КЭАЗ",
+    "name": "Автомат КЭАЗ 3P 25A ГОСТ Р 50030",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 25,
+    "poles": 3,
+    "standard": "ГОСТ Р 50030",
+    "original_ids": [
+      "import_060"
+    ]
+  },
+  {
+    "id": "import_060",
+    "role": "import",
+    "brand": "Legrand",
+    "name": "Автомат Legrand iC60N 3P 25A",
+    "category": "Электрика",
+    "material": "Полимер",
+    "voltage": 690,
+    "current": 25,
+    "poles": 3,
+    "standard": "IEC 60947",
+    "analogue_ids": [
+      "russian_119",
+      "russian_120"
+    ]
+  },
+  {
+    "id": "russian_121",
+    "role": "russian",
+    "brand": "БРТ",
+    "name": "Манжета 45x60x7 БРТ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 45,
+    "outer_diameter": 60,
+    "width": 7,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_061"
+    ]
+  },
+  {
+    "id": "russian_122",
+    "role": "russian",
+    "brand": "ВРШРЗ",
+    "name": "Манжета 45x60x7 ВРШРЗ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 45,
+    "outer_diameter": 60,
+    "width": 7,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_061"
+    ]
+  },
+  {
+    "id": "import_061",
+    "role": "import",
+    "brand": "Trelleborg",
+    "name": "Манжета Trelleborg BAUM 45x60x7",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 45,
+    "outer_diameter": 60,
+    "width": 7,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_121",
+      "russian_122"
+    ]
+  },
+  {
+    "id": "russian_123",
+    "role": "russian",
+    "brand": "БРТ",
+    "name": "Манжета 50x65x12 БРТ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 50,
+    "outer_diameter": 65,
+    "width": 12,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_062"
+    ]
+  },
+  {
+    "id": "russian_124",
+    "role": "russian",
+    "brand": "РТИ-Балаково",
+    "name": "Манжета 50x65x12 РТИ-Балаково ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 50,
+    "outer_diameter": 65,
+    "width": 12,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_062"
+    ]
+  },
+  {
+    "id": "import_062",
+    "role": "import",
+    "brand": "Trelleborg",
+    "name": "Манжета Trelleborg BAUM 50x65x12",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 50,
+    "outer_diameter": 65,
+    "width": 12,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_123",
+      "russian_124"
+    ]
+  },
+  {
+    "id": "russian_125",
+    "role": "russian",
+    "brand": "ВРШРЗ",
+    "name": "Манжета 35x55x12 ВРШРЗ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 35,
+    "outer_diameter": 55,
+    "width": 12,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_063"
+    ]
+  },
+  {
+    "id": "russian_126",
+    "role": "russian",
+    "brand": "РТИ-Балаково",
+    "name": "Манжета 35x55x12 РТИ-Балаково ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 35,
+    "outer_diameter": 55,
+    "width": 12,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_063"
+    ]
+  },
+  {
+    "id": "import_063",
+    "role": "import",
+    "brand": "Trelleborg",
+    "name": "Манжета Trelleborg BAUM 35x55x12",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 35,
+    "outer_diameter": 55,
+    "width": 12,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_125",
+      "russian_126"
+    ]
+  },
+  {
+    "id": "russian_127",
+    "role": "russian",
+    "brand": "БРТ",
+    "name": "Манжета 40x60x7 БРТ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 40,
+    "outer_diameter": 60,
+    "width": 7,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_064"
+    ]
+  },
+  {
+    "id": "russian_128",
+    "role": "russian",
+    "brand": "РТИ-Балаково",
+    "name": "Манжета 40x60x7 РТИ-Балаково ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 40,
+    "outer_diameter": 60,
+    "width": 7,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_064"
+    ]
+  },
+  {
+    "id": "import_064",
+    "role": "import",
+    "brand": "Freudenberg",
+    "name": "Манжета Freudenberg BAUM 40x60x7",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 40,
+    "outer_diameter": 60,
+    "width": 7,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_127",
+      "russian_128"
+    ]
+  },
+  {
+    "id": "russian_129",
+    "role": "russian",
+    "brand": "БРТ",
+    "name": "Манжета 50x65x12 БРТ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 50,
+    "outer_diameter": 65,
+    "width": 12,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_065"
+    ]
+  },
+  {
+    "id": "russian_130",
+    "role": "russian",
+    "brand": "РТИ-Балаково",
+    "name": "Манжета 50x65x12 РТИ-Балаково ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 50,
+    "outer_diameter": 65,
+    "width": 12,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_065"
+    ]
+  },
+  {
+    "id": "import_065",
+    "role": "import",
+    "brand": "Freudenberg",
+    "name": "Манжета Freudenberg BAUM 50x65x12",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 50,
+    "outer_diameter": 65,
+    "width": 12,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_129",
+      "russian_130"
+    ]
+  },
+  {
+    "id": "russian_131",
+    "role": "russian",
+    "brand": "ВРШРЗ",
+    "name": "Манжета 60x72x7 ВРШРЗ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 60,
+    "outer_diameter": 72,
+    "width": 7,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_066"
+    ]
+  },
+  {
+    "id": "russian_132",
+    "role": "russian",
+    "brand": "БРТ",
+    "name": "Манжета 60x72x7 БРТ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 60,
+    "outer_diameter": 72,
+    "width": 7,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_066"
+    ]
+  },
+  {
+    "id": "import_066",
+    "role": "import",
+    "brand": "Freudenberg",
+    "name": "Манжета Freudenberg BAUM 60x72x7",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 60,
+    "outer_diameter": 72,
+    "width": 7,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_131",
+      "russian_132"
+    ]
+  },
+  {
+    "id": "russian_133",
+    "role": "russian",
+    "brand": "РТИ-Балаково",
+    "name": "Манжета 25x37x10 РТИ-Балаково ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 25,
+    "outer_diameter": 37,
+    "width": 10,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_067"
+    ]
+  },
+  {
+    "id": "russian_134",
+    "role": "russian",
+    "brand": "ВРШРЗ",
+    "name": "Манжета 25x37x10 ВРШРЗ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 25,
+    "outer_diameter": 37,
+    "width": 10,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_067"
+    ]
+  },
+  {
+    "id": "import_067",
+    "role": "import",
+    "brand": "Simrit",
+    "name": "Манжета Simrit BAUM 25x37x10",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 25,
+    "outer_diameter": 37,
+    "width": 10,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_133",
+      "russian_134"
+    ]
+  },
+  {
+    "id": "russian_135",
+    "role": "russian",
+    "brand": "ВРШРЗ",
+    "name": "Манжета 20x30x8 ВРШРЗ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 20,
+    "outer_diameter": 30,
+    "width": 8,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_068"
+    ]
+  },
+  {
+    "id": "russian_136",
+    "role": "russian",
+    "brand": "РТИ-Балаково",
+    "name": "Манжета 20x30x8 РТИ-Балаково ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 20,
+    "outer_diameter": 30,
+    "width": 8,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_068"
+    ]
+  },
+  {
+    "id": "import_068",
+    "role": "import",
+    "brand": "Freudenberg",
+    "name": "Манжета Freudenberg BAUM 20x30x8",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 20,
+    "outer_diameter": 30,
+    "width": 8,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_135",
+      "russian_136"
+    ]
+  },
+  {
+    "id": "russian_137",
+    "role": "russian",
+    "brand": "ВРШРЗ",
+    "name": "Манжета 60x80x8 ВРШРЗ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 60,
+    "outer_diameter": 80,
+    "width": 8,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_069"
+    ]
+  },
+  {
+    "id": "russian_138",
+    "role": "russian",
+    "brand": "БРТ",
+    "name": "Манжета 60x80x8 БРТ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 60,
+    "outer_diameter": 80,
+    "width": 8,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_069"
+    ]
+  },
+  {
+    "id": "import_069",
+    "role": "import",
+    "brand": "Trelleborg",
+    "name": "Манжета Trelleborg BAUM 60x80x8",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 60,
+    "outer_diameter": 80,
+    "width": 8,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_137",
+      "russian_138"
+    ]
+  },
+  {
+    "id": "russian_139",
+    "role": "russian",
+    "brand": "ВРШРЗ",
+    "name": "Манжета 60x80x8 ВРШРЗ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 60,
+    "outer_diameter": 80,
+    "width": 8,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_070"
+    ]
+  },
+  {
+    "id": "russian_140",
+    "role": "russian",
+    "brand": "РТИ-Балаково",
+    "name": "Манжета 60x80x8 РТИ-Балаково ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 60,
+    "outer_diameter": 80,
+    "width": 8,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_070"
+    ]
+  },
+  {
+    "id": "import_070",
+    "role": "import",
+    "brand": "Simrit",
+    "name": "Манжета Simrit BAUM 60x80x8",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 60,
+    "outer_diameter": 80,
+    "width": 8,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_139",
+      "russian_140"
+    ]
+  },
+  {
+    "id": "russian_141",
+    "role": "russian",
+    "brand": "ВРШРЗ",
+    "name": "Манжета 25x45x8 ВРШРЗ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 25,
+    "outer_diameter": 45,
+    "width": 8,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_071"
+    ]
+  },
+  {
+    "id": "russian_142",
+    "role": "russian",
+    "brand": "БРТ",
+    "name": "Манжета 25x45x8 БРТ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 25,
+    "outer_diameter": 45,
+    "width": 8,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_071"
+    ]
+  },
+  {
+    "id": "import_071",
+    "role": "import",
+    "brand": "Simrit",
+    "name": "Манжета Simrit BAUM 25x45x8",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 25,
+    "outer_diameter": 45,
+    "width": 8,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_141",
+      "russian_142"
+    ]
+  },
+  {
+    "id": "russian_143",
+    "role": "russian",
+    "brand": "РТИ-Балаково",
+    "name": "Манжета 20x32x7 РТИ-Балаково ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 20,
+    "outer_diameter": 32,
+    "width": 7,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_072"
+    ]
+  },
+  {
+    "id": "russian_144",
+    "role": "russian",
+    "brand": "БРТ",
+    "name": "Манжета 20x32x7 БРТ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 20,
+    "outer_diameter": 32,
+    "width": 7,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_072"
+    ]
+  },
+  {
+    "id": "import_072",
+    "role": "import",
+    "brand": "Freudenberg",
+    "name": "Манжета Freudenberg BAUM 20x32x7",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 20,
+    "outer_diameter": 32,
+    "width": 7,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_143",
+      "russian_144"
+    ]
+  },
+  {
+    "id": "russian_145",
+    "role": "russian",
+    "brand": "БРТ",
+    "name": "Манжета 45x65x12 БРТ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 45,
+    "outer_diameter": 65,
+    "width": 12,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_073"
+    ]
+  },
+  {
+    "id": "russian_146",
+    "role": "russian",
+    "brand": "РТИ-Балаково",
+    "name": "Манжета 45x65x12 РТИ-Балаково ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 45,
+    "outer_diameter": 65,
+    "width": 12,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_073"
+    ]
+  },
+  {
+    "id": "import_073",
+    "role": "import",
+    "brand": "Trelleborg",
+    "name": "Манжета Trelleborg BAUM 45x65x12",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 45,
+    "outer_diameter": 65,
+    "width": 12,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_145",
+      "russian_146"
+    ]
+  },
+  {
+    "id": "russian_147",
+    "role": "russian",
+    "brand": "ВРШРЗ",
+    "name": "Манжета 60x80x10 ВРШРЗ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 60,
+    "outer_diameter": 80,
+    "width": 10,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_074"
+    ]
+  },
+  {
+    "id": "russian_148",
+    "role": "russian",
+    "brand": "БРТ",
+    "name": "Манжета 60x80x10 БРТ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 60,
+    "outer_diameter": 80,
+    "width": 10,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_074"
+    ]
+  },
+  {
+    "id": "import_074",
+    "role": "import",
+    "brand": "Simrit",
+    "name": "Манжета Simrit BAUM 60x80x10",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 60,
+    "outer_diameter": 80,
+    "width": 10,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_147",
+      "russian_148"
+    ]
+  },
+  {
+    "id": "russian_149",
+    "role": "russian",
+    "brand": "РТИ-Балаково",
+    "name": "Манжета 60x72x10 РТИ-Балаково ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 60,
+    "outer_diameter": 72,
+    "width": 10,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_075"
+    ]
+  },
+  {
+    "id": "russian_150",
+    "role": "russian",
+    "brand": "БРТ",
+    "name": "Манжета 60x72x10 БРТ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 60,
+    "outer_diameter": 72,
+    "width": 10,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_075"
+    ]
+  },
+  {
+    "id": "import_075",
+    "role": "import",
+    "brand": "Freudenberg",
+    "name": "Манжета Freudenberg BAUM 60x72x10",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 60,
+    "outer_diameter": 72,
+    "width": 10,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_149",
+      "russian_150"
+    ]
+  },
+  {
+    "id": "russian_151",
+    "role": "russian",
+    "brand": "ВРШРЗ",
+    "name": "Манжета 35x50x10 ВРШРЗ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 35,
+    "outer_diameter": 50,
+    "width": 10,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_076"
+    ]
+  },
+  {
+    "id": "russian_152",
+    "role": "russian",
+    "brand": "РТИ-Балаково",
+    "name": "Манжета 35x50x10 РТИ-Балаково ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 35,
+    "outer_diameter": 50,
+    "width": 10,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_076"
+    ]
+  },
+  {
+    "id": "import_076",
+    "role": "import",
+    "brand": "Freudenberg",
+    "name": "Манжета Freudenberg BAUM 35x50x10",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 35,
+    "outer_diameter": 50,
+    "width": 10,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_151",
+      "russian_152"
+    ]
+  },
+  {
+    "id": "russian_153",
+    "role": "russian",
+    "brand": "ВРШРЗ",
+    "name": "Манжета 30x42x8 ВРШРЗ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 30,
+    "outer_diameter": 42,
+    "width": 8,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_077"
+    ]
+  },
+  {
+    "id": "russian_154",
+    "role": "russian",
+    "brand": "РТИ-Балаково",
+    "name": "Манжета 30x42x8 РТИ-Балаково ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 30,
+    "outer_diameter": 42,
+    "width": 8,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_077"
+    ]
+  },
+  {
+    "id": "import_077",
+    "role": "import",
+    "brand": "Freudenberg",
+    "name": "Манжета Freudenberg BAUM 30x42x8",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 30,
+    "outer_diameter": 42,
+    "width": 8,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_153",
+      "russian_154"
+    ]
+  },
+  {
+    "id": "russian_155",
+    "role": "russian",
+    "brand": "БРТ",
+    "name": "Манжета 35x45x12 БРТ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 35,
+    "outer_diameter": 45,
+    "width": 12,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_078"
+    ]
+  },
+  {
+    "id": "russian_156",
+    "role": "russian",
+    "brand": "ВРШРЗ",
+    "name": "Манжета 35x45x12 ВРШРЗ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 35,
+    "outer_diameter": 45,
+    "width": 12,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_078"
+    ]
+  },
+  {
+    "id": "import_078",
+    "role": "import",
+    "brand": "Freudenberg",
+    "name": "Манжета Freudenberg BAUM 35x45x12",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 35,
+    "outer_diameter": 45,
+    "width": 12,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_155",
+      "russian_156"
+    ]
+  },
+  {
+    "id": "russian_157",
+    "role": "russian",
+    "brand": "БРТ",
+    "name": "Манжета 50x60x8 БРТ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 50,
+    "outer_diameter": 60,
+    "width": 8,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_079"
+    ]
+  },
+  {
+    "id": "russian_158",
+    "role": "russian",
+    "brand": "РТИ-Балаково",
+    "name": "Манжета 50x60x8 РТИ-Балаково ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 50,
+    "outer_diameter": 60,
+    "width": 8,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_079"
+    ]
+  },
+  {
+    "id": "import_079",
+    "role": "import",
+    "brand": "Freudenberg",
+    "name": "Манжета Freudenberg BAUM 50x60x8",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 50,
+    "outer_diameter": 60,
+    "width": 8,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_157",
+      "russian_158"
+    ]
+  },
+  {
+    "id": "russian_159",
+    "role": "russian",
+    "brand": "БРТ",
+    "name": "Манжета 50x70x7 БРТ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 50,
+    "outer_diameter": 70,
+    "width": 7,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_080"
+    ]
+  },
+  {
+    "id": "russian_160",
+    "role": "russian",
+    "brand": "ВРШРЗ",
+    "name": "Манжета 50x70x7 ВРШРЗ ГОСТ 8752-79",
+    "category": "Уплотнение",
+    "material": "Резина",
+    "inner_diameter": 50,
+    "outer_diameter": 70,
+    "width": 7,
+    "standard": "ГОСТ 8752-79",
+    "original_ids": [
+      "import_080"
+    ]
+  },
+  {
+    "id": "import_080",
+    "role": "import",
+    "brand": "Freudenberg",
+    "name": "Манжета Freudenberg BAUM 50x70x7",
+    "category": "Уплотнение",
+    "material": "Резина NBR",
+    "inner_diameter": 50,
+    "outer_diameter": 70,
+    "width": 7,
+    "standard": "DIN 3760",
+    "analogue_ids": [
+      "russian_159",
+      "russian_160"
+    ]
+  },
+  {
+    "id": "russian_161",
+    "role": "russian",
+    "brand": "Насосэнергомаш",
+    "name": "Насос центробежный 100 м³/ч, 80 м, 2.2 кВт Насосэнергомаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 100,
+    "head": 80,
+    "power": 2.2,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_081"
+    ]
+  },
+  {
+    "id": "russian_162",
+    "role": "russian",
+    "brand": "ГМС Ливгидромаш",
+    "name": "Насос центробежный 100 м³/ч, 80 м, 2.2 кВт ГМС Ливгидромаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 100,
+    "head": 80,
+    "power": 2.2,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_081"
+    ]
+  },
+  {
+    "id": "import_081",
+    "role": "import",
+    "brand": "KSB",
+    "name": "Насос KSB CR 100-80",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 100,
+    "head": 80,
+    "power": 2.2,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_161",
+      "russian_162"
+    ]
+  },
+  {
+    "id": "russian_163",
+    "role": "russian",
+    "brand": "НПО Гидромашсервис",
+    "name": "Насос центробежный 25 м³/ч, 32 м, 1.1 кВт НПО Гидромашсервис",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 25,
+    "head": 32,
+    "power": 1.1,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_082"
+    ]
+  },
+  {
+    "id": "russian_164",
+    "role": "russian",
+    "brand": "ГМС Ливгидромаш",
+    "name": "Насос центробежный 25 м³/ч, 32 м, 1.1 кВт ГМС Ливгидромаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 25,
+    "head": 32,
+    "power": 1.1,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_082"
+    ]
+  },
+  {
+    "id": "import_082",
+    "role": "import",
+    "brand": "Wilo",
+    "name": "Насос Wilo CR 25-32",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 25,
+    "head": 32,
+    "power": 1.1,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_163",
+      "russian_164"
+    ]
+  },
+  {
+    "id": "russian_165",
+    "role": "russian",
+    "brand": "НПО Гидромашсервис",
+    "name": "Насос центробежный 25 м³/ч, 50 м, 4.0 кВт НПО Гидромашсервис",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 25,
+    "head": 50,
+    "power": 4.0,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_083"
+    ]
+  },
+  {
+    "id": "russian_166",
+    "role": "russian",
+    "brand": "ГМС Ливгидромаш",
+    "name": "Насос центробежный 25 м³/ч, 50 м, 4.0 кВт ГМС Ливгидромаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 25,
+    "head": 50,
+    "power": 4.0,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_083"
+    ]
+  },
+  {
+    "id": "import_083",
+    "role": "import",
+    "brand": "KSB",
+    "name": "Насос KSB CR 25-50",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 25,
+    "head": 50,
+    "power": 4.0,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_165",
+      "russian_166"
+    ]
+  },
+  {
+    "id": "russian_167",
+    "role": "russian",
+    "brand": "Насосэнергомаш",
+    "name": "Насос центробежный 100 м³/ч, 80 м, 0.75 кВт Насосэнергомаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 100,
+    "head": 80,
+    "power": 0.75,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_084"
+    ]
+  },
+  {
+    "id": "russian_168",
+    "role": "russian",
+    "brand": "ГМС Ливгидромаш",
+    "name": "Насос центробежный 100 м³/ч, 80 м, 0.75 кВт ГМС Ливгидромаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 100,
+    "head": 80,
+    "power": 0.75,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_084"
+    ]
+  },
+  {
+    "id": "import_084",
+    "role": "import",
+    "brand": "KSB",
+    "name": "Насос KSB CR 100-80",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 100,
+    "head": 80,
+    "power": 0.75,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_167",
+      "russian_168"
+    ]
+  },
+  {
+    "id": "russian_169",
+    "role": "russian",
+    "brand": "НПО Гидромашсервис",
+    "name": "Насос центробежный 25 м³/ч, 20 м, 0.55 кВт НПО Гидромашсервис",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 25,
+    "head": 20,
+    "power": 0.55,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_085"
+    ]
+  },
+  {
+    "id": "russian_170",
+    "role": "russian",
+    "brand": "ГМС Ливгидромаш",
+    "name": "Насос центробежный 25 м³/ч, 20 м, 0.55 кВт ГМС Ливгидромаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 25,
+    "head": 20,
+    "power": 0.55,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_085"
+    ]
+  },
+  {
+    "id": "import_085",
+    "role": "import",
+    "brand": "KSB",
+    "name": "Насос KSB CR 25-20",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 25,
+    "head": 20,
+    "power": 0.55,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_169",
+      "russian_170"
+    ]
+  },
+  {
+    "id": "russian_171",
+    "role": "russian",
+    "brand": "НПО Гидромашсервис",
+    "name": "Насос центробежный 100 м³/ч, 80 м, 0.75 кВт НПО Гидромашсервис",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 100,
+    "head": 80,
+    "power": 0.75,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_086"
+    ]
+  },
+  {
+    "id": "russian_172",
+    "role": "russian",
+    "brand": "Насосэнергомаш",
+    "name": "Насос центробежный 100 м³/ч, 80 м, 0.75 кВт Насосэнергомаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 100,
+    "head": 80,
+    "power": 0.75,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_086"
+    ]
+  },
+  {
+    "id": "import_086",
+    "role": "import",
+    "brand": "Grundfos",
+    "name": "Насос Grundfos CR 100-80",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 100,
+    "head": 80,
+    "power": 0.75,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_171",
+      "russian_172"
+    ]
+  },
+  {
+    "id": "russian_173",
+    "role": "russian",
+    "brand": "НПО Гидромашсервис",
+    "name": "Насос центробежный 16 м³/ч, 32 м, 1.5 кВт НПО Гидромашсервис",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 16,
+    "head": 32,
+    "power": 1.5,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_087"
+    ]
+  },
+  {
+    "id": "russian_174",
+    "role": "russian",
+    "brand": "Насосэнергомаш",
+    "name": "Насос центробежный 16 м³/ч, 32 м, 1.5 кВт Насосэнергомаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 16,
+    "head": 32,
+    "power": 1.5,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_087"
+    ]
+  },
+  {
+    "id": "import_087",
+    "role": "import",
+    "brand": "Wilo",
+    "name": "Насос Wilo CR 16-32",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 16,
+    "head": 32,
+    "power": 1.5,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_173",
+      "russian_174"
+    ]
+  },
+  {
+    "id": "russian_175",
+    "role": "russian",
+    "brand": "НПО Гидромашсервис",
+    "name": "Насос центробежный 16 м³/ч, 80 м, 1.1 кВт НПО Гидромашсервис",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 16,
+    "head": 80,
+    "power": 1.1,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_088"
+    ]
+  },
+  {
+    "id": "russian_176",
+    "role": "russian",
+    "brand": "ГМС Ливгидромаш",
+    "name": "Насос центробежный 16 м³/ч, 80 м, 1.1 кВт ГМС Ливгидромаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 16,
+    "head": 80,
+    "power": 1.1,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_088"
+    ]
+  },
+  {
+    "id": "import_088",
+    "role": "import",
+    "brand": "Grundfos",
+    "name": "Насос Grundfos CR 16-80",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 16,
+    "head": 80,
+    "power": 1.1,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_175",
+      "russian_176"
+    ]
+  },
+  {
+    "id": "russian_177",
+    "role": "russian",
+    "brand": "Насосэнергомаш",
+    "name": "Насос центробежный 63 м³/ч, 20 м, 1.1 кВт Насосэнергомаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 63,
+    "head": 20,
+    "power": 1.1,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_089"
+    ]
+  },
+  {
+    "id": "russian_178",
+    "role": "russian",
+    "brand": "ГМС Ливгидромаш",
+    "name": "Насос центробежный 63 м³/ч, 20 м, 1.1 кВт ГМС Ливгидромаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 63,
+    "head": 20,
+    "power": 1.1,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_089"
+    ]
+  },
+  {
+    "id": "import_089",
+    "role": "import",
+    "brand": "Grundfos",
+    "name": "Насос Grundfos CR 63-20",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 63,
+    "head": 20,
+    "power": 1.1,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_177",
+      "russian_178"
+    ]
+  },
+  {
+    "id": "russian_179",
+    "role": "russian",
+    "brand": "ГМС Ливгидромаш",
+    "name": "Насос центробежный 100 м³/ч, 20 м, 0.55 кВт ГМС Ливгидромаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 100,
+    "head": 20,
+    "power": 0.55,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_090"
+    ]
+  },
+  {
+    "id": "russian_180",
+    "role": "russian",
+    "brand": "Насосэнергомаш",
+    "name": "Насос центробежный 100 м³/ч, 20 м, 0.55 кВт Насосэнергомаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 100,
+    "head": 20,
+    "power": 0.55,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_090"
+    ]
+  },
+  {
+    "id": "import_090",
+    "role": "import",
+    "brand": "Grundfos",
+    "name": "Насос Grundfos CR 100-20",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 100,
+    "head": 20,
+    "power": 0.55,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_179",
+      "russian_180"
+    ]
+  },
+  {
+    "id": "russian_181",
+    "role": "russian",
+    "brand": "НПО Гидромашсервис",
+    "name": "Насос центробежный 40 м³/ч, 32 м, 0.75 кВт НПО Гидромашсервис",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 40,
+    "head": 32,
+    "power": 0.75,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_091"
+    ]
+  },
+  {
+    "id": "russian_182",
+    "role": "russian",
+    "brand": "ГМС Ливгидромаш",
+    "name": "Насос центробежный 40 м³/ч, 32 м, 0.75 кВт ГМС Ливгидромаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 40,
+    "head": 32,
+    "power": 0.75,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_091"
+    ]
+  },
+  {
+    "id": "import_091",
+    "role": "import",
+    "brand": "Grundfos",
+    "name": "Насос Grundfos CR 40-32",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 40,
+    "head": 32,
+    "power": 0.75,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_181",
+      "russian_182"
+    ]
+  },
+  {
+    "id": "russian_183",
+    "role": "russian",
+    "brand": "НПО Гидромашсервис",
+    "name": "Насос центробежный 40 м³/ч, 32 м, 1.5 кВт НПО Гидромашсервис",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 40,
+    "head": 32,
+    "power": 1.5,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_092"
+    ]
+  },
+  {
+    "id": "russian_184",
+    "role": "russian",
+    "brand": "Насосэнергомаш",
+    "name": "Насос центробежный 40 м³/ч, 32 м, 1.5 кВт Насосэнергомаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 40,
+    "head": 32,
+    "power": 1.5,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_092"
+    ]
+  },
+  {
+    "id": "import_092",
+    "role": "import",
+    "brand": "KSB",
+    "name": "Насос KSB CR 40-32",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 40,
+    "head": 32,
+    "power": 1.5,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_183",
+      "russian_184"
+    ]
+  },
+  {
+    "id": "russian_185",
+    "role": "russian",
+    "brand": "ГМС Ливгидромаш",
+    "name": "Насос центробежный 10 м³/ч, 20 м, 0.75 кВт ГМС Ливгидромаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 10,
+    "head": 20,
+    "power": 0.75,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_093"
+    ]
+  },
+  {
+    "id": "russian_186",
+    "role": "russian",
+    "brand": "Насосэнергомаш",
+    "name": "Насос центробежный 10 м³/ч, 20 м, 0.75 кВт Насосэнергомаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 10,
+    "head": 20,
+    "power": 0.75,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_093"
+    ]
+  },
+  {
+    "id": "import_093",
+    "role": "import",
+    "brand": "Wilo",
+    "name": "Насос Wilo CR 10-20",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 10,
+    "head": 20,
+    "power": 0.75,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_185",
+      "russian_186"
+    ]
+  },
+  {
+    "id": "russian_187",
+    "role": "russian",
+    "brand": "ГМС Ливгидромаш",
+    "name": "Насос центробежный 16 м³/ч, 80 м, 1.5 кВт ГМС Ливгидромаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 16,
+    "head": 80,
+    "power": 1.5,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_094"
+    ]
+  },
+  {
+    "id": "russian_188",
+    "role": "russian",
+    "brand": "Насосэнергомаш",
+    "name": "Насос центробежный 16 м³/ч, 80 м, 1.5 кВт Насосэнергомаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 16,
+    "head": 80,
+    "power": 1.5,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_094"
+    ]
+  },
+  {
+    "id": "import_094",
+    "role": "import",
+    "brand": "KSB",
+    "name": "Насос KSB CR 16-80",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 16,
+    "head": 80,
+    "power": 1.5,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_187",
+      "russian_188"
+    ]
+  },
+  {
+    "id": "russian_189",
+    "role": "russian",
+    "brand": "НПО Гидромашсервис",
+    "name": "Насос центробежный 40 м³/ч, 32 м, 0.55 кВт НПО Гидромашсервис",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 40,
+    "head": 32,
+    "power": 0.55,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_095"
+    ]
+  },
+  {
+    "id": "russian_190",
+    "role": "russian",
+    "brand": "ГМС Ливгидромаш",
+    "name": "Насос центробежный 40 м³/ч, 32 м, 0.55 кВт ГМС Ливгидромаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 40,
+    "head": 32,
+    "power": 0.55,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_095"
+    ]
+  },
+  {
+    "id": "import_095",
+    "role": "import",
+    "brand": "KSB",
+    "name": "Насос KSB CR 40-32",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 40,
+    "head": 32,
+    "power": 0.55,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_189",
+      "russian_190"
+    ]
+  },
+  {
+    "id": "russian_191",
+    "role": "russian",
+    "brand": "НПО Гидромашсервис",
+    "name": "Насос центробежный 100 м³/ч, 20 м, 1.1 кВт НПО Гидромашсервис",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 100,
+    "head": 20,
+    "power": 1.1,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_096"
+    ]
+  },
+  {
+    "id": "russian_192",
+    "role": "russian",
+    "brand": "Насосэнергомаш",
+    "name": "Насос центробежный 100 м³/ч, 20 м, 1.1 кВт Насосэнергомаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 100,
+    "head": 20,
+    "power": 1.1,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_096"
+    ]
+  },
+  {
+    "id": "import_096",
+    "role": "import",
+    "brand": "KSB",
+    "name": "Насос KSB CR 100-20",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 100,
+    "head": 20,
+    "power": 1.1,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_191",
+      "russian_192"
+    ]
+  },
+  {
+    "id": "russian_193",
+    "role": "russian",
+    "brand": "НПО Гидромашсервис",
+    "name": "Насос центробежный 6 м³/ч, 50 м, 0.55 кВт НПО Гидромашсервис",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 6,
+    "head": 50,
+    "power": 0.55,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_097"
+    ]
+  },
+  {
+    "id": "russian_194",
+    "role": "russian",
+    "brand": "ГМС Ливгидромаш",
+    "name": "Насос центробежный 6 м³/ч, 50 м, 0.55 кВт ГМС Ливгидромаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 6,
+    "head": 50,
+    "power": 0.55,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_097"
+    ]
+  },
+  {
+    "id": "import_097",
+    "role": "import",
+    "brand": "Wilo",
+    "name": "Насос Wilo CR 6-50",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 6,
+    "head": 50,
+    "power": 0.55,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_193",
+      "russian_194"
+    ]
+  },
+  {
+    "id": "russian_195",
+    "role": "russian",
+    "brand": "Насосэнергомаш",
+    "name": "Насос центробежный 25 м³/ч, 50 м, 4.0 кВт Насосэнергомаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 25,
+    "head": 50,
+    "power": 4.0,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_098"
+    ]
+  },
+  {
+    "id": "russian_196",
+    "role": "russian",
+    "brand": "ГМС Ливгидромаш",
+    "name": "Насос центробежный 25 м³/ч, 50 м, 4.0 кВт ГМС Ливгидромаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 25,
+    "head": 50,
+    "power": 4.0,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_098"
+    ]
+  },
+  {
+    "id": "import_098",
+    "role": "import",
+    "brand": "Wilo",
+    "name": "Насос Wilo CR 25-50",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 25,
+    "head": 50,
+    "power": 4.0,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_195",
+      "russian_196"
+    ]
+  },
+  {
+    "id": "russian_197",
+    "role": "russian",
+    "brand": "Насосэнергомаш",
+    "name": "Насос центробежный 25 м³/ч, 32 м, 4.0 кВт Насосэнергомаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 25,
+    "head": 32,
+    "power": 4.0,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_099"
+    ]
+  },
+  {
+    "id": "russian_198",
+    "role": "russian",
+    "brand": "НПО Гидромашсервис",
+    "name": "Насос центробежный 25 м³/ч, 32 м, 4.0 кВт НПО Гидромашсервис",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 25,
+    "head": 32,
+    "power": 4.0,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_099"
+    ]
+  },
+  {
+    "id": "import_099",
+    "role": "import",
+    "brand": "KSB",
+    "name": "Насос KSB CR 25-32",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 25,
+    "head": 32,
+    "power": 4.0,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_197",
+      "russian_198"
+    ]
+  },
+  {
+    "id": "russian_199",
+    "role": "russian",
+    "brand": "Насосэнергомаш",
+    "name": "Насос центробежный 40 м³/ч, 80 м, 1.5 кВт Насосэнергомаш",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 40,
+    "head": 80,
+    "power": 1.5,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_100"
+    ]
+  },
+  {
+    "id": "russian_200",
+    "role": "russian",
+    "brand": "НПО Гидромашсервис",
+    "name": "Насос центробежный 40 м³/ч, 80 м, 1.5 кВт НПО Гидромашсервис",
+    "category": "Насос",
+    "material": "Чугун",
+    "flow": 40,
+    "head": 80,
+    "power": 1.5,
+    "standard": "ГОСТ 6134-2007",
+    "original_ids": [
+      "import_100"
+    ]
+  },
+  {
+    "id": "import_100",
+    "role": "import",
+    "brand": "Wilo",
+    "name": "Насос Wilo CR 40-80",
+    "category": "Насос",
+    "material": "Нержавеющая сталь",
+    "flow": 40,
+    "head": 80,
+    "power": 1.5,
+    "standard": "ISO 9906",
+    "analogue_ids": [
+      "russian_199",
+      "russian_200"
+    ]
+  },
+  {
+    "id": "russian_201",
+    "role": "russian",
+    "brand": "Метран",
+    "name": "Датчик давления Метран ДМ-300, 4-20 мА, IP67",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 100,
+    "range_max": 300,
+    "output": "4-20 мА",
+    "ip": "IP67",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_101"
+    ]
+  },
+  {
+    "id": "russian_202",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-300, 4-20 мА, IP67",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 100,
+    "range_max": 300,
+    "output": "4-20 мА",
+    "ip": "IP67",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_101"
+    ]
+  },
+  {
+    "id": "import_101",
+    "role": "import",
+    "brand": "Emerson",
+    "name": "Датчик Emerson Cerabar 300 4-20 мА",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 100,
+    "range_max": 300,
+    "output": "4-20 мА",
+    "ip": "IP67",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_201",
+      "russian_202"
+    ]
+  },
+  {
+    "id": "russian_203",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-1000, HART, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 400,
+    "range_max": 1000,
+    "output": "HART",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_102"
+    ]
+  },
+  {
+    "id": "russian_204",
+    "role": "russian",
+    "brand": "Метран",
+    "name": "Датчик давления Метран ДМ-1000, HART, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 400,
+    "range_max": 1000,
+    "output": "HART",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_102"
+    ]
+  },
+  {
+    "id": "import_102",
+    "role": "import",
+    "brand": "Emerson",
+    "name": "Датчик Emerson Cerabar 1000 HART",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 400,
+    "range_max": 1000,
+    "output": "HART",
+    "ip": "IP65",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_203",
+      "russian_204"
+    ]
+  },
+  {
+    "id": "russian_205",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-400, HART, IP67",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 200,
+    "range_max": 400,
+    "output": "HART",
+    "ip": "IP67",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_103"
+    ]
+  },
+  {
+    "id": "russian_206",
+    "role": "russian",
+    "brand": "Теплоприбор",
+    "name": "Датчик давления Теплоприбор ДМ-400, HART, IP67",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 200,
+    "range_max": 400,
+    "output": "HART",
+    "ip": "IP67",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_103"
+    ]
+  },
+  {
+    "id": "import_103",
+    "role": "import",
+    "brand": "Emerson",
+    "name": "Датчик Emerson Cerabar 400 HART",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 200,
+    "range_max": 400,
+    "output": "HART",
+    "ip": "IP67",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_205",
+      "russian_206"
+    ]
+  },
+  {
+    "id": "russian_207",
+    "role": "russian",
+    "brand": "Теплоприбор",
+    "name": "Датчик давления Теплоприбор ДМ-500, 0-10 В, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 400,
+    "range_max": 500,
+    "output": "0-10 В",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_104"
+    ]
+  },
+  {
+    "id": "russian_208",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-500, 0-10 В, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 400,
+    "range_max": 500,
+    "output": "0-10 В",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_104"
+    ]
+  },
+  {
+    "id": "import_104",
+    "role": "import",
+    "brand": "Endress+Hauser",
+    "name": "Датчик Endress+Hauser Cerabar 500 0-10 В",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 400,
+    "range_max": 500,
+    "output": "0-10 В",
+    "ip": "IP65",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_207",
+      "russian_208"
+    ]
+  },
+  {
+    "id": "russian_209",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-400, RS-485, IP68",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 200,
+    "range_max": 400,
+    "output": "RS-485",
+    "ip": "IP68",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_105"
+    ]
+  },
+  {
+    "id": "russian_210",
+    "role": "russian",
+    "brand": "Теплоприбор",
+    "name": "Датчик давления Теплоприбор ДМ-400, RS-485, IP68",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 200,
+    "range_max": 400,
+    "output": "RS-485",
+    "ip": "IP68",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_105"
+    ]
+  },
+  {
+    "id": "import_105",
+    "role": "import",
+    "brand": "Yokogawa",
+    "name": "Датчик Yokogawa Cerabar 400 RS-485",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 200,
+    "range_max": 400,
+    "output": "RS-485",
+    "ip": "IP68",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_209",
+      "russian_210"
+    ]
+  },
+  {
+    "id": "russian_211",
+    "role": "russian",
+    "brand": "Теплоприбор",
+    "name": "Датчик давления Теплоприбор ДМ-50, HART, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": -50,
+    "range_max": 50,
+    "output": "HART",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_106"
+    ]
+  },
+  {
+    "id": "russian_212",
+    "role": "russian",
+    "brand": "Метран",
+    "name": "Датчик давления Метран ДМ-50, HART, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": -50,
+    "range_max": 50,
+    "output": "HART",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_106"
+    ]
+  },
+  {
+    "id": "import_106",
+    "role": "import",
+    "brand": "Emerson",
+    "name": "Датчик Emerson Cerabar 50 HART",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": -50,
+    "range_max": 50,
+    "output": "HART",
+    "ip": "IP65",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_211",
+      "russian_212"
+    ]
+  },
+  {
+    "id": "russian_213",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-500, RS-485, IP68",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 100,
+    "range_max": 500,
+    "output": "RS-485",
+    "ip": "IP68",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_107"
+    ]
+  },
+  {
+    "id": "russian_214",
+    "role": "russian",
+    "brand": "Теплоприбор",
+    "name": "Датчик давления Теплоприбор ДМ-500, RS-485, IP68",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 100,
+    "range_max": 500,
+    "output": "RS-485",
+    "ip": "IP68",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_107"
+    ]
+  },
+  {
+    "id": "import_107",
+    "role": "import",
+    "brand": "Yokogawa",
+    "name": "Датчик Yokogawa Cerabar 500 RS-485",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 100,
+    "range_max": 500,
+    "output": "RS-485",
+    "ip": "IP68",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_213",
+      "russian_214"
+    ]
+  },
+  {
+    "id": "russian_215",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-800, HART, IP68",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 400,
+    "range_max": 800,
+    "output": "HART",
+    "ip": "IP68",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_108"
+    ]
+  },
+  {
+    "id": "russian_216",
+    "role": "russian",
+    "brand": "Теплоприбор",
+    "name": "Датчик давления Теплоприбор ДМ-800, HART, IP68",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 400,
+    "range_max": 800,
+    "output": "HART",
+    "ip": "IP68",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_108"
+    ]
+  },
+  {
+    "id": "import_108",
+    "role": "import",
+    "brand": "Emerson",
+    "name": "Датчик Emerson Cerabar 800 HART",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 400,
+    "range_max": 800,
+    "output": "HART",
+    "ip": "IP68",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_215",
+      "russian_216"
+    ]
+  },
+  {
+    "id": "russian_217",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-300, 4-20 мА, IP68",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 100,
+    "range_max": 300,
+    "output": "4-20 мА",
+    "ip": "IP68",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_109"
+    ]
+  },
+  {
+    "id": "russian_218",
+    "role": "russian",
+    "brand": "Метран",
+    "name": "Датчик давления Метран ДМ-300, 4-20 мА, IP68",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 100,
+    "range_max": 300,
+    "output": "4-20 мА",
+    "ip": "IP68",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_109"
+    ]
+  },
+  {
+    "id": "import_109",
+    "role": "import",
+    "brand": "Endress+Hauser",
+    "name": "Датчик Endress+Hauser Cerabar 300 4-20 мА",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 100,
+    "range_max": 300,
+    "output": "4-20 мА",
+    "ip": "IP68",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_217",
+      "russian_218"
+    ]
+  },
+  {
+    "id": "russian_219",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-600, 0-10 В, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 400,
+    "range_max": 600,
+    "output": "0-10 В",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_110"
+    ]
+  },
+  {
+    "id": "russian_220",
+    "role": "russian",
+    "brand": "Теплоприбор",
+    "name": "Датчик давления Теплоприбор ДМ-600, 0-10 В, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 400,
+    "range_max": 600,
+    "output": "0-10 В",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_110"
+    ]
+  },
+  {
+    "id": "import_110",
+    "role": "import",
+    "brand": "Yokogawa",
+    "name": "Датчик Yokogawa Cerabar 600 0-10 В",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 400,
+    "range_max": 600,
+    "output": "0-10 В",
+    "ip": "IP65",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_219",
+      "russian_220"
+    ]
+  },
+  {
+    "id": "russian_221",
+    "role": "russian",
+    "brand": "Метран",
+    "name": "Датчик давления Метран ДМ-800, 4-20 мА, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 400,
+    "range_max": 800,
+    "output": "4-20 мА",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_111"
+    ]
+  },
+  {
+    "id": "russian_222",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-800, 4-20 мА, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 400,
+    "range_max": 800,
+    "output": "4-20 мА",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_111"
+    ]
+  },
+  {
+    "id": "import_111",
+    "role": "import",
+    "brand": "Emerson",
+    "name": "Датчик Emerson Cerabar 800 4-20 мА",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 400,
+    "range_max": 800,
+    "output": "4-20 мА",
+    "ip": "IP65",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_221",
+      "russian_222"
+    ]
+  },
+  {
+    "id": "russian_223",
+    "role": "russian",
+    "brand": "Метран",
+    "name": "Датчик давления Метран ДМ-400, 4-20 мА, IP68",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 0,
+    "range_max": 400,
+    "output": "4-20 мА",
+    "ip": "IP68",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_112"
+    ]
+  },
+  {
+    "id": "russian_224",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-400, 4-20 мА, IP68",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 0,
+    "range_max": 400,
+    "output": "4-20 мА",
+    "ip": "IP68",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_112"
+    ]
+  },
+  {
+    "id": "import_112",
+    "role": "import",
+    "brand": "Yokogawa",
+    "name": "Датчик Yokogawa Cerabar 400 4-20 мА",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 0,
+    "range_max": 400,
+    "output": "4-20 мА",
+    "ip": "IP68",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_223",
+      "russian_224"
+    ]
+  },
+  {
+    "id": "russian_225",
+    "role": "russian",
+    "brand": "Теплоприбор",
+    "name": "Датчик давления Теплоприбор ДМ-50, HART, IP68",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": -50,
+    "range_max": 50,
+    "output": "HART",
+    "ip": "IP68",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_113"
+    ]
+  },
+  {
+    "id": "russian_226",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-50, HART, IP68",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": -50,
+    "range_max": 50,
+    "output": "HART",
+    "ip": "IP68",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_113"
+    ]
+  },
+  {
+    "id": "import_113",
+    "role": "import",
+    "brand": "Endress+Hauser",
+    "name": "Датчик Endress+Hauser Cerabar 50 HART",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": -50,
+    "range_max": 50,
+    "output": "HART",
+    "ip": "IP68",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_225",
+      "russian_226"
+    ]
+  },
+  {
+    "id": "russian_227",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-50, HART, IP67",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": -50,
+    "range_max": 50,
+    "output": "HART",
+    "ip": "IP67",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_114"
+    ]
+  },
+  {
+    "id": "russian_228",
+    "role": "russian",
+    "brand": "Теплоприбор",
+    "name": "Датчик давления Теплоприбор ДМ-50, HART, IP67",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": -50,
+    "range_max": 50,
+    "output": "HART",
+    "ip": "IP67",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_114"
+    ]
+  },
+  {
+    "id": "import_114",
+    "role": "import",
+    "brand": "Emerson",
+    "name": "Датчик Emerson Cerabar 50 HART",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": -50,
+    "range_max": 50,
+    "output": "HART",
+    "ip": "IP67",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_227",
+      "russian_228"
+    ]
+  },
+  {
+    "id": "russian_229",
+    "role": "russian",
+    "brand": "Метран",
+    "name": "Датчик давления Метран ДМ-100, HART, IP67",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 0,
+    "range_max": 100,
+    "output": "HART",
+    "ip": "IP67",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_115"
+    ]
+  },
+  {
+    "id": "russian_230",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-100, HART, IP67",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 0,
+    "range_max": 100,
+    "output": "HART",
+    "ip": "IP67",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_115"
+    ]
+  },
+  {
+    "id": "import_115",
+    "role": "import",
+    "brand": "Endress+Hauser",
+    "name": "Датчик Endress+Hauser Cerabar 100 HART",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 0,
+    "range_max": 100,
+    "output": "HART",
+    "ip": "IP67",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_229",
+      "russian_230"
+    ]
+  },
+  {
+    "id": "russian_231",
+    "role": "russian",
+    "brand": "Теплоприбор",
+    "name": "Датчик давления Теплоприбор ДМ-300, 4-20 мА, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 200,
+    "range_max": 300,
+    "output": "4-20 мА",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_116"
+    ]
+  },
+  {
+    "id": "russian_232",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-300, 4-20 мА, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 200,
+    "range_max": 300,
+    "output": "4-20 мА",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_116"
+    ]
+  },
+  {
+    "id": "import_116",
+    "role": "import",
+    "brand": "Endress+Hauser",
+    "name": "Датчик Endress+Hauser Cerabar 300 4-20 мА",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 200,
+    "range_max": 300,
+    "output": "4-20 мА",
+    "ip": "IP65",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_231",
+      "russian_232"
+    ]
+  },
+  {
+    "id": "russian_233",
+    "role": "russian",
+    "brand": "Теплоприбор",
+    "name": "Датчик давления Теплоприбор ДМ-150, 4-20 мА, IP68",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": -50,
+    "range_max": 150,
+    "output": "4-20 мА",
+    "ip": "IP68",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_117"
+    ]
+  },
+  {
+    "id": "russian_234",
+    "role": "russian",
+    "brand": "Метран",
+    "name": "Датчик давления Метран ДМ-150, 4-20 мА, IP68",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": -50,
+    "range_max": 150,
+    "output": "4-20 мА",
+    "ip": "IP68",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_117"
+    ]
+  },
+  {
+    "id": "import_117",
+    "role": "import",
+    "brand": "Emerson",
+    "name": "Датчик Emerson Cerabar 150 4-20 мА",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": -50,
+    "range_max": 150,
+    "output": "4-20 мА",
+    "ip": "IP68",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_233",
+      "russian_234"
+    ]
+  },
+  {
+    "id": "russian_235",
+    "role": "russian",
+    "brand": "Теплоприбор",
+    "name": "Датчик давления Теплоприбор ДМ-1000, RS-485, IP67",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 400,
+    "range_max": 1000,
+    "output": "RS-485",
+    "ip": "IP67",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_118"
+    ]
+  },
+  {
+    "id": "russian_236",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-1000, RS-485, IP67",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 400,
+    "range_max": 1000,
+    "output": "RS-485",
+    "ip": "IP67",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_118"
+    ]
+  },
+  {
+    "id": "import_118",
+    "role": "import",
+    "brand": "Emerson",
+    "name": "Датчик Emerson Cerabar 1000 RS-485",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 400,
+    "range_max": 1000,
+    "output": "RS-485",
+    "ip": "IP67",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_235",
+      "russian_236"
+    ]
+  },
+  {
+    "id": "russian_237",
+    "role": "russian",
+    "brand": "Метран",
+    "name": "Датчик давления Метран ДМ-200, 4-20 мА, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 100,
+    "range_max": 200,
+    "output": "4-20 мА",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_119"
+    ]
+  },
+  {
+    "id": "russian_238",
+    "role": "russian",
+    "brand": "ОВЕН",
+    "name": "Датчик давления ОВЕН ДМ-200, 4-20 мА, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": 100,
+    "range_max": 200,
+    "output": "4-20 мА",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_119"
+    ]
+  },
+  {
+    "id": "import_119",
+    "role": "import",
+    "brand": "Yokogawa",
+    "name": "Датчик Yokogawa Cerabar 200 4-20 мА",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": 100,
+    "range_max": 200,
+    "output": "4-20 мА",
+    "ip": "IP65",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_237",
+      "russian_238"
+    ]
+  },
+  {
+    "id": "russian_239",
+    "role": "russian",
+    "brand": "Метран",
+    "name": "Датчик давления Метран ДМ-150, 0-10 В, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": -50,
+    "range_max": 150,
+    "output": "0-10 В",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_120"
+    ]
+  },
+  {
+    "id": "russian_240",
+    "role": "russian",
+    "brand": "Теплоприбор",
+    "name": "Датчик давления Теплоприбор ДМ-150, 0-10 В, IP65",
+    "category": "КИП",
+    "material": "Сталь",
+    "range_min": -50,
+    "range_max": 150,
+    "output": "0-10 В",
+    "ip": "IP65",
+    "standard": "ГОСТ 8.586",
+    "original_ids": [
+      "import_120"
+    ]
+  },
+  {
+    "id": "import_120",
+    "role": "import",
+    "brand": "Yokogawa",
+    "name": "Датчик Yokogawa Cerabar 150 0-10 В",
+    "category": "КИП",
+    "material": "Нержавеющая сталь",
+    "range_min": -50,
+    "range_max": 150,
+    "output": "0-10 В",
+    "ip": "IP65",
+    "standard": "IEC 60770",
+    "analogue_ids": [
+      "russian_239",
+      "russian_240"
+    ]
+  }
+]
