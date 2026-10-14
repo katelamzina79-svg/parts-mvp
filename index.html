@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Поиск деталей</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f5f5f5;
+    color: #333;
+  }
+  h1 { margin-bottom: 20px; }
+  form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  }
+  .field { margin-bottom: 14px; }
+  label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  input:focus { outline: none; border-color: #2563eb; }
+  button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  button:hover { background: #1d4ed8; }
+  button:disabled { background: #94a3b8; cursor: not-allowed; }
+  #results { margin-top: 24px; }
+  #results h2 { font-size: 18px; margin-bottom: 12px; }
+  .card {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  .card h3 { margin: 0 0 8px; color: #2563eb; font-size: 16px; }
+  .card p { margin: 4px 0; font-size: 14px; color: #555; }
+  .card p b { color: #333; }
+  .empty {
+    text-align: center;
+    color: #888;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+  }
+  .error {
+    color: #dc2626;
+    padding: 16px;
+    background: #fef2f2;
+    border-radius: 8px;
+    border: 1px solid #fecaca;
+  }
+</style>
+</head>
+<body>
+
+<h1>Поиск деталей</h1>
+
+<form id="searchForm">
+  <div class="field">
+    <label>Тип детали</label>
+    <input name="part_type" placeholder="Например: подшипник">
+  </div>
+  <div class="field">
+    <label>Материал</label>
+    <input name="material" placeholder="Например: сталь">
+  </div>
+  <div class="field">
+    <label>Внутренний диаметр, мм</label>
+    <input name="inner_diameter" type="number" step="0.1" placeholder="25">
+  </div>
+  <div class="field">
+    <label>Наружный диаметр, мм</label>
+    <input name="outer_diameter" type="number" step="0.1" placeholder="52">
+  </div>
+  <div class="field">
+    <label>Стандарт</label>
+    <input name="standard" placeholder="ГОСТ 8338-75">
+  </div>
+  <button type="submit" id="searchBtn">Найти</button>
+</form>
+
+<div id="results"></div>
+
+<script>
+const form = document.getElementById('searchForm');
+const results = document.getElementById('results');
+const searchBtn = document.getElementById('searchBtn');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  results.innerHTML = '<div class="empty">Поиск...</div>';
+  searchBtn.disabled = true;
+
+  const data = new FormData(form);
+  const params = new URLSearchParams();
+  for (const [key, value] of data.entries()) {
+    if (value.trim() !== '') params.append(key, value.trim());
+  }
+
+  try {
+    const res = await fetch('/api/search?' + params.toString());
+    if (!res.ok) throw new Error('Ошибка сервера: ' + res.status);
+    const json = await res.json();
+
+    if (json.count === 0) {
+      results.innerHTML = '<div class="empty">Ничего не найдено. Попробуйте изменить параметры.</div>';
+      return;
+    }
+
+    let html = '<h2>Найдено: ' + json.count + '</h2>';
+    for (const p of json.matches) {
+      html += '<div class="card">';
+      html += '<h3>' + escapeHtml(p.name) + '</h3>';
+      html += '<p><b>Материал:</b> ' + escapeHtml(p.material) + '</p>';
+      html += '<p><b>Внутренний диаметр:</b> ' + p.inner_diameter + ' мм</p>';
+      html += '<p><b>Наружный диаметр:</b> ' + p.outer_diameter + ' мм</p>';
+      html += '<p><b>Стандарт:</b> ' + escapeHtml(p.standard) + '</p>';
+      html += '</div>';
+    }
+    results.innerHTML = html;
+  } catch (err) {
+    results.innerHTML = '<div class="error">Ошибка: ' + escapeHtml(err.message) + '</div>';
+  } finally {
+    searchBtn.disabled = false;
+  }
+});
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+</script>
+
+</body>
+</html>

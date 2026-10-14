@@ -1,0 +1,17 @@
+[
+  {"id": 1, "name": "Подшипник 6205", "material": "Сталь", "inner_diameter": 25, "outer_diameter": 52, "standard": "ГОСТ 8338-75"},
+  {"id": 2, "name": "Подшипник 6206", "material": "Сталь", "inner_diameter": 30, "outer_diameter": 62, "standard": "ГОСТ 8338-75"},
+  {"id": 3, "name": "Подшипник 6207", "material": "Сталь", "inner_diameter": 35, "outer_diameter": 72, "standard": "ГОСТ 8338-75"},
+  {"id": 4, "name": "Подшипник 6305", "material": "Сталь", "inner_diameter": 25, "outer_diameter": 62, "standard": "ГОСТ 8338-75"},
+  {"id": 5, "name": "Подшипник 6306", "material": "Сталь", "inner_diameter": 30, "outer_diameter": 72, "standard": "ГОСТ 8338-75"},
+  {"id": 6, "name": "Втулка бронзовая 25x35", "material": "Бронза", "inner_diameter": 25, "outer_diameter": 35, "standard": "ГОСТ 1978-81"},
+  {"id": 7, "name": "Втулка бронзовая 30x40", "material": "Бронза", "inner_diameter": 30, "outer_diameter": 40, "standard": "ГОСТ 1978-81"},
+  {"id": 8, "name": "Втулка латунная 20x30", "material": "Латунь", "inner_diameter": 20, "outer_diameter": 30, "standard": "ГОСТ 1978-81"},
+  {"id": 9, "name": "Шестерня прямозубая m2 z20", "material": "Сталь 45", "inner_diameter": 20, "outer_diameter": 44, "standard": "ГОСТ 9563-60"},
+  {"id": 10, "name": "Шестерня прямозубая m2 z25", "material": "Сталь 45", "inner_diameter": 25, "outer_diameter": 54, "standard": "ГОСТ 9563-60"},
+  {"id": 11, "name": "Кольцо уплотнительное 25", "material": "Резина", "inner_diameter": 25, "outer_diameter": 35, "standard": "ГОСТ 9833-73"},
+  {"id": 12, "name": "Кольцо уплотнительное 30", "material": "Резина", "inner_diameter": 30, "outer_diameter": 40, "standard": "ГОСТ 9833-73"},
+  {"id": 13, "name": "Подшипник 6205-2RS", "material": "Сталь", "inner_diameter": 25, "outer_diameter": 52, "standard": "ГОСТ 8338-75"},
+  {"id": 14, "name": "Втулка стальная 25x40", "material": "Сталь", "inner_diameter": 25, "outer_diameter": 40, "standard": "ГОСТ 1978-81"},
+  {"id": 15, "name": "Втулка стальная 30x45", "material": "Сталь", "inner_diameter": 30, "outer_diameter": 45, "standard": "ГОСТ 1978-81"}
+]
