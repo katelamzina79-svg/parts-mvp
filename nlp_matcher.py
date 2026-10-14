@@ -162,13 +162,13 @@ def score_candidate(feats, cand, sem_score):
 
     # Веса: семантика теперь главный слой рядом с числами
     weights = {
-        "category": 0.08,
-        "specs": 0.25,
-        "semantic": 0.27,   # <— новый
-        "name": 0.15,
+        "category": 0.05,
+        "specs": 0.30,
+        "semantic": 0.35,   # <— подняли
+        "name": 0.10,
         "article": 0.10,
-        "standard": 0.08,
-        "material": 0.07,
+        "standard": 0.05,
+        "material": 0.05,
     }
     total = 0.0
     wsum = 0.0

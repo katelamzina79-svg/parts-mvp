@@ -11,7 +11,7 @@ DATA_DIR = BASE_DIR / "data"
 CATALOG_PATH = DATA_DIR / "catalog.json"
 CACHE_PATH = DATA_DIR / "embeddings.npz"
 
-MODEL_NAME = "paraphrase-multilingual-MiniLM-L12-v2"
+MODEL_NAME = "intfloat/multilingual-e5-base"
 
 _model = None
 _embeddings = None
@@ -29,15 +29,15 @@ def _load_model():
 
 
 def _text_for(item):
-    """Текст, по которому считаем эмбеддинг — название + категория + материал + стандарт."""
     parts = [
+        "passage:",
         item.get("name", ""),
         item.get("category", ""),
         item.get("material", ""),
         item.get("brand", ""),
         item.get("standard", ""),
     ]
-    return " | ".join(p for p in parts if p)
+    return " ".join(p for p in parts if p)
 
 
 def build_or_load(catalog):
