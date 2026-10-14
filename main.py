@@ -66,3 +66,9 @@ def match(req: MatchRequest):
         })
 
     return {"features": feats, "matches": out, "count": len(out)}
+
+@app.on_event("startup")
+def _warmup():
+    from embeddings import build_or_load
+    build_or_load(CATALOG)
+    print("[startup] Эмбеддинги готовы.")
