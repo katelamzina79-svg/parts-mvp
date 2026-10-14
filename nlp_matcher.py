@@ -1,16 +1,17 @@
 """
 NLP-модуль для Платформы КРИТ.
-Извлекает характеристики из текста и подбирает российские аналоги.
+Двухслойный мэтчинг: rule-based извлечение + семантические эмбеддинги.
 """
 import json
 import re
 from pathlib import Path
 from rapidfuzz import fuzz
 
+from embeddings import semantic_scores
+
 DATA = Path(__file__).resolve().parent / "data" / "catalog.json"
 
 
-# Какие категории есть в каталоге и по каким словам их узнаём
 CATEGORY_KEYWORDS = {
     "Подшипник": ["подшипник", "bearing", "6205", "6206", "6305"],
     "Пневматика": ["пневмо", "цилиндр", "пневматич", "dsnu", "pneumatic"],
@@ -25,7 +26,6 @@ MATERIALS = [
     "Бронза", "Латунь", "Резина NBR", "Резина", "Полимер", "Чугун", "Алюминий",
 ]
 
-# Регулярки для извлечения параметров
 RE_INNER = re.compile(r"(?:d|внутр\w*|inner)\s*[=:]\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)
 RE_OUTER = re.compile(r"(?<![\w])(?:D|наружн\w*|outer)\s*[=:]\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)
 RE_WIDTH = re.compile(r"(?:B|H|ширин\w*|высот\w*|width)\s*[=:]\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE)
@@ -39,7 +39,6 @@ def _to_float(s):
 
 
 def extract_features(text):
-    """Извлекает характеристики из свободного текста."""
     feats = {
         "raw": text.strip(),
         "categories": [],
@@ -54,7 +53,6 @@ def extract_features(text):
         return feats
 
     low = text.lower()
-
     for cat, kws in CATEGORY_KEYWORDS.items():
         if any(kw in low for kw in kws):
             feats["categories"].append(cat)
@@ -73,7 +71,6 @@ def extract_features(text):
     if m:
         feats["width"] = _to_float(m.group(1))
 
-    # формат "25х52х15"
     if feats["inner_diameter"] is None:
         m = RE_DXDXB.search(text)
         if m:
@@ -113,11 +110,13 @@ def _score_numeric(q, c, keys):
     return matched / total
 
 
-def score_candidate(feats, cand):
-    """Оценка взаимозаменяемости 0–100."""
+def score_candidate(feats, cand, sem_score):
+    """
+    Оценка взаимозаменяемости 0–100.
+    sem_score — семантическая близость (0..1), приходит из embeddings.
+    """
     scores = {}
 
-    # Категория — жёсткий фильтр
     if feats["categories"]:
         if cand["category"] not in feats["categories"]:
             return 0
@@ -125,11 +124,9 @@ def score_candidate(feats, cand):
     else:
         scores["category"] = None
 
-    # Числовые параметры
     numeric_keys = ["inner_diameter", "outer_diameter", "width", "stroke", "pressure", "current", "flow", "head", "range_max"]
     scores["specs"] = _score_numeric(feats, cand, numeric_keys)
 
-    # Стандарт
     if feats["standard"] and cand.get("standard"):
         q = feats["standard"].upper().replace(" ", "")
         c = cand["standard"].upper().replace(" ", "")
@@ -137,7 +134,6 @@ def score_candidate(feats, cand):
     else:
         scores["standard"] = None
 
-    # Материал
     if feats["materials"]:
         if any(m.lower() in cand["material"].lower() for m in feats["materials"]):
             scores["material"] = 1.0
@@ -146,10 +142,11 @@ def score_candidate(feats, cand):
     else:
         scores["material"] = None
 
-    # Текстовое сходство
     scores["name"] = fuzz.token_set_ratio(feats["raw"], cand["name"]) / 100.0
 
-    # Артикул
+    # Семантика — ключевой новый слой
+    scores["semantic"] = sem_score
+
     if feats["article"]:
         art = feats["article"].upper()
         if art in cand["name"].upper():
@@ -163,7 +160,16 @@ def score_candidate(feats, cand):
     else:
         scores["article"] = None
 
-    weights = {"category": 0.10, "specs": 0.35, "standard": 0.10, "material": 0.10, "name": 0.20, "article": 0.15}
+    # Веса: семантика теперь главный слой рядом с числами
+    weights = {
+        "category": 0.08,
+        "specs": 0.25,
+        "semantic": 0.27,   # <— новый
+        "name": 0.15,
+        "article": 0.10,
+        "standard": 0.08,
+        "material": 0.07,
+    }
     total = 0.0
     wsum = 0.0
     for k, w in weights.items():
@@ -182,13 +188,16 @@ def load_catalog():
 
 
 def find_analogues(query_text, catalog, top_k=10):
-    """Главная функция: текст → список аналогов."""
     feats = extract_features(query_text)
+
+    # Считаем семантические скоры для всего каталога разом
+    sem = semantic_scores(query_text, catalog)
+
     scored = []
     for item in catalog:
         if item["role"] != "russian":
             continue
-        s = score_candidate(feats, item)
+        s = score_candidate(feats, item, sem.get(item["id"], 0.0))
         if s > 0:
             scored.append({"item": item, "score": s})
     scored.sort(key=lambda x: -x["score"])
@@ -196,7 +205,6 @@ def find_analogues(query_text, catalog, top_k=10):
 
 
 def diff_report(feats, candidate):
-    """Что совпало, что различается — для UI."""
     same, diff = [], []
     for key, label in [
         ("inner_diameter", "внутренний диаметр"),
