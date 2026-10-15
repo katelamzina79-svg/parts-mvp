@@ -24,7 +24,8 @@ WEIGHTS = {
     "category": 0.05,
 }
 
-PARAM_FAIL_FACTOR = 0.75
+PARAM_FAIL_FACTOR = 0.75   # параметр заметно отличается (оценка < 0.3)
+HARD_FAIL_FACTOR = 0.35    # параметр не совпадает совсем (оценка 0): аналог не взаимозаменяем
 
 # --------------------------------------------------------------- категории
 CATEGORY_PATTERNS = {
@@ -45,7 +46,7 @@ MATERIALS = [
 # ------------------------------------------------------------- спецификации
 # ключ: (подпись, единица, режим сравнения)
 #   abs   — допуск в мм (0/1/3 мм); rel — относительный допуск (5%/15%);
-#   exact — только точное совпадение; eq — равенство строк; ip — IP кандидата не ниже запроса;
+#   exact — только точное совпадение; ge — у кандидата не ниже, чем в запросе; eq — равенство строк; ip — IP кандидата не ниже запроса;
 #   seal  — тип уплотнения подшипника (2RS ≡ 2RSH, ZZ ≡ 2Z)
 SPEC_DEFS = {
     "inner_diameter": ("внутренний диаметр d", "мм", "abs"),
@@ -53,7 +54,7 @@ SPEC_DEFS = {
     "width": ("ширина B", "мм", "abs"),
     "stroke": ("ход", "мм", "abs"),
     "pressure": ("рабочее давление", "бар", "rel"),
-    "voltage": ("напряжение", "В", "exact"),
+    "voltage": ("номинальное напряжение (не ниже)", "В", "ge"),
     "current": ("номинальный ток", "А", "rel"),
     "poles": ("число полюсов", "", "exact"),
     "flow": ("подача", "м³/ч", "rel"),
@@ -311,6 +312,8 @@ def _cmp_spec(mode, q, c):
         return 1.0 if r < 1e-4 else 0.6 if r <= 0.05 else 0.25 if r <= 0.15 else 0.0
     if mode == "exact":
         return 1.0 if abs(q - c) < 1e-9 else 0.0
+    if mode == "ge":
+        return 1.0 if c >= q - 1e-9 else 0.0
     if mode == "ip":
         qi, ci = _ip_num(q), _ip_num(c)
         return None if qi is None or ci is None else (1.0 if ci >= qi else 0.0)
@@ -385,8 +388,9 @@ def score_candidate(feats, cand, sem_score):
     score = total / wsum * 100
     # Жёсткий штраф: несовпадение размера/параметра — это не «чуть хуже», а риск
     # несовместимости, поэтому каждый провалившийся параметр снижает итог на 25%.
-    fails = sum(1 for p in pairs if p[4] < 0.3)
-    score *= PARAM_FAIL_FACTOR ** fails
+    hard = sum(1 for p in pairs if p[4] == 0.0)
+    soft = sum(1 for p in pairs if 0.0 < p[4] < 0.3)
+    score *= HARD_FAIL_FACTOR ** hard * PARAM_FAIL_FACTOR ** soft
     return round(score, 1), round(wsum, 2)
 
 
@@ -431,7 +435,7 @@ def _label(cat, key):
 
 def diff_report(feats, cand):
     """(совпадает, отличается, вердикт) по всем параметрам категории."""
-    same, diff = [], []
+    same, diff, hard = [], [], []
     cat = cand.get("category")
     for k, mode, q, c, s in _spec_pairs(feats, cand):
         unit = SPEC_DEFS[k][1]
@@ -444,6 +448,8 @@ def diff_report(feats, cand):
             same.append(f"{_label(cat, k)}: {cv}{u}")
         else:
             diff.append(f"{_label(cat, k)}: {qv} → {cv}{u}")
+            if s == 0.0:
+                hard.append(_label(cat, k))
 
     if feats["standard"] and cand.get("standard"):
         qs, cs = feats["standard"], cand["standard"]
@@ -452,7 +458,9 @@ def diff_report(feats, cand):
         elif _std_family(qs) == _std_family(cs):
             diff.append(f"стандарт: {qs} → {cs}")
 
-    if diff:
+    if hard:
+        verdict = {"code": "no", "text": "Не взаимозаменяем: не совпадает " + ", ".join(hard)}
+    elif diff:
         verdict = {"code": "check", "text": "Требует проверки инженером"}
     elif same:
         verdict = {"code": "full", "text": "Совпадает по всем найденным параметрам"}
