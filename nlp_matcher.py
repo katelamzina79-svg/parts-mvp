@@ -467,3 +467,42 @@ def diff_report(feats, cand):
     else:
         verdict = {"code": "unknown", "text": "Недостаточно данных для сравнения"}
     return same, diff, verdict
+
+
+
+def compare_table(feats, cand):
+    """Построчная сверка запроса и аналога для карточки: список строк
+    {param, query, candidate, status}, status: ok | close | bad | unknown."""
+    cat = cand.get("category")
+    rows = []
+    for k in CAT_SPECS.get(cat, ALL_SPEC_KEYS):
+        q, c = feats.get(k), _cand_value(cand, k)
+        if q is None and c is None:
+            continue
+        unit = SPEC_DEFS[k][1]
+        u = f" {unit}" if unit else ""
+        fmt = lambda v: "—" if v is None else (_fmt(v) if not isinstance(v, str) else v) + u
+        if q is None or c is None:
+            status = "unknown"
+        else:
+            sc = _cmp_spec(SPEC_DEFS[k][2], q, c)
+            status = "unknown" if sc is None else "ok" if sc >= 1.0 else "bad" if sc == 0.0 else "close"
+        rows.append({"param": _label(cat, k), "query": fmt(q), "candidate": fmt(c), "status": status})
+    if feats.get("standard") or cand.get("standard"):
+        qs, cs = feats.get("standard"), cand.get("standard")
+        if qs and cs:
+            same = qs.upper().replace(" ", "") == cs.upper().replace(" ", "")
+            # другое семейство стандартов (ISO/DIN → ГОСТ) — нормальный «перевод»
+            status = "ok" if same else ("close" if _std_family(qs) == _std_family(cs) else "unknown")
+        else:
+            status = "unknown"
+        rows.append({"param": "стандарт", "query": qs or "—", "candidate": cs or "—", "status": status})
+    if feats.get("materials") or cand.get("material"):
+        mat = cand.get("material") or "—"
+        qm = ", ".join(feats["materials"]) if feats.get("materials") else "—"
+        if feats.get("materials") and cand.get("material"):
+            status = "ok" if any(m.lower() in mat.lower() for m in feats["materials"]) else "close"
+        else:
+            status = "unknown"
+        rows.append({"param": "материал", "query": qm, "candidate": mat, "status": status})
+    return rows

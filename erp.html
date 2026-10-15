@@ -40,11 +40,17 @@
   .cand .score { font-size: 18px; font-weight: 700; }
   .ok { color: #1a7f37; } .warn { color: #b25e00; }
   .muted { color: #777; }
+  .st { display:inline-block; padding:1px 7px; border-radius:9px; font-size:11px; margin-top:3px; }
+  .st-pending { background:#e0ecff; color:#1d4ed8; } .st-approved { background:#dcf5df; color:#146c2e; } .st-rejected { background:#fde0e0; color:#9a1c1c; }
+  table.cmp { width:100%; border-collapse:collapse; margin:6px 0; }
+  table.cmp th, table.cmp td { border:1px solid #e2e2e2; padding:3px 6px; font-size:12px; }
+  td.c-ok { color:#1a7f37; } td.c-close { color:#b25e00; } td.c-bad { color:#b00020; font-weight:700; } td.c-unknown { color:#999; }
+  textarea { width:100%; font:inherit; padding:6px; border:1px solid #ccc; margin-top:4px; }
   .err { color: #b00020; padding: 10px; background: #fdecee; border: 1px solid #f3b6bd; }
 </style>
 </head>
 <body>
-<div class="titlebar">1С:Предприятие — демонстрационный макет<small>Модуль «КРИТ: подбор аналогов» (не является продуктом 1С)</small></div>
+<div class="titlebar">1С:Предприятие — демонстрационный макет<small>Модуль «КРИТ: подбор аналогов» (не является продуктом 1С)</small><span style="float:right"><a href="/engineer">Кабинет инженера →</a> &nbsp; <a href="/">Поиск</a></span></div>
 <div class="wrap">
   <h1 id="title">Заявка на закупку</h1>
   <div class="hdr">
@@ -61,7 +67,7 @@
     <tbody id="lines"><tr><td colspan="7" class="muted">Загрузка…</td></tr></tbody>
   </table>
   <div class="totals">Итого: <b id="total">0</b> ₽ &nbsp; Экономия от замен: <span class="saving" id="saving">0</span> ₽</div>
-  <div class="hint">Цены, остатки и поставщики в демо вымышленные. Решение о применении аналога принимает инженер.</div>
+  <div class="hint">Цены, остатки и поставщики в демо вымышленные. Замена вступает в силу только после согласования инженером. <a href="#" id="refresh">Обновить статусы</a></div>
 </div>
 
 <div class="overlay" id="overlay">
@@ -69,6 +75,7 @@
     <button class="close" id="closeBtn">Закрыть</button>
     <h2>Подбор аналогов</h2>
     <div class="muted" id="forName"></div>
+    <label class="muted">Комментарий для инженера (необязательно)<textarea id="buyerComment" rows="2" maxlength="1000"></textarea></label>
     <div id="cands"></div>
   </div>
 </div>
@@ -81,6 +88,8 @@ const rub = n => Math.round(n).toLocaleString('ru-RU');
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let lines = [];
 let current = null;
+let requestNumber = '';
+const ST = { ok: '✓', close: '≈', bad: '✗', unknown: '—' };
 
 function offerText(o) {
   if (!o) return '<span class="muted">нет предложений</span>';
@@ -88,23 +97,42 @@ function offerText(o) {
   return `${esc(o.supplier)}, ${esc(o.city)}${o.verified ? ' ✓' : ''}<br><span class="muted">${stock}, срок ${o.lead_days} дн.</span>`;
 }
 
+function effective(l) {
+  const d = l.decision;
+  return d && d.status === 'approved' ? { name: d.analogue_name, offer: d.offer, d } : { name: null, offer: l.offer, d };
+}
+
 function render() {
   let total = 0, saving = 0;
   linesEl.innerHTML = lines.map((l, i) => {
-    const price = l.offer ? l.offer.price : 0;
+    const e = effective(l), d = l.decision;
+    const price = e.offer ? e.offer.price : 0;
     const sum = price * l.qty;
     total += sum;
-    if (l.replacedWith) saving += Math.max(0, (l.origPrice - price) * l.qty);
-    return `<tr class="${l.replacedWith ? 'replaced' : ''}">
-      <td>${i + 1}</td>
-      <td>${esc(l.name)}${l.replacedWith ? `<br><span class="muted">заменено на: ${esc(l.replacedWith)}</span>` : ''}</td>
+    if (e.name) saving += Math.max(0, ((l.offer ? l.offer.price : 0) - price) * l.qty);
+    let note = '';
+    if (d && d.status === 'approved') note = `<br><span class="st st-approved">согласовано: ${esc(d.decided_by)}</span> <span class="muted">заменено на ${esc(d.analogue_name)}</span>`;
+    if (d && d.status === 'pending') note = `<br><span class="st st-pending">на согласовании у инженера</span> <span class="muted">${esc(d.analogue_name)}</span>`;
+    if (d && d.status === 'rejected') note = `<br><span class="st st-rejected">отклонено: ${esc(d.decided_by)}</span> <span class="muted">${esc(d.decision_comment)}</span>`;
+    const pending = d && d.status === 'pending';
+    return `<tr class="${e.name ? 'replaced' : ''}">
+      <td>${i + 1}</td><td>${esc(l.name)}${note}</td>
       <td class="n">${l.qty}</td><td class="n">${rub(price)}</td><td class="n">${rub(sum)}</td>
-      <td>${offerText(l.offer)}</td>
-      <td><button class="primary" data-i="${i}">${l.replacedWith ? 'Другой аналог' : 'Подобрать аналог'}</button></td>
+      <td>${offerText(e.offer)}</td>
+      <td><button class="primary" data-i="${i}" ${pending ? 'disabled' : ''}>${pending ? 'Ожидает согласования' : (e.name ? 'Другой аналог' : 'Подобрать аналог')}</button></td>
     </tr>`;
   }).join('');
   document.getElementById('total').textContent = rub(total);
   document.getElementById('saving').textContent = rub(saving);
+}
+
+async function reload() {
+  const res = await fetch('/api/erp/demo-request');
+  const d = await res.json();
+  document.getElementById('title').textContent = 'Заявка на закупку № ' + d.number;
+  requestNumber = d.number;
+  lines = d.lines.map(l => ({ ...l, origName: l.name }));
+  render();
 }
 
 async function openMatch(i) {
@@ -124,16 +152,23 @@ async function openMatch(i) {
         <div class="top"><div><b>${esc(m.name)}</b><br><span class="muted">${esc(m.brand)} · ${esc(m.standard)}</span></div>
           <div class="score">${m.score}%</div></div>
         <div><span class="badge ${cls}">${esc(m.verdict.text)}</span></div>
-        ${m.same.length ? `<div class="ok">✓ ${m.same.map(esc).join(' · ')}</div>` : ''}
-        ${m.diff.length ? `<div class="warn">⚠ ${m.diff.map(esc).join(' · ')}</div>` : ''}
+        <table class="cmp">${(m.comparison || []).map(r => `<tr><td>${esc(r.param)}</td><td>${esc(r.query)}</td><td>${esc(r.candidate)}</td><td class="c-${r.status}">${ST[r.status]}</td></tr>`).join('')}</table>
         <div style="margin-top:4px">${offerText(m.best_offer)}${m.best_offer ? ` — <b>${rub(m.best_offer.price)} ₽</b>` : ''}</div>
-        <div style="margin-top:6px"><button data-k="${k}" ${m.best_offer ? '' : 'disabled'}>Заменить в заявке</button></div>
+        <div style="margin-top:6px"><button data-k="${k}" ${m.verdict.code === 'no' ? 'disabled' : ''}>${m.verdict.code === 'no' ? 'Не взаимозаменяем' : 'Отправить на согласование инженеру'}</button></div>
       </div>`;
     }).join('');
-    candsEl.querySelectorAll('button[data-k]').forEach(b => b.onclick = () => {
+    candsEl.querySelectorAll('button[data-k]').forEach(b => b.onclick = async () => {
       const m = data.matches[+b.dataset.k], l = lines[current];
-      l.replacedWith = m.name; l.offer = m.best_offer;
-      overlay.classList.remove('open'); render();
+      b.disabled = true;
+      try {
+        const r = await fetch('/api/decisions', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ request_number: requestNumber, line_id: l.line_id, qty: l.qty, original_name: l.origName,
+            analogue_id: m.id, comment: document.getElementById('buyerComment').value }) });
+        const j = await r.json();
+        if (!r.ok) throw new Error(j.detail || 'Ошибка');
+        overlay.classList.remove('open');
+        await reload();
+      } catch (err) { b.disabled = false; alert(err.message); }
     });
   } catch (e) {
     candsEl.innerHTML = '<div class="err">' + esc(e.message) + '</div>';
@@ -144,19 +179,13 @@ linesEl.addEventListener('click', e => {
   const b = e.target.closest('button[data-i]');
   if (b) openMatch(+b.dataset.i);
 });
+document.getElementById('refresh').onclick = e => { e.preventDefault(); reload(); };
 document.getElementById('closeBtn').onclick = () => overlay.classList.remove('open');
 overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
 
 (async () => {
-  try {
-    const res = await fetch('/api/erp/demo-request');
-    const d = await res.json();
-    document.getElementById('title').textContent = 'Заявка на закупку № ' + d.number;
-    lines = d.lines.map(l => ({ ...l, origName: l.name, origPrice: l.offer ? l.offer.price : 0 }));
-    render();
-  } catch (e) {
-    linesEl.innerHTML = '<tr><td colspan="7" class="err">Не удалось загрузить заявку</td></tr>';
-  }
+  try { await reload(); }
+  catch (e) { linesEl.innerHTML = '<tr><td colspan="7" class="err">Не удалось загрузить заявку</td></tr>'; }
 })();
 </script>
 </body>

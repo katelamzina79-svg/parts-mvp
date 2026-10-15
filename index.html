@@ -118,6 +118,18 @@
   .badge.no { background:#fde0e0; color:#9a1c1c; }
   .offer { margin-top:8px; padding-top:8px; border-top:1px dashed #e2e8f0; font-size:13px; }
   .meta { font-size:12px; color:#94a3b8; margin:-6px 0 12px; }
+  .linkbtn { background:none; color:#2563eb; padding:6px 0; margin-top:6px; font-size:13px; text-decoration:underline; }
+  .linkbtn:hover { background:none; color:#1d4ed8; }
+  .details { display:none; margin-top:10px; padding-top:10px; border-top:1px solid #e2e8f0; }
+  .details.open { display:block; }
+  table.cmp { width:100%; border-collapse:collapse; font-size:13px; margin-bottom:10px; }
+  table.cmp th, table.cmp td { border:1px solid #e2e8f0; padding:5px 8px; text-align:left; }
+  table.cmp th { background:#f8fafc; font-weight:600; }
+  td.st-ok { color:#16a34a; } td.st-close { color:#d97706; } td.st-bad { color:#dc2626; font-weight:600; } td.st-unknown { color:#94a3b8; }
+  .qrow { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:4px 0; font-size:13px; }
+  .qrow button { padding:4px 12px; font-size:13px; }
+  .qrow input { width:70px; padding:4px 6px; border:1px solid #ddd; border-radius:4px; }
+  .toast { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#1e293b; color:#fff; padding:10px 18px; border-radius:6px; font-size:14px; display:none; max-width:90%; }
   .empty {
     text-align: center;
     color: #888;
@@ -154,7 +166,7 @@
     <button id="searchBtn">Найти аналоги</button>
     <button id="pdfBtn" type="button" style="background:#475569">Загрузить PDF-паспорт</button>
     <input type="file" id="pdfInput" accept="application/pdf" hidden>
-    <a href="/erp" style="margin-left:auto;font-size:14px">Макет заявки в 1С →</a>
+    <span style="margin-left:auto;font-size:14px"><a href="/erp">Заявка в 1С →</a> &nbsp; <a href="/engineer">Кабинет инженера →</a></span>
   </div>
   <div class="examples">
     <div class="examples-label">Примеры запросов:</div>
@@ -165,6 +177,7 @@
 <div id="features"></div>
 <div id="results"></div>
 
+<div class="toast" id="toast"></div>
 <script>
 const queryEl = document.getElementById('query');
 const searchBtn = document.getElementById('searchBtn');
@@ -231,6 +244,47 @@ function renderFeatures(f) {
   featuresEl.innerHTML = `<div class="features"><b>Распознано:</b><br>${tags.join(' ')}</div>`;
 }
 
+let lastMatches = [];
+const ST = { ok: '✓ совпадает', close: '≈ близко', bad: '✗ не совпадает', unknown: 'нет данных' };
+
+function renderDetails(m) {
+  let h = '<table class="cmp"><tr><th>Параметр</th><th>Запрос</th><th>Аналог</th><th>Результат</th></tr>';
+  (m.comparison || []).forEach(r => {
+    h += `<tr><td>${escapeHtml(r.param)}</td><td>${escapeHtml(r.query)}</td><td>${escapeHtml(r.candidate)}</td><td class="st-${r.status}">${ST[r.status]}</td></tr>`;
+  });
+  h += '</table>';
+  if ((m.offers || []).length) {
+    h += '<div style="font-size:13px;font-weight:600;margin-bottom:4px">Предложения поставщиков (демо-данные)</div>';
+    m.offers.forEach(o => {
+      h += `<div class="qrow"><span>${escapeHtml(o.supplier)}, ${escapeHtml(o.city)}${o.verified ? ' ✓' : ''} · <b>${Number(o.price).toLocaleString('ru-RU')} ₽</b> · ${o.stock > 0 ? 'в наличии ' + o.stock : 'под заказ'} · ${o.lead_days} дн.</span>`;
+      h += `<input type="number" min="1" value="1" aria-label="Количество"><button data-quote="${escapeHtml(m.id)}" data-supplier="${escapeHtml(o.supplier)}">Запросить КП</button></div>`;
+    });
+  }
+  return h;
+}
+
+function toast(text) {
+  const t = document.getElementById('toast');
+  t.textContent = text; t.style.display = 'block';
+  clearTimeout(toast.t); toast.t = setTimeout(() => { t.style.display = 'none'; }, 4000);
+}
+
+resultsEl.addEventListener('click', async e => {
+  const tg = e.target.closest('[data-toggle]');
+  if (tg) { document.getElementById('det' + tg.dataset.toggle).classList.toggle('open'); return; }
+  const qb = e.target.closest('[data-quote]');
+  if (qb) {
+    const qty = parseInt(qb.parentElement.querySelector('input').value, 10) || 1;
+    try {
+      const res = await fetch('/api/quote-request', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ item_id: qb.dataset.quote, supplier: qb.dataset.supplier, qty }) });
+      const d = await res.json();
+      if (!res.ok) throw new Error(d.detail || 'Ошибка');
+      toast(`${d.number}: запрос записан в журнал (демо — поставщику ничего не отправлено)`);
+    } catch (err) { toast('Ошибка: ' + err.message); }
+  }
+});
+
 function renderResults(data) {
   if (data.count === 0) {
     resultsEl.innerHTML = '<div class="empty">Аналоги не найдены. Уточните характеристики или категорию.</div>';
@@ -238,7 +292,8 @@ function renderResults(data) {
   }
   let html = `<h2 style="font-size:18px;margin-bottom:12px;">Найдено аналогов: ${data.count}</h2>`;
   html += `<div class="meta">${data.filename ? 'Файл: ' + escapeHtml(data.filename) + ' · ' : ''}время подбора ${data.elapsed_ms} мс</div>`;
-  data.matches.forEach(m => {
+  lastMatches = data.matches;
+  data.matches.forEach((m, idx) => {
     const cls = scoreClass(m.score);
     html += `<div class="card ${cls}">`;
     html += `<div class="card-header"><div>`;
@@ -260,6 +315,8 @@ function renderResults(data) {
       if (m.diff.length) html += `<div class="warn">⚠ ${m.diff.map(escapeHtml).join(' · ')}</div>`;
       html += `</div>`;
     }
+    html += `<button class="linkbtn" data-toggle="${idx}">Сверка характеристик и поставщики ▾</button>`;
+    html += `<div class="details" id="det${idx}">${renderDetails(m)}</div>`;
     html += `</div>`;
   });
   resultsEl.innerHTML = html;

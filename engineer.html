@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кабинет инженера — согласование замен</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif; max-width: 920px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; }
+  h1 { margin: 0 0 4px; } .sub { color: #666; font-size: 14px; margin-bottom: 16px; }
+  nav a { margin-right: 14px; font-size: 14px; }
+  .bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 14px 0; }
+  .bar input { padding: 7px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; width: 260px; }
+  .tab { padding: 7px 14px; border: 1px solid #cbd5e1; background: #fff; border-radius: 4px; cursor: pointer; font-size: 14px; }
+  .tab.on { background: #2563eb; color: #fff; border-color: #2563eb; }
+  .card { background: #fff; border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.08); border-left: 4px solid #cbd5e1; }
+  .card.full { border-left-color: #16a34a; } .card.check { border-left-color: #f59e0b; }
+  .row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .muted { color: #64748b; font-size: 13px; }
+  .badge { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; }
+  .badge.full { background: #dcf5df; color: #146c2e; } .badge.check { background: #fff1cc; color: #8a5a00; }
+  .badge.approved { background: #dcf5df; color: #146c2e; } .badge.rejected { background: #fde0e0; color: #9a1c1c; } .badge.pending { background: #e0ecff; color: #1d4ed8; }
+  table.cmp { width: 100%; border-collapse: collapse; font-size: 13px; margin: 8px 0; }
+  table.cmp th, table.cmp td { border: 1px solid #e2e8f0; padding: 4px 8px; text-align: left; }
+  table.cmp th { background: #f8fafc; }
+  td.ok { color: #16a34a; } td.close { color: #d97706; } td.bad { color: #dc2626; font-weight: 600; } td.unknown { color: #94a3b8; }
+  textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font: inherit; font-size: 14px; }
+  button { font: inherit; font-size: 14px; border: none; border-radius: 4px; padding: 8px 16px; cursor: pointer; color: #fff; }
+  .yes { background: #16a34a; } .no { background: #dc2626; } button:disabled { opacity: .5; cursor: default; }
+  .empty { text-align: center; color: #888; padding: 30px; background: #fff; border-radius: 8px; }
+  .err { color: #b00020; font-size: 13px; margin-top: 6px; }
+</style>
+</head>
+<body>
+<h1>Кабинет инженера</h1>
+<div class="sub">Согласование замен импортных комплектующих на российские аналоги. Демо: авторизации нет, вводится только ФИО.</div>
+<nav><a href="/erp">← Заявка в 1С (закупщик)</a><a href="/">Поиск аналогов</a></nav>
+<div class="bar">
+  <input id="who" placeholder="Ваше ФИО (обязательно для решения)" maxlength="80">
+  <button class="tab on" id="tabP">На согласовании</button>
+  <button class="tab" id="tabH">История</button>
+</div>
+<div id="list"></div>
+
+<script>
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ST = { ok: '✓ совпадает', close: '≈ близко', bad: '✗ не совпадает', unknown: 'нет данных' };
+const STAT = { pending: 'на согласовании', approved: 'согласовано', rejected: 'отклонено' };
+const listEl = document.getElementById('list'), whoEl = document.getElementById('who');
+let tab = 'pending';
+try { whoEl.value = localStorage.getItem('krit_engineer') || ''; } catch (e) {}
+whoEl.addEventListener('input', () => { try { localStorage.setItem('krit_engineer', whoEl.value); } catch (e) {} });
+
+const dt = s => s ? new Date(s).toLocaleString('ru-RU') : '';
+
+function card(d) {
+  const o = d.offer;
+  let h = `<div class="card ${d.verdict_code}">`;
+  h += `<div class="row"><div><b>${esc(d.analogue_name)}</b> <span class="badge ${d.verdict_code}">${esc(d.verdict_text)}</span><br>`;
+  h += `<span class="muted">Вместо: ${esc(d.original_name)} × ${d.qty} · заявка ${esc(d.request_number)}, строка ${d.line_id}</span></div>`;
+  h += `<div style="text-align:right"><b>${d.score}%</b><br><span class="badge ${d.status}">${STAT[d.status]}</span></div></div>`;
+  h += `<div class="muted" style="margin-top:6px">Предложил: ${esc(d.proposed_by)}, ${dt(d.proposed_at)}${d.proposal_comment ? ' — «' + esc(d.proposal_comment) + '»' : ''}</div>`;
+  h += '<table class="cmp"><tr><th>Параметр</th><th>Запрос</th><th>Аналог</th><th>Результат</th></tr>';
+  d.comparison.forEach(r => { h += `<tr><td>${esc(r.param)}</td><td>${esc(r.query)}</td><td>${esc(r.candidate)}</td><td class="${r.status}">${ST[r.status]}</td></tr>`; });
+  h += '</table>';
+  if (o) h += `<div class="muted">Лучшее предложение: ${Number(o.price).toLocaleString('ru-RU')} ₽ · ${esc(o.supplier)}, ${esc(o.city)} · срок ${o.lead_days} дн. (демо-данные)</div>`;
+  if (d.status === 'pending') {
+    h += `<textarea id="c${d.id}" rows="2" maxlength="1000" placeholder="${d.verdict_code === 'full' ? 'Комментарий (необязательно)' : 'Комментарий обязателен: что проверено / почему отклонено'}" style="margin-top:8px"></textarea>`;
+    h += `<div style="margin-top:8px;display:flex;gap:8px"><button class="yes" data-act="approved" data-id="${d.id}">Согласовать</button><button class="no" data-act="rejected" data-id="${d.id}">Отклонить</button></div><div class="err" id="e${d.id}"></div>`;
+  } else {
+    h += `<div class="muted" style="margin-top:6px">Решение: ${esc(d.decided_by)}, ${dt(d.decided_at)}${d.decision_comment ? ' — «' + esc(d.decision_comment) + '»' : ''}</div>`;
+  }
+  return h + '</div>';
+}
+
+async function load() {
+  try {
+    const url = tab === 'pending' ? '/api/decisions?status=pending' : '/api/decisions';
+    const r = await fetch(url);
+    let items = (await r.json()).decisions;
+    if (tab === 'history') items = items.filter(d => d.status !== 'pending');
+    listEl.innerHTML = items.length ? items.map(card).join('') : `<div class="empty">${tab === 'pending' ? 'Нет предложений на согласовании' : 'История пуста'}</div>`;
+  } catch (e) { listEl.innerHTML = '<div class="empty">Не удалось загрузить данные</div>'; }
+}
+
+listEl.addEventListener('click', async e => {
+  const b = e.target.closest('button[data-act]');
+  if (!b) return;
+  const id = b.dataset.id, err = document.getElementById('e' + id);
+  err.textContent = '';
+  b.disabled = true;
+  try {
+    const r = await fetch(`/api/decisions/${id}/decide`, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ decision: b.dataset.act, decided_by: whoEl.value, comment: document.getElementById('c' + id).value }) });
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.detail || 'Ошибка');
+    load();
+  } catch (x) { err.textContent = x.message; b.disabled = false; }
+});
+
+function setTab(t) {
+  tab = t;
+  document.getElementById('tabP').classList.toggle('on', t === 'pending');
+  document.getElementById('tabH').classList.toggle('on', t === 'history');
+  load();
+}
+document.getElementById('tabP').onclick = () => setTab('pending');
+document.getElementById('tabH').onclick = () => setTab('history');
+load();
+</script>
+</body>
+</html>

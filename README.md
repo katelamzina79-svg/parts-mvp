@@ -13,6 +13,8 @@
 - `/` — поиск аналогов по тексту, загрузка PDF-паспорта.
 - `/erp` — макет закупочной заявки в стиле 1С с кнопкой «Подобрать аналог».
 - `POST /api/match`, `POST /api/extract-pdf`, `GET /api/erp/demo-request`, `GET /api/catalog/stats`, `GET /api/health`.
+- `/engineer` — кабинет инженера: согласование или отклонение замен со сверкой характеристик и журналом решений. Закупщик в `/erp` не меняет позицию сам, а отправляет предложение инженеру; если аналог «требует проверки», для согласования нужен комментарий. Данные хранятся в SQLite (`data/krit.db`, создаётся сам, в git не попадает). Авторизации в демо нет — вводится только ФИО.
+- В карточке аналога: «Сверка характеристик» (запрос ↔ аналог по каждому параметру) и кнопка «Запросить КП» → `POST /api/quote-request`, журнал `GET /api/quote-requests` (демо: хранится в памяти, поставщикам ничего не отправляется).
 - PDF только с текстовым слоем; для сканов нужен OCR (не реализован).
 
 ## Установка и запуск
@@ -23,6 +25,14 @@ python generate_dataset.py        # data/catalog.json, 360 позиций
 uvicorn main:app --reload
 ```
 Без нейросети: `KRIT_EMBEDDINGS=lexical uvicorn main:app --reload`.
+
+## Свой каталог (реальные данные)
+```bash
+python import_catalog.py --template                 # создаст catalog_template.csv с примером
+python import_catalog.py мой_каталог.csv            # добавить позиции к data/catalog.json
+python import_catalog.py мой_каталог.csv --replace  # заменить каталог целиком
+```
+Excel → «Сохранить как» → CSV UTF-8. Колонки описаны в начале `import_catalog.py`.
 
 ## Оценка точности
 ```bash

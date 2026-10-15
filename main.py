@@ -8,8 +8,9 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
+import db
 import embeddings
-from nlp_matcher import load_catalog, find_analogues, diff_report
+from nlp_matcher import load_catalog, find_analogues, diff_report, compare_table
 
 BASE_DIR = Path(__file__).resolve().parent
 CATALOG = load_catalog()
@@ -21,6 +22,7 @@ MAX_QUERY_CHARS = 1500
 
 @asynccontextmanager
 async def lifespan(app):
+    db.init()
     embeddings.build_or_load(CATALOG)
     print(f"[startup] Эмбеддинги готовы (бэкенд: {embeddings.backend_name()}).")
     yield
@@ -62,6 +64,7 @@ def run_match(query, top_k=10):
             "score": m["score"],
             "coverage": m["coverage"],
             "verdict": verdict,
+            "comparison": compare_table(feats, it),
             "same": same,
             "diff": diff,
             "offers": it.get("offers", []),
@@ -73,6 +76,99 @@ def run_match(query, top_k=10):
         "count": len(out),
         "elapsed_ms": round((time.perf_counter() - t0) * 1000, 1),
     }
+
+
+class QuoteRequest(BaseModel):
+    item_id: str
+    supplier: str = ""
+    qty: int = 1
+    comment: str = ""
+
+
+@app.post("/api/quote-request")
+def quote_request(req: QuoteRequest):
+    """Демо: фиксирует запрос коммерческого предложения. Поставщикам ничего не отправляется."""
+    it = BY_ID.get(req.item_id)
+    if not it:
+        raise HTTPException(status_code=404, detail="Позиция не найдена")
+    if not 1 <= req.qty <= 1_000_000:
+        raise HTTPException(status_code=400, detail="Количество должно быть от 1 до 1 000 000")
+    return db.add_quote(it["id"], it["name"], req.supplier[:120], req.qty, req.comment[:500])
+
+
+@app.get("/api/quote-requests")
+def quote_requests():
+    return {"requests": db.list_quotes()}
+
+
+# ---------------------------------------------------------- согласование замен
+class ProposalRequest(BaseModel):
+    request_number: str
+    line_id: int
+    qty: int = 1
+    original_name: str
+    analogue_id: str
+    proposed_by: str = "Закупщик (демо)"
+    comment: str = ""
+
+
+class DecisionRequest(BaseModel):
+    decision: str            # approved | rejected
+    decided_by: str
+    comment: str = ""
+
+
+@app.post("/api/decisions")
+def propose(req: ProposalRequest):
+    """Закупщик предлагает аналог на замену. Сервер сам пересчитывает сверку: клиенту не доверяем."""
+    if not 1 <= req.qty <= 1_000_000:
+        raise HTTPException(status_code=400, detail="Количество должно быть от 1 до 1 000 000")
+    name = req.original_name.strip()
+    if not name or not req.proposed_by.strip():
+        raise HTTPException(status_code=400, detail="Не заполнены название позиции или автор")
+    res = run_match(name[:MAX_QUERY_CHARS], top_k=len(CATALOG))
+    match = next((m for m in res["matches"] if m["id"] == req.analogue_id), None)
+    if match is None:
+        raise HTTPException(status_code=400, detail="Этот аналог не подходит под запрошенную позицию")
+    if match["verdict"]["code"] == "no":
+        raise HTTPException(status_code=400, detail="Аналог не взаимозаменяем: " + match["verdict"]["text"])
+    rec = db.create_decision(req.request_number[:40], req.line_id, req.qty, name, match,
+                             req.proposed_by.strip()[:80], req.comment.strip()[:1000])
+    if rec is None:
+        raise HTTPException(status_code=409, detail="По этой строке уже есть предложение на согласовании")
+    return rec
+
+
+@app.get("/api/decisions")
+def decisions(status: str = "", request_number: str = ""):
+    return {"decisions": db.list_decisions(status or None, request_number or None)}
+
+
+@app.post("/api/decisions/{decision_id}/decide")
+def decide(decision_id: int, req: DecisionRequest):
+    """Инженер согласует или отклоняет замену. Если аналог не «совпадает полностью» — нужен комментарий."""
+    if req.decision not in ("approved", "rejected"):
+        raise HTTPException(status_code=400, detail="decision: approved или rejected")
+    who, comment = req.decided_by.strip(), req.comment.strip()
+    if not who:
+        raise HTTPException(status_code=400, detail="Укажите ФИО инженера")
+    cur = db.get_decision(decision_id)
+    if cur is None:
+        raise HTTPException(status_code=404, detail="Предложение не найдено")
+    if req.decision == "rejected" and not comment:
+        raise HTTPException(status_code=400, detail="При отклонении нужен комментарий")
+    if req.decision == "approved" and cur["verdict_code"] != "full" and not comment:
+        raise HTTPException(status_code=400,
+                            detail="Аналог требует проверки: укажите в комментарии, что проверено")
+    rec = db.decide(decision_id, req.decision, who[:80], comment[:1000])
+    if rec is None:
+        raise HTTPException(status_code=409, detail="Решение по этому предложению уже принято")
+    return rec
+
+
+@app.get("/engineer")
+def engineer():
+    return FileResponse(BASE_DIR / "engineer.html")
 
 
 @app.get("/")
@@ -140,7 +236,13 @@ def erp_demo_request():
             "qty": qty.get(it["category"], 1),
             "offer": best_offer(it),
         })
-    return {"number": "ЗП-000147", "lines": lines}
+    number = "ЗП-000147"
+    latest = {}
+    for d in db.list_decisions(request_number=number):      # от новых к старым
+        latest.setdefault(d["line_id"], d)
+    for ln in lines:
+        ln["decision"] = latest.get(ln["line_id"])
+    return {"number": number, "lines": lines}
 
 
 @app.post("/api/extract-pdf")
