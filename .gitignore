@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 .DS_Store
 .vscode/
+data/embeddings_*.npz
+eval_report.json

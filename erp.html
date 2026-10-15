@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Заявка на закупку — макет модуля КРИТ в 1С</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 13px/1.4 Arial, sans-serif; background: #f2f2ee; color: #333; }
+  .titlebar { background: #f5d33f; padding: 6px 14px; font-weight: 700; border-bottom: 1px solid #d9b92a; }
+  .titlebar small { font-weight: 400; margin-left: 10px; }
+  .wrap { padding: 12px 16px; max-width: 1280px; margin: 0 auto; }
+  h1 { font-size: 18px; margin: 4px 0 10px; font-weight: 600; }
+  .hdr { display: flex; gap: 24px; flex-wrap: wrap; background: #fff; border: 1px solid #ccc; padding: 8px 12px; margin-bottom: 10px; }
+  .hdr div span { color: #777; display: block; font-size: 11px; }
+  table { border-collapse: collapse; width: 100%; background: #fff; }
+  th, td { border: 1px solid #d4d4d4; padding: 5px 8px; text-align: left; vertical-align: top; }
+  th { background: #ececec; font-weight: 600; font-size: 12px; }
+  td.n, th.n { text-align: right; white-space: nowrap; }
+  tr.replaced td { background: #eefbea; }
+  button { font: inherit; border: 1px solid #b5b5b5; background: #f6f6f6; padding: 4px 10px; cursor: pointer; border-radius: 2px; }
+  button:hover { background: #ebebeb; }
+  button.primary { background: #f5d33f; border-color: #d9b92a; font-weight: 700; }
+  button.primary:hover { background: #efc928; }
+  button:disabled { opacity: .5; cursor: default; }
+  .totals { margin: 10px 0; text-align: right; font-size: 14px; }
+  .saving { color: #1a7f37; font-weight: 700; }
+  .hint { color: #777; font-size: 12px; margin-top: 6px; }
+  .badge { display: inline-block; padding: 1px 7px; border-radius: 9px; font-size: 11px; }
+  .b-full { background: #dcf5df; color: #146c2e; }
+  .b-check { background: #fff1cc; color: #8a5a00; }
+  .b-no { background: #fde0e0; color: #9a1c1c; }
+  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,.35); display: none; justify-content: flex-end; }
+  .overlay.open { display: flex; }
+  .panel { width: min(720px, 100%); height: 100%; background: #fff; overflow-y: auto; padding: 14px 16px; box-shadow: -4px 0 12px rgba(0,0,0,.2); }
+  .panel h2 { font-size: 16px; margin: 0 0 4px; }
+  .close { float: right; }
+  .cand { border: 1px solid #d4d4d4; padding: 8px 10px; margin: 8px 0; }
+  .cand .top { display: flex; justify-content: space-between; gap: 10px; }
+  .cand .score { font-size: 18px; font-weight: 700; }
+  .ok { color: #1a7f37; } .warn { color: #b25e00; }
+  .muted { color: #777; }
+  .err { color: #b00020; padding: 10px; background: #fdecee; border: 1px solid #f3b6bd; }
+</style>
+</head>
+<body>
+<div class="titlebar">1С:Предприятие — демонстрационный макет<small>Модуль «КРИТ: подбор аналогов» (не является продуктом 1С)</small></div>
+<div class="wrap">
+  <h1 id="title">Заявка на закупку</h1>
+  <div class="hdr">
+    <div><span>Организация</span>ООО «Демо-Завод»</div>
+    <div><span>Подразделение</span>Отдел снабжения</div>
+    <div><span>Статус</span>Согласование</div>
+    <div><span>Основание</span>Дефицит импортных комплектующих</div>
+  </div>
+  <table>
+    <thead><tr>
+      <th>№</th><th>Номенклатура</th><th class="n">Кол-во</th><th class="n">Цена, ₽</th>
+      <th class="n">Сумма, ₽</th><th>Поставщик / срок</th><th>Действие</th>
+    </tr></thead>
+    <tbody id="lines"><tr><td colspan="7" class="muted">Загрузка…</td></tr></tbody>
+  </table>
+  <div class="totals">Итого: <b id="total">0</b> ₽ &nbsp; Экономия от замен: <span class="saving" id="saving">0</span> ₽</div>
+  <div class="hint">Цены, остатки и поставщики в демо вымышленные. Решение о применении аналога принимает инженер.</div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="panel">
+    <button class="close" id="closeBtn">Закрыть</button>
+    <h2>Подбор аналогов</h2>
+    <div class="muted" id="forName"></div>
+    <div id="cands"></div>
+  </div>
+</div>
+
+<script>
+const linesEl = document.getElementById('lines');
+const overlay = document.getElementById('overlay');
+const candsEl = document.getElementById('cands');
+const rub = n => Math.round(n).toLocaleString('ru-RU');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let lines = [];
+let current = null;
+
+function offerText(o) {
+  if (!o) return '<span class="muted">нет предложений</span>';
+  const stock = o.stock > 0 ? `в наличии ${o.stock}` : 'под заказ';
+  return `${esc(o.supplier)}, ${esc(o.city)}${o.verified ? ' ✓' : ''}<br><span class="muted">${stock}, срок ${o.lead_days} дн.</span>`;
+}
+
+function render() {
+  let total = 0, saving = 0;
+  linesEl.innerHTML = lines.map((l, i) => {
+    const price = l.offer ? l.offer.price : 0;
+    const sum = price * l.qty;
+    total += sum;
+    if (l.replacedWith) saving += Math.max(0, (l.origPrice - price) * l.qty);
+    return `<tr class="${l.replacedWith ? 'replaced' : ''}">
+      <td>${i + 1}</td>
+      <td>${esc(l.name)}${l.replacedWith ? `<br><span class="muted">заменено на: ${esc(l.replacedWith)}</span>` : ''}</td>
+      <td class="n">${l.qty}</td><td class="n">${rub(price)}</td><td class="n">${rub(sum)}</td>
+      <td>${offerText(l.offer)}</td>
+      <td><button class="primary" data-i="${i}">${l.replacedWith ? 'Другой аналог' : 'Подобрать аналог'}</button></td>
+    </tr>`;
+  }).join('');
+  document.getElementById('total').textContent = rub(total);
+  document.getElementById('saving').textContent = rub(saving);
+}
+
+async function openMatch(i) {
+  current = i;
+  document.getElementById('forName').textContent = lines[i].name;
+  candsEl.innerHTML = '<div class="muted">Поиск…</div>';
+  overlay.classList.add('open');
+  try {
+    const res = await fetch('/api/match', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: lines[i].origName, top_k: 5 }) });
+    if (!res.ok) throw new Error('Ошибка сервера: ' + res.status);
+    const data = await res.json();
+    if (!data.matches.length) { candsEl.innerHTML = '<div class="muted">Аналоги не найдены</div>'; return; }
+    candsEl.innerHTML = data.matches.map((m, k) => {
+      const cls = m.verdict.code === 'full' ? 'b-full' : (m.verdict.code === 'check' ? 'b-check' : 'b-no');
+      return `<div class="cand">
+        <div class="top"><div><b>${esc(m.name)}</b><br><span class="muted">${esc(m.brand)} · ${esc(m.standard)}</span></div>
+          <div class="score">${m.score}%</div></div>
+        <div><span class="badge ${cls}">${esc(m.verdict.text)}</span></div>
+        ${m.same.length ? `<div class="ok">✓ ${m.same.map(esc).join(' · ')}</div>` : ''}
+        ${m.diff.length ? `<div class="warn">⚠ ${m.diff.map(esc).join(' · ')}</div>` : ''}
+        <div style="margin-top:4px">${offerText(m.best_offer)}${m.best_offer ? ` — <b>${rub(m.best_offer.price)} ₽</b>` : ''}</div>
+        <div style="margin-top:6px"><button data-k="${k}" ${m.best_offer ? '' : 'disabled'}>Заменить в заявке</button></div>
+      </div>`;
+    }).join('');
+    candsEl.querySelectorAll('button[data-k]').forEach(b => b.onclick = () => {
+      const m = data.matches[+b.dataset.k], l = lines[current];
+      l.replacedWith = m.name; l.offer = m.best_offer;
+      overlay.classList.remove('open'); render();
+    });
+  } catch (e) {
+    candsEl.innerHTML = '<div class="err">' + esc(e.message) + '</div>';
+  }
+}
+
+linesEl.addEventListener('click', e => {
+  const b = e.target.closest('button[data-i]');
+  if (b) openMatch(+b.dataset.i);
+});
+document.getElementById('closeBtn').onclick = () => overlay.classList.remove('open');
+overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
+
+(async () => {
+  try {
+    const res = await fetch('/api/erp/demo-request');
+    const d = await res.json();
+    document.getElementById('title').textContent = 'Заявка на закупку № ' + d.number;
+    lines = d.lines.map(l => ({ ...l, origName: l.name, origPrice: l.offer ? l.offer.price : 0 }));
+    render();
+  } catch (e) {
+    linesEl.innerHTML = '<tr><td colspan="7" class="err">Не удалось загрузить заявку</td></tr>';
+  }
+})();
+</script>
+</body>
+</html>

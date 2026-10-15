@@ -6,7 +6,8 @@ import json
 import random
 from pathlib import Path
 
-random.seed(42)
+from reference import BEARINGS
+
 
 OUT = Path(__file__).resolve().parent / "data" / "catalog.json"
 OUT.parent.mkdir(exist_ok=True)
@@ -22,12 +23,10 @@ def new_id(prefix):
 
 # ---------- ПОДШИПНИКИ ----------
 def gen_bearings(n):
-    for _ in range(n):
-        d = random.choice([20, 25, 30, 35, 40, 45, 50, 55, 60, 65])
-        D = d + random.choice([20, 25, 28, 30, 32, 35, 40, 45])
-        B = random.choice([12, 15, 17, 18, 20, 22, 25])
-        code = f"{random.choice(['60', '62', '63'])}{random.randint(2, 30):02d}"
-        suffix = random.choice(["", "-2RS", "-2RSH", "-ZZ", "-2Z", " C3"])
+    # Реальные типоразмеры (код -> d, D, B), чтобы код и размеры не противоречили друг другу
+    for code in random.sample(sorted(BEARINGS), n):
+        d, D, B = BEARINGS[code]
+        suffix = random.choice(["", "-2RS", "-2RSH", "-ZZ", "-2Z"])
         import_brand = random.choice(["SKF", "FAG", "NSK", "NTN", "Timken", "KOYO"])
         ru_brands = random.sample(["ГПЗ-1", "ГПЗ-2", "ГПЗ-4", "ЕПК", "VBF"], 2)
 
@@ -283,13 +282,71 @@ def gen_sensors(n):
         })
 
 
-# Генерируем по 20 импортных позиций на категорию → 20*6 = 120 импортных, 240 российских = 360 позиций
-gen_bearings(20)
-gen_pneumatics(20)
-gen_electrical(20)
-gen_seals(20)
-gen_pumps(20)
-gen_sensors(20)
+# ---------- КОММЕРЧЕСКИЕ ДАННЫЕ (ДЕМО) ----------
+# Поставщики и цены вымышленные: в MVP это заглушка вместо реального прайс-интеграции.
+SUPPLIERS = [
+    {"name": "ТД «Подшипник-Центр»", "city": "Москва", "verified": True},
+    {"name": "Уралпромснаб", "city": "Екатеринбург", "verified": True},
+    {"name": "Индустриал-Трейд", "city": "Санкт-Петербург", "verified": True},
+    {"name": "Сибтехкомплект", "city": "Новосибирск", "verified": False},
+    {"name": "ПромЭлектро Опт", "city": "Казань", "verified": True},
+    {"name": "МеталлСнаб-Юг", "city": "Краснодар", "verified": False},
+    {"name": "Техносфера", "city": "Самара", "verified": True},
+    {"name": "Волга-Комплект", "city": "Нижний Новгород", "verified": True},
+]
+
+
+def ref_price(it):
+    """Ориентировочная «импортная» цена по параметрам позиции, ₽."""
+    c = it["category"]
+    if c == "Подшипник":
+        return 300 + it["inner_diameter"] * it["outer_diameter"] * 0.9
+    if c == "Пневматика":
+        return 4000 + it["inner_diameter"] * it["stroke"] * 3
+    if c == "Электрика":
+        return 300 + it["current"] * it["poles"] * 18
+    if c == "Уплотнение":
+        return 150 + it["inner_diameter"] * it["outer_diameter"] * 0.25
+    if c == "Насос":
+        return 60000 + it["flow"] * it["head"] * 40 + it["power"] * 15000
+    if c == "КИП":
+        return 35000 + it["range_max"] * 20
+    return 1000
+
+
+def add_offers():
+    for it in items:
+        base = ref_price(it)
+        offers = []
+        if it["role"] == "russian":
+            for s in random.sample(SUPPLIERS, random.randint(1, 3)):
+                stock = 0 if random.random() < 0.15 else random.randint(5, 800)
+                offers.append({
+                    "supplier": s["name"], "city": s["city"], "verified": s["verified"],
+                    "price": int(round(base * random.uniform(0.45, 0.8), -1)),
+                    "stock": stock,
+                    "lead_days": random.randint(1, 5) if stock else random.randint(10, 30),
+                })
+        else:
+            for s in random.sample(SUPPLIERS, random.randint(1, 2)):
+                stock = 0 if random.random() < 0.7 else random.randint(1, 40)
+                offers.append({
+                    "supplier": s["name"], "city": s["city"], "verified": s["verified"],
+                    "price": int(round(base * random.uniform(1.1, 1.5), -1)),
+                    "stock": stock,
+                    "lead_days": random.randint(3, 10) if stock else random.randint(45, 120),
+                })
+        offers.sort(key=lambda o: o["price"])
+        it["offers"] = offers
+
+
+# Генерируем по 20 импортных позиций на категорию → 20*6 = 120 импортных, 240 российских = 360 позиций.
+# Для каждой категории свой seed, чтобы изменение одной не сдвигало остальные.
+for seed, fn in enumerate([gen_bearings, gen_pneumatics, gen_electrical, gen_seals, gen_pumps, gen_sensors], start=1):
+    random.seed(1000 + seed)
+    fn(20)
+random.seed(777)
+add_offers()
 
 with open(OUT, "w", encoding="utf-8") as f:
     json.dump(items, f, ensure_ascii=False, indent=2)
@@ -297,4 +354,3 @@ with open(OUT, "w", encoding="utf-8") as f:
 imp = sum(1 for x in items if x["role"] == "import")
 ru = sum(1 for x in items if x["role"] == "russian")
 print(f"OK. Всего: {len(items)} позиций ({imp} импортных, {ru} российских)")
-print(f"Файл: {OUT}")

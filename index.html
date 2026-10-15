@@ -112,6 +112,12 @@
   .card .row div { font-size: 13px; }
   .card .ok { color: #16a34a; }
   .card .warn { color: #d97706; }
+  .badge { display:inline-block; padding:1px 8px; border-radius:10px; font-size:12px; margin-top:4px; }
+  .badge.full { background:#dcf5df; color:#146c2e; }
+  .badge.check { background:#fff1cc; color:#8a5a00; }
+  .badge.no { background:#fde0e0; color:#9a1c1c; }
+  .offer { margin-top:8px; padding-top:8px; border-top:1px dashed #e2e8f0; font-size:13px; }
+  .meta { font-size:12px; color:#94a3b8; margin:-6px 0 12px; }
   .empty {
     text-align: center;
     color: #888;
@@ -146,6 +152,9 @@
   <textarea id="query" placeholder="Вставьте характеристики импортной детали. Например: Подшипник SKF 6205-2RS, d=25, D=52, B=15, сталь"></textarea>
   <div class="actions">
     <button id="searchBtn">Найти аналоги</button>
+    <button id="pdfBtn" type="button" style="background:#475569">Загрузить PDF-паспорт</button>
+    <input type="file" id="pdfInput" accept="application/pdf" hidden>
+    <a href="/erp" style="margin-left:auto;font-size:14px">Макет заявки в 1С →</a>
   </div>
   <div class="examples">
     <div class="examples-label">Примеры запросов:</div>
@@ -211,6 +220,9 @@ function renderFeatures(f) {
   if (f.outer_diameter != null) tags.push(`<span class="tag">D=${f.outer_diameter}</span>`);
   if (f.width != null) tags.push(`<span class="tag">B=${f.width}</span>`);
   if (f.standard) tags.push(`<span class="tag">${escapeHtml(f.standard)}</span>`);
+  ['stroke','pressure','voltage','current','poles','flow','head','power','range_min','range_max','output','ip','variant'].forEach(k => {
+    if (f[k] != null) tags.push(`<span class="tag">${k}=${escapeHtml(f[k])}</span>`);
+  });
   if (f.article) tags.push(`<span class="tag">арт. ${escapeHtml(f.article)}</span>`);
   if (tags.length === 0) {
     featuresEl.innerHTML = '';
@@ -225,6 +237,7 @@ function renderResults(data) {
     return;
   }
   let html = `<h2 style="font-size:18px;margin-bottom:12px;">Найдено аналогов: ${data.count}</h2>`;
+  html += `<div class="meta">${data.filename ? 'Файл: ' + escapeHtml(data.filename) + ' · ' : ''}время подбора ${data.elapsed_ms} мс</div>`;
   data.matches.forEach(m => {
     const cls = scoreClass(m.score);
     html += `<div class="card ${cls}">`;
@@ -233,6 +246,14 @@ function renderResults(data) {
     html += `<div class="brand">${escapeHtml(m.brand)} • ${escapeHtml(m.category)} • ${escapeHtml(m.material)}</div>`;
     html += `</div><div class="score ${cls}">${m.score}%</div></div>`;
     html += `<p><b>Стандарт:</b> ${escapeHtml(m.standard)}</p>`;
+    if (m.verdict) {
+      const vc = m.verdict.code === 'full' ? 'full' : (m.verdict.code === 'check' ? 'check' : 'no');
+      html += `<span class="badge ${vc}">${escapeHtml(m.verdict.text)}</span>`;
+    }
+    const o = m.best_offer;
+    if (o) {
+      html += `<div class="offer"><b>${Number(o.price).toLocaleString('ru-RU')} ₽</b> · ${escapeHtml(o.supplier)}, ${escapeHtml(o.city)}${o.verified ? ' ✓' : ''} · ${o.stock > 0 ? 'в наличии ' + o.stock : 'под заказ'} · срок ${o.lead_days} дн.</div>`;
+    }
     if (m.same.length || m.diff.length) {
       html += `<div class="row">`;
       if (m.same.length) html += `<div class="ok">✓ ${m.same.map(escapeHtml).join(' · ')}</div>`;
@@ -272,6 +293,31 @@ async function runSearch() {
 }
 
 searchBtn.onclick = runSearch;
+const pdfInput = document.getElementById('pdfInput');
+document.getElementById('pdfBtn').onclick = () => pdfInput.click();
+pdfInput.onchange = async () => {
+  const file = pdfInput.files[0];
+  if (!file) return;
+  resultsEl.innerHTML = '<div class="empty">Читаю PDF…</div>';
+  featuresEl.innerHTML = '';
+  try {
+    const fd = new FormData();
+    fd.append('file', file);
+    const res = await fetch('/api/extract-pdf', { method: 'POST', body: fd });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.detail || ('Ошибка сервера: ' + res.status));
+    }
+    const data = await res.json();
+    queryEl.value = data.text_preview || '';
+    renderFeatures(data.features);
+    renderResults(data);
+  } catch (err) {
+    resultsEl.innerHTML = '<div class="error">Ошибка: ' + escapeHtml(err.message) + '</div>';
+  } finally {
+    pdfInput.value = '';
+  }
+};
 queryEl.addEventListener('keydown', e => {
   if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') runSearch();
 });
