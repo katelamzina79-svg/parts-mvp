@@ -11,6 +11,12 @@ from rapidfuzz import fuzz
 from embeddings import semantic_scores
 from reference import BEARINGS
 
+# реальные типоразмеры из базы SKF (import_skf.py) дополняют reference.BEARINGS
+_SKF_REF = Path(__file__).resolve().parent / "data" / "skf_bearings.json"
+if _SKF_REF.exists():
+    BEARINGS = {**BEARINGS, **{k: tuple(v) for k, v in
+                               json.loads(_SKF_REF.read_text(encoding="utf-8")).items()}}
+
 DATA = Path(__file__).resolve().parent / "data" / "catalog.json"
 
 # Веса слоёв скоринга (сумма = 1). Учитываются только слои, по которым есть данные.
@@ -65,9 +71,13 @@ SPEC_DEFS = {
     "output": ("выходной сигнал", "", "eq"),
     "ip": ("степень защиты", "", "ip"),
     "variant": ("исполнение (уплотнение)", "", "seal"),
+    "dynamic_rating": ("динамическая грузоподъёмность C (не ниже)", "Н", "ge"),
+    "static_rating": ("статическая грузоподъёмность C₀ (не ниже)", "Н", "ge"),
+    "limiting_speed": ("предельная частота (не ниже)", "об/мин", "ge"),
 }
 CAT_SPECS = {
-    "Подшипник": ["inner_diameter", "outer_diameter", "width", "variant"],
+    "Подшипник": ["inner_diameter", "outer_diameter", "width", "variant",
+                  "dynamic_rating", "static_rating", "limiting_speed"],
     "Пневматика": ["inner_diameter", "stroke", "pressure"],
     "Электрика": ["voltage", "current", "poles"],
     "Уплотнение": ["inner_diameter", "outer_diameter", "width"],
@@ -102,6 +112,10 @@ RE_CR = re.compile(r"\bCR\s*(\d+)\s*[-–]\s*(\d+)", re.IGNORECASE)
 RE_CERABAR = re.compile(r"\bCerabar\s*\w*?\s*(\d{2,4})\b|\bДМ[-\s]*(\d{2,4})\b", re.IGNORECASE)
 RE_BEARING_CODE = re.compile(r"(?<![\w])(6[0236]\d{2})(?!\d)")
 RE_SEAL = re.compile(r"(2RSH|2RS|2Z|ZZ)\b", re.IGNORECASE)
+RE_DYN = re.compile(r"(?<![\w])C\s*[=:]\s*" + NUM + r"\s*((?i:кН|kN))?")
+RE_STAT = re.compile(r"(?<![\w])C(?:0|₀)\s*[=:]\s*" + NUM + r"\s*((?i:кН|kN))?")
+RE_LIMSPEED = re.compile(
+    r"(?i:предельн\w*\s+(?:частот\w*|скорост\w*)|limiting\s+speed)\s*[=:]?\s*(\d[\d\s]*\d|\d)\s*(?i:об/мин|rpm)")
 RE_TOKEN = re.compile(r"[A-Za-zА-Яа-я0-9][\w\-./]*")
 
 _UNIT_TOKEN = re.compile(
@@ -281,6 +295,13 @@ def extract_features(text):
 
     # подшипники: код -> стандартные размеры, если они не заданы явно
     if want("Подшипник"):
+        for key, rx in (("dynamic_rating", RE_DYN), ("static_rating", RE_STAT)):
+            m = rx.search(body)
+            if m:
+                put(key, _num(m.group(1)) * (1000 if m.group(2) else 1))
+        m = RE_LIMSPEED.search(body)
+        if m:
+            put("limiting_speed", _num(re.sub(r"\s", "", m.group(1))))
         put("variant", _variant(body) if re.search(r"\d{4}\s?-?\s?(?:2RSH|2RS|2Z|ZZ)\b", body, re.I) else None)
         m = RE_BEARING_CODE.search(body)
         if m and m.group(1) in BEARINGS:
