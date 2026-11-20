@@ -5,44 +5,138 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Кабинет инженера — согласование замен</title>
 <style>
+  :root{
+    --bg:#f4f6fa; --surface:#fff; --border:#e3e7ef; --text:#18202f; --muted:#667085; --faint:#98a2b3;
+    --primary:#f5b800; --primary-h:#dca600; --primary-soft:#fff6d6; --primary-ink:#7a5600; --on-primary:#1c1500; --link:#946500; --link-h:#6f4b00;
+    --ok:#15803d; --ok-soft:#e8f6ee; --warn:#b45309; --warn-soft:#fff3df; --bad:#c62839; --bad-soft:#fdecee;
+    --info:#1d4ed8; --info-soft:#e8f0ff;
+    --side:#121a2c; --side-text:#aab4c8;
+    --radius:12px; --shadow:0 1px 2px rgba(16,24,40,.05),0 1px 3px rgba(16,24,40,.06);
+  }
   * { box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif; max-width: 920px; margin: 0 auto; padding: 20px; background: #f5f5f5; color: #333; }
-  h1 { margin: 0 0 4px; } .sub { color: #666; font-size: 14px; margin-bottom: 16px; }
-  nav a { margin-right: 14px; font-size: 14px; }
-  .bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 14px 0; }
-  .bar input { padding: 7px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; width: 260px; }
-  .tab { padding: 7px 14px; border: 1px solid #cbd5e1; background: #fff; border-radius: 4px; cursor: pointer; font-size: 14px; }
-  .tab.on { background: #2563eb; color: #fff; border-color: #2563eb; }
-  .card { background: #fff; border-radius: 8px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.08); border-left: 4px solid #cbd5e1; }
-  .card.full { border-left-color: #16a34a; } .card.check { border-left-color: #f59e0b; }
-  .row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  .muted { color: #64748b; font-size: 13px; }
-  .badge { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; }
-  .badge.full { background: #dcf5df; color: #146c2e; } .badge.check { background: #fff1cc; color: #8a5a00; }
-  .badge.approved { background: #dcf5df; color: #146c2e; } .badge.rejected { background: #fde0e0; color: #9a1c1c; } .badge.pending { background: #e0ecff; color: #1d4ed8; }
-  table.cmp { width: 100%; border-collapse: collapse; font-size: 13px; margin: 8px 0; }
-  table.cmp th, table.cmp td { border: 1px solid #e2e8f0; padding: 4px 8px; text-align: left; }
-  table.cmp th { background: #f8fafc; }
-  td.ok { color: #16a34a; } td.close { color: #d97706; } td.bad { color: #dc2626; font-weight: 600; } td.unknown { color: #94a3b8; }
-  textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font: inherit; font-size: 14px; }
-  button { font: inherit; font-size: 14px; border: none; border-radius: 4px; padding: 8px 16px; cursor: pointer; color: #fff; }
-  .yes { background: #16a34a; } .no { background: #dc2626; } button:disabled { opacity: .5; cursor: default; }
-  .empty { text-align: center; color: #888; padding: 30px; background: #fff; border-radius: 8px; }
-  .err { color: #b00020; font-size: 13px; margin-top: 6px; }
+  body { margin:0; font:14px/1.5 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif; background:var(--bg); color:var(--text); }
+  a { color:var(--link); text-decoration:none; } a:hover { text-decoration:underline; }
+  .app { display:flex; min-height:100vh; }
+  .sidebar { width:248px; flex:none; background:var(--side); color:var(--side-text); padding:18px 12px; display:flex; flex-direction:column; position:sticky; top:0; height:100vh; }
+  .side-brand { display:flex; align-items:center; gap:10px; padding:4px 10px 16px; color:#fff; font-weight:600; font-size:16px; }
+  .mark { width:30px; height:30px; border-radius:8px; background:var(--primary); display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:700; color:var(--on-primary); }
+  .nav-g { font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#6f7b94; padding:16px 12px 6px; }
+  .nav-i { display:flex; align-items:center; gap:10px; padding:9px 12px; border-radius:8px; color:var(--side-text); font-size:14px; }
+  .nav-i:hover { background:rgba(255,255,255,.06); color:#fff; text-decoration:none; }
+  .nav-i.on { background:rgba(255,255,255,.12); color:#fff; font-weight:500; }
+  .nav-i svg { width:18px; height:18px; flex:none; }
+  .nav-b { margin-left:auto; background:var(--primary); color:var(--on-primary); border-radius:10px; font-size:11px; font-weight:600; padding:1px 7px; }
+  .side-foot { margin-top:auto; padding:12px 12px 2px; font-size:12px; color:#6f7b94; border-top:1px solid rgba(255,255,255,.08); }
+  .main { flex:1; min-width:0; padding:28px 32px 48px; }
+  .page { max-width:1000px; margin:0 auto; }
+  .page-head { margin-bottom:20px; }
+  .page-head h1 { margin:0 0 4px; font-size:24px; font-weight:600; letter-spacing:-.01em; }
+  .page-head p { margin:0; color:var(--muted); }
+  .chip { display:inline-block; font-size:12px; color:var(--muted); background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:2px 10px; margin-top:8px; }
+  .menu-btn { display:none; position:fixed; top:12px; left:12px; z-index:40; width:40px; height:40px; padding:0; align-items:center; justify-content:center; font-size:18px; }
+  @media (max-width:860px) {
+    .sidebar { position:fixed; left:0; top:0; z-index:50; transform:translateX(-100%); transition:transform .2s; }
+    .sidebar.open { transform:none; box-shadow:0 0 0 100vmax rgba(15,23,42,.45); }
+    .main { padding:64px 16px 32px; }
+    .menu-btn { display:flex; }
+  }
+  button { font:inherit; font-weight:500; color:var(--text); background:var(--surface); border:1px solid var(--border); padding:8px 16px; border-radius:8px; cursor:pointer; transition:background .15s,border-color .15s; }
+  button:hover { background:#f1f3f8; border-color:#d3d9e6; }
+  button.primary { background:var(--primary); border-color:var(--primary); color:var(--on-primary); }
+  button.primary:hover { background:var(--primary-h); border-color:var(--primary-h); }
+  button:disabled { opacity:.5; cursor:not-allowed; }
+  input, textarea { font:inherit; color:var(--text); background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:9px 12px; }
+  input:focus, textarea:focus { outline:3px solid #ffeaa6; border-color:var(--primary); }
+  .muted { color:var(--muted); }
+
+  .bar { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:0 0 18px; }
+  .bar input { width:360px; max-width:100%; }
+  .tabs { margin-left:auto; display:flex; background:#e9edf5; border-radius:10px; padding:3px; gap:2px; }
+  .tab { background:transparent; border:none; padding:6px 14px; color:var(--muted); border-radius:8px; }
+  .tab:hover { background:rgba(255,255,255,.6); }
+  .tab.on { background:var(--surface); color:var(--text); box-shadow:var(--shadow); }
+  .card { background:var(--surface); border:1px solid var(--border); border-left:4px solid #cbd2e0; border-radius:var(--radius); box-shadow:var(--shadow); padding:16px 18px; margin-bottom:12px; }
+  .card.full { border-left-color:var(--ok); } .card.check { border-left-color:#d97706; }
+  .row { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .muted { font-size:13px; }
+  .badge { display:inline-block; padding:2px 10px; border-radius:20px; font-size:12px; font-weight:500; }
+  .badge.full, .badge.approved { background:var(--ok-soft); color:var(--ok); }
+  .badge.check { background:var(--warn-soft); color:var(--warn); }
+  .badge.rejected { background:var(--bad-soft); color:var(--bad); }
+  .badge.pending { background:var(--info-soft); color:var(--info); }
+  table.cmp { width:100%; border-collapse:collapse; font-size:13px; margin:10px 0; }
+  table.cmp th, table.cmp td { border-bottom:1px solid var(--border); padding:6px 8px; text-align:left; }
+  table.cmp th { background:#f7f8fb; color:var(--muted); font-size:12px; }
+  td.ok { color:var(--ok); } td.close { color:var(--warn); } td.bad { color:var(--bad); font-weight:600; } td.unknown { color:var(--faint); }
+  textarea { width:100%; font-size:14px; }
+  .yes { background:var(--ok); border-color:var(--ok); color:#fff; } .yes:hover { background:#116a33; border-color:#116a33; }
+  .no { background:var(--surface); border-color:#f0b9c0; color:var(--bad); } .no:hover { background:var(--bad-soft); border-color:#e79aa5; }
+  .empty { text-align:center; color:var(--muted); padding:32px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); }
+  .err { color:var(--bad); font-size:13px; margin-top:6px; }
 </style>
 </head>
 <body>
-<h1>Кабинет инженера</h1>
-<div class="sub">Согласование замен импортных комплектующих на российские аналоги. Демо: авторизации нет, вводится только ФИО.</div>
-<nav><a href="/erp">← Заявка в 1С (закупщик)</a><a href="/">Поиск аналогов</a></nav>
+<button class="menu-btn" id="menuBtn" aria-label="Меню">☰</button>
+<div class="app">
+<aside class="sidebar" id="sidebar"></aside>
+<main class="main"><div class="page">
+
+<div class="page-head">
+  <h1>Кабинет инженера</h1>
+  <p>Согласование замен импортных комплектующих на российские аналоги. Демо: авторизации нет, вводится только ФИО.</p>
+</div>
 <div class="bar">
   <input id="who" placeholder="Ваше ФИО (обязательно для решения)" maxlength="80">
-  <button class="tab on" id="tabP">На согласовании</button>
-  <button class="tab" id="tabH">История</button>
+  <div class="tabs">
+    <button class="tab on" id="tabP">На согласовании</button>
+    <button class="tab" id="tabH">История</button>
+  </div>
 </div>
 <div id="list"></div>
 
+</div></main></div>
+
 <script>
+window.KritNav = (function () {
+  const svg = p => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + p + '</svg>';
+  const ICON = {
+    search: svg('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>'),
+    erp: svg('<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>'),
+    eng: svg('<path d="m9 11 3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/>'),
+  };
+  const ITEMS = [
+    { group: 'Закупки' },
+    { href: '/', icon: 'search', label: 'Подбор аналогов' },
+    { href: '/erp', icon: 'erp', label: 'Заявка в 1С' },
+    { group: 'Согласование' },
+    { href: '/engineer', icon: 'eng', label: 'Кабинет инженера', badge: true },
+  ];
+  async function refreshBadge() {
+    const el = document.getElementById('navBadge');
+    if (!el) return;
+    try {
+      const r = await fetch('/api/decisions?status=pending');
+      const n = (await r.json()).decisions.length;
+      el.textContent = n; el.style.display = n ? '' : 'none';
+    } catch (e) { el.style.display = 'none'; }
+  }
+  function mount(active) {
+    const sb = document.getElementById('sidebar');
+    sb.innerHTML = '<div class="side-brand"><span class="mark">К</span>Платформа КРИТ</div>' +
+      ITEMS.map(it => it.group ? `<div class="nav-g">${it.group}</div>` :
+        `<a class="nav-i${it.href === active ? ' on' : ''}" href="${it.href}">${ICON[it.icon]}<span>${it.label}</span>` +
+        (it.badge ? '<span class="nav-b" id="navBadge" style="display:none"></span>' : '') + '</a>').join('') +
+      '<div class="side-foot">Демо-версия · УГТ 3</div>';
+    const btn = document.getElementById('menuBtn');
+    btn.onclick = e => { e.stopPropagation(); sb.classList.toggle('open'); };
+    document.addEventListener('click', e => { if (!sb.contains(e.target)) sb.classList.remove('open'); });
+    refreshBadge();
+  }
+  return { mount, refreshBadge };
+})();
+
+KritNav.mount('/engineer');
+
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const ST = { ok: '✓ совпадает', close: '≈ близко', bad: '✗ не совпадает', unknown: 'нет данных' };
 const STAT = { pending: 'на согласовании', approved: 'согласовано', rejected: 'отклонено' };
@@ -81,6 +175,7 @@ async function load() {
     if (tab === 'history') items = items.filter(d => d.status !== 'pending');
     listEl.innerHTML = items.length ? items.map(card).join('') : `<div class="empty">${tab === 'pending' ? 'Нет предложений на согласовании' : 'История пуста'}</div>`;
   } catch (e) { listEl.innerHTML = '<div class="empty">Не удалось загрузить данные</div>'; }
+  KritNav.refreshBadge();
 }
 
 listEl.addEventListener('click', async e => {
