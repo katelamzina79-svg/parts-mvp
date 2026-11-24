@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Платформа КРИТ</title>
+<style>
+  :root{
+    --bg:#f4f6fa; --surface:#fff; --border:#e3e7ef; --text:#18202f; --muted:#667085; --faint:#98a2b3;
+    --primary:#f5b800; --primary-h:#dca600; --primary-soft:#fff6d6; --primary-ink:#7a5600; --on-primary:#1c1500; --link:#946500; --link-h:#6f4b00;
+    --ok:#15803d; --ok-soft:#e8f6ee; --warn:#b45309; --warn-soft:#fff3df; --bad:#c62839; --bad-soft:#fdecee;
+    --info:#1d4ed8; --info-soft:#e8f0ff;
+    --side:#121a2c; --side-text:#aab4c8;
+    --radius:12px; --shadow:0 1px 2px rgba(16,24,40,.05),0 1px 3px rgba(16,24,40,.06);
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font:14px/1.5 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif; background:var(--bg); color:var(--text); }
+  a { color:var(--link); text-decoration:none; } a:hover { text-decoration:underline; }
+  .app { display:flex; min-height:100vh; }
+  .sidebar { width:248px; flex:none; background:var(--side); color:var(--side-text); padding:18px 12px; display:flex; flex-direction:column; position:sticky; top:0; height:100vh; }
+  .side-brand { display:flex; align-items:center; gap:10px; padding:4px 10px 16px; color:#fff; font-weight:600; font-size:16px; }
+  .mark { width:30px; height:30px; border-radius:8px; background:var(--primary); display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:700; color:var(--on-primary); }
+  .nav-g { font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#6f7b94; padding:16px 12px 6px; }
+  .nav-i { display:flex; align-items:center; gap:10px; padding:9px 12px; border-radius:8px; color:var(--side-text); font-size:14px; }
+  .nav-i:hover { background:rgba(255,255,255,.06); color:#fff; text-decoration:none; }
+  .nav-i.on { background:rgba(255,255,255,.12); color:#fff; font-weight:500; }
+  .nav-i svg { width:18px; height:18px; flex:none; }
+  .nav-b { margin-left:auto; background:var(--primary); color:var(--on-primary); border-radius:10px; font-size:11px; font-weight:600; padding:1px 7px; }
+  .side-foot { margin-top:auto; padding:12px 12px 2px; font-size:12px; color:#6f7b94; border-top:1px solid rgba(255,255,255,.08); }
+  .main { flex:1; min-width:0; padding:28px 32px 48px; }
+  .page { max-width:1000px; margin:0 auto; }
+  .page-head { margin-bottom:20px; }
+  .page-head h1 { margin:0 0 4px; font-size:24px; font-weight:600; letter-spacing:-.01em; }
+  .page-head p { margin:0; color:var(--muted); }
+  .chip { display:inline-block; font-size:12px; color:var(--muted); background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:2px 10px; margin-top:8px; }
+  .menu-btn { display:none; position:fixed; top:12px; left:12px; z-index:40; width:40px; height:40px; padding:0; align-items:center; justify-content:center; font-size:18px; }
+  @media (max-width:860px) {
+    .sidebar { position:fixed; left:0; top:0; z-index:50; transform:translateX(-100%); transition:transform .2s; }
+    .sidebar.open { transform:none; box-shadow:0 0 0 100vmax rgba(15,23,42,.45); }
+    .main { padding:64px 16px 32px; }
+    .menu-btn { display:flex; }
+  }
+  button { font:inherit; font-weight:500; color:var(--text); background:var(--surface); border:1px solid var(--border); padding:8px 16px; border-radius:8px; cursor:pointer; transition:background .15s,border-color .15s; }
+  button:hover { background:#f1f3f8; border-color:#d3d9e6; }
+  button.primary { background:var(--primary); border-color:var(--primary); color:var(--on-primary); }
+  button.primary:hover { background:var(--primary-h); border-color:var(--primary-h); }
+  button:disabled { opacity:.5; cursor:not-allowed; }
+  input, textarea { font:inherit; color:var(--text); background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:9px 12px; }
+  input:focus, textarea:focus { outline:3px solid #ffeaa6; border-color:var(--primary); }
+  .muted { color:var(--muted); }
+
+  .bare .sidebar, .bare .menu-btn { display:none; }
+  .bare .main { display:flex; align-items:center; justify-content:center; padding:24px; }
+  .bare .page { width:100%; }
+  .side-user { margin-top:auto; padding:12px; border-top:1px solid rgba(255,255,255,.08); font-size:13px; }
+  .side-user b { color:#fff; display:block; font-weight:500; }
+  .side-user span { display:block; font-size:12px; color:#6f7b94; margin-bottom:8px; }
+  .side-user button { background:transparent; color:var(--side-text); border-color:rgba(255,255,255,.18); padding:5px 12px; font-size:13px; }
+  .side-user button:hover { background:rgba(255,255,255,.08); }
+  .pill { display:inline-block; padding:2px 10px; border-radius:20px; font-size:12px; font-weight:500; background:#eceff5; color:var(--muted); white-space:nowrap; }
+  .p-proposed { background:var(--info-soft); color:var(--info); }
+  .p-approved, .v-full, .p-selected, .p-ordered { background:var(--ok-soft); color:var(--ok); }
+  .p-rejected, .v-no, .v-unknown { background:var(--bad-soft); color:var(--bad); }
+  .p-rfq, .p-quoted, .v-check { background:var(--warn-soft); color:var(--warn); }
+  .tbl { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); overflow-x:auto; margin-bottom:18px; }
+  table { border-collapse:collapse; width:100%; }
+  th, td { padding:10px 12px; text-align:left; vertical-align:top; border-bottom:1px solid var(--border); }
+  tbody tr:last-child td { border-bottom:none; }
+  th { background:#f7f8fb; font-weight:600; font-size:12px; color:var(--muted); white-space:nowrap; }
+  tr.click { cursor:pointer; } tr.click:hover td { background:#fafbfd; }
+  tr.sub td { background:#fafbfd; }
+  tr.best td { background:#f3faf6; }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px 18px; margin-bottom:14px; }
+  .top { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+  .score { font-size:20px; font-weight:700; }
+  .ok { color:var(--ok); } .warn { color:var(--warn); } .bad { color:var(--bad); } .faint { color:var(--faint); }
+  table.cmp { margin:10px 0; font-size:13px; } table.cmp th, table.cmp td { padding:5px 8px; }
+  .ov { position:fixed; inset:0; background:rgba(15,23,42,.5); display:flex; justify-content:center; align-items:flex-start; overflow:auto; padding:32px 12px; z-index:80; }
+  .md { background:var(--surface); border-radius:var(--radius); padding:20px; width:min(780px,100%); }
+  .md h2 { margin:0 0 10px; font-size:18px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
+  label.f { display:block; font-size:12px; color:var(--muted); margin-bottom:10px; }
+  label.f input, label.f textarea, label.f select { width:100%; margin-top:3px; color:var(--text); }
+  .row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .ev { list-style:none; padding:0; margin:0; } .ev li { padding:8px 0; border-bottom:1px solid var(--border); font-size:13px; }
+  .login { width:min(400px,100%); background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:26px; margin:0 auto; }
+  .login h1 { margin:0 0 4px; font-size:22px; } .hint { background:var(--primary-soft); border-radius:8px; padding:8px 12px; font-size:12px; color:var(--primary-ink); margin-bottom:14px; }
+  .toast { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#18202f; color:#fff; padding:10px 18px; border-radius:8px; font-size:14px; max-width:90%; z-index:90; }
+  .toast.err { background:var(--bad); }
+  .empty { text-align:center; color:var(--muted); padding:32px; }
+  h3 { margin:22px 0 8px; font-size:15px; }
+  .yes { background:var(--ok); border-color:var(--ok); color:#fff; } .yes:hover { background:#116a33; border-color:#116a33; }
+  .no { color:var(--bad); border-color:#f0b9c0; }
+</style>
+</head>
+<body>
+<button class="menu-btn" id="menuBtn" aria-label="Меню">☰</button>
+<div class="app" id="shell">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main"><div class="page" id="view"></div></main>
+</div>
+<div id="modal"></div><div id="toast"></div>
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = s => s ? new Date(s).toLocaleString('ru-RU', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'}) : '';
+const rub = n => Math.round(n).toLocaleString('ru-RU') + ' ₽';
+const ROLE = { buyer:'Сотрудник снабжения', engineer:'Инженер', supplier:'Поставщик' };
+const HOME = { buyer:'#/requests', engineer:'#/queue', supplier:'#/rfqs' };
+const MENU = {
+  buyer: [['#/requests','Заявки',1], ['#/new','Новая заявка'], ['#/nomenclature','Номенклатура']],
+  engineer: [['#/queue','На согласовании',1], ['#/history','История решений'], ['#/requests','Заявки']],
+  supplier: [['#/rfqs','Запросы КП',1], ['#/answers','Мои ответы']],
+};
+const ALLOWED = { buyer:['requests','request','new','nomenclature'], engineer:['queue','history','requests','request'], supplier:['rfqs','answers'] };
+const CREDS = { buyer:'buyer1 / buyer123', engineer:'engineer1 / engineer123', supplier:'supplier1 / supplier123 (или supplier2, supplier3)' };
+const CATS = ['Подшипник','Пневматика','Электрика','Уплотнение','Насос','КИП'];
+const ST = { ok:'✓', close:'≈', bad:'✗', unknown:'—' };
+let ME = null;
+
+async function api(method, path, body, soft) {
+  const r = await fetch('/api/portal' + path, { method, headers:{'Content-Type':'application/json'}, body: body ? JSON.stringify(body) : undefined });
+  let d = null; try { d = await r.json(); } catch (e) {}
+  if (r.status === 401 && !soft) { location.href = '/'; throw new Error('Нужен вход'); }
+  if (!r.ok) throw new Error(d && typeof d.detail === 'string' ? d.detail : 'Проверьте заполнение полей');
+  return d;
+}
+function toast(t, bad) {
+  $('#toast').innerHTML = `<div class="toast ${bad ? 'err' : ''}">${esc(t)}</div>`;
+  clearTimeout(toast.t); toast.t = setTimeout(() => $('#toast').innerHTML = '', 4000);
+}
+const modal = html => $('#modal').innerHTML = html ? `<div class="ov"><div class="md">${html}</div></div>` : '';
+const view = html => $('#view').innerHTML = html;
+const pill = (cls, text) => `<span class="pill ${cls}">${esc(text)}</span>`;
+const cmpTable = rows => !rows || !rows.length ? '' :
+  `<table class="cmp"><tr><th>Параметр</th><th>Импорт (запрос)</th><th>Аналог</th><th></th></tr>` +
+  rows.map(r => `<tr><td>${esc(r.param)}</td><td>${esc(r.query)}</td><td>${esc(r.candidate)}</td><td class="${r.status === 'ok' ? 'ok' : r.status === 'bad' ? 'bad' : r.status === 'close' ? 'warn' : 'faint'}">${ST[r.status]}</td></tr>`).join('') + '</table>';
+const guard = fn => async (...a) => { try { return await fn(...a); } catch (e) { toast(e.message, true); } };
+
+/* ---------- меню ---------- */
+function drawMenu() {
+  const items = MENU[ME.role].map(([h, l, b]) => `<a class="nav-i ${location.hash.startsWith(h) ? 'on' : ''}" href="${h}"><span>${l}</span>${b ? '<span class="nav-b" id="nb" style="display:none"></span>' : ''}</a>`).join('');
+  $('#sidebar').innerHTML = `<div class="side-brand"><span class="mark">К</span>Платформа КРИТ</div><div class="nav-g">${ROLE[ME.role]}</div>${items}
+    <div class="side-user"><b>${esc(ME.full_name)}</b><span>${esc(ME.org)}</span><button data-act="logout">Выйти</button></div>`;
+  api('GET', '/summary').then(s => { const b = $('#nb'); if (b) { b.textContent = s.todo; b.style.display = s.todo ? '' : 'none'; } }).catch(() => {});
+}
+
+/* ---------- экраны ---------- */
+const V = {};
+V.login = role => {
+  if (!ROLE[role]) { location.href = '/'; return; }
+  view(`<div class="login"><h1>${ROLE[role]}</h1><p class="muted">Вход в кабинет Платформы КРИТ</p>
+    <div class="hint">Демо-доступ: ${CREDS[role]}</div>
+    <label class="f">Логин<input id="lg" autocomplete="username"></label>
+    <label class="f">Пароль<input id="pw" type="password" autocomplete="current-password"></label>
+    <div class="row"><button class="primary" data-act="doLogin" data-role="${role}">Войти</button><a href="/">← Другой кабинет</a></div></div>`);
+  $('#pw').onkeydown = e => { if (e.key === 'Enter') ACT.doLogin({ role }); };
+};
+
+V.requests = async () => {
+  const rows = await api('GET', '/requests'), eng = ME.role === 'engineer';
+  view(`<div class="page-head"><h1>Заявки</h1><p>${eng ? 'Все заявки организации (просмотр)' : 'Ваши заявки на закупку'}</p></div>
+    ${ME.role === 'buyer' ? '<p><a href="#/new"><button class="primary">+ Новая заявка</button></a></p>' : ''}
+    <div class="tbl"><table><thead><tr><th>Номер</th><th>Название</th>${eng ? '<th>Автор</th>' : ''}<th>Создана</th><th>Позиций</th><th>Статус</th><th>Закрыто</th></tr></thead><tbody>` +
+    (rows.map(r => `<tr class="click" data-go="#/request/${r.id}"><td><b>${esc(r.number)}</b></td><td>${esc(r.title)}</td>${eng ? `<td>${esc(r.author)}</td>` : ''}<td>${fmt(r.created_at)}</td><td>${r.lines_count}</td><td>${pill('', r.status_label)}</td><td>${r.progress}</td></tr>`).join('') || `<tr><td colspan="7" class="empty">Заявок пока нет</td></tr>`) + '</tbody></table></div>');
+};
+
+function lineAction(l) {
+  if (ME.role !== 'buyer') return '';
+  const b = (a, t, p) => `<button ${p ? 'class="primary"' : ''} data-act="${a}" data-id="${l.id}">${t}</button>`;
+  return ({ new: b('cand', 'Подобрать аналог', 1), rejected: b('cand', 'Другой аналог', 1), proposed: '<span class="muted">Ждёт решения инженера</span>',
+    approved: b('rfqForm', 'Запросить КП', 1), rfq: b('demo', 'Демо-ответы') + ' <span class="muted">ждём ответы</span>',
+    quoted: b('demo', 'Демо-ответы остальных') + ' <span class="muted">или выберите поставщика ниже</span>', selected: b('order', 'Оформить заказ', 1),
+    ordered: `<span class="muted">Заказ ${esc(l.order_number)}</span>` })[l.status] || '';
+}
+function lineProgress(l) {
+  const d = l.decisions[0]; let h = '';
+  if (d) h += `<b>${esc(d.analogue_name)}</b> ${d.score}% ${pill('v-' + d.verdict_code, d.verdict_text)}` +
+    (d.status !== 'pending' ? `<div class="muted">${d.status === 'approved' ? 'Согласовал' : 'Отклонил'}: ${esc(d.decided_by)}${d.decision_comment ? ' — «' + esc(d.decision_comment) + '»' : ''}</div>` : `<div class="muted">Предложил: ${esc(d.proposed_by)}${d.proposal_comment ? ' — «' + esc(d.proposal_comment) + '»' : ''}</div>`);
+  return h || '<span class="muted">—</span>';
+}
+function invitesRow(l) {
+  if (!l.rfq) return '';
+  const q = l.rfq.invites.filter(i => i.status === 'quoted' && i.price), best = q.length ? Math.min(...q.map(i => i.price)) : null;
+  const canPick = ME.role === 'buyer' && ['rfq', 'quoted'].includes(l.status);
+  return `<tr class="sub"><td colspan="5"><b>${esc(l.rfq.number)}</b> <span class="muted">на ${esc(l.rfq.item_name)} × ${l.rfq.qty}, ответить до ${esc(l.rfq.due_date)}</span>
+    <table class="cmp"><tr><th>Поставщик</th><th>Город</th><th>Цена за ед.</th><th>Сумма</th><th>Срок, дн.</th><th>Статус</th><th></th></tr>` +
+    l.rfq.invites.map(i => `<tr class="${i.chosen ? 'best' : ''}"><td>${esc(i.supplier)}</td><td>${esc(i.city)}</td><td>${i.price ? rub(i.price) + (i.price === best ? ' ' + pill('v-full', 'лучшая') : '') : '—'}</td><td>${i.price ? rub(i.price * l.rfq.qty) : '—'}</td><td>${i.status === 'quoted' ? i.lead_days : '—'}</td>
+      <td>${i.chosen ? pill('p-selected', 'выбран') : i.status === 'quoted' ? pill('p-quoted', 'ответил') : i.status === 'declined' ? pill('p-rejected', 'отказ') : pill('', 'ждём ответ')}</td>
+      <td>${canPick && i.status === 'quoted' ? `<button class="primary" data-act="pick" data-id="${i.id}">Выбрать</button>` : ''}</td></tr>`).join('') + '</table></td></tr>';
+}
+V.request = async id => {
+  const r = await api('GET', '/requests/' + id);
+  view(`<div class="page-head"><a href="#/requests">← Все заявки</a><h1>${esc(r.number)}</h1><p>${esc(r.title)} · ${esc(r.author)} · ${fmt(r.created_at)}</p>
+    <p>${pill('', r.status_label)} <span class="muted">закрыто позиций: ${r.progress}</span></p></div>
+    <div class="tbl"><table><thead><tr><th>Позиция</th><th>Кол-во</th><th>Статус</th><th>Аналог и решение</th><th>Действие</th></tr></thead><tbody>` +
+    r.lines.map(l => `<tr><td><b>${esc(l.name)}</b></td><td>${l.qty}</td><td>${pill('p-' + l.status, l.status_label)}</td><td>${lineProgress(l)}</td><td>${lineAction(l)}</td></tr>${invitesRow(l)}`).join('') +
+    `</tbody></table></div><h3>История заявки</h3><ul class="ev">${r.events.map(e => `<li><span class="muted">${fmt(e.ts)} · ${esc(e.actor)}</span><br>${esc(e.text)}</li>`).join('')}</ul>`);
+};
+
+V.new = async () => {
+  const n = await api('GET', '/nomenclature');
+  view(`<div class="page-head"><h1>Новая заявка</h1><p>Отметьте позиции из номенклатуры организации и укажите количество</p></div>
+    <label class="f">Название заявки<input id="rt" placeholder="Например: Плановая закупка подшипников"></label>
+    <div class="tbl"><table><thead><tr><th></th><th>Позиция</th><th>Артикул</th><th>Производитель</th><th>Кол-во</th></tr></thead><tbody>` +
+    (n.map(x => `<tr><td><input type="checkbox" class="pick" data-id="${x.id}"></td><td>${esc(x.name)}</td><td>${esc(x.article)}</td><td>${esc(x.brand)}</td><td><input type="number" min="1" value="1" style="width:80px" id="q${x.id}"></td></tr>`).join('') || '<tr><td colspan="5" class="empty">Номенклатура пуста, добавьте позиции в разделе «Номенклатура»</td></tr>') +
+    `</tbody></table></div><button class="primary" data-act="createReq">Создать заявку</button>`);
+};
+
+const nomForm = x => `<div class="grid2"><label class="f">Наименование<input id="nn" value="${esc(x.name || '')}"></label><label class="f">Артикул<input id="na" value="${esc(x.article || '')}"></label>
+  <label class="f">Производитель<input id="nb2" value="${esc(x.brand || '')}"></label><label class="f">Категория<select id="nc">${CATS.map(c => `<option ${c === (x.category || 'Подшипник') ? 'selected' : ''}>${c}</option>`).join('')}</select></label>
+  <label class="f">Ед. изм.<input id="nu" value="${esc(x.unit || 'шт')}"></label><label class="f">Примечание<input id="nt" value="${esc(x.note || '')}"></label></div>`;
+const nomBody = () => ({ name: $('#nn').value, article: $('#na').value, brand: $('#nb2').value, category: $('#nc').value, unit: $('#nu').value, note: $('#nt').value });
+V.nomenclature = async () => {
+  const n = await api('GET', '/nomenclature'); window.NOM = n;
+  view(`<div class="page-head"><h1>Номенклатура</h1><p>Импортные позиции, которые организация закупает. Из них собираются заявки.</p></div>
+    <div class="card"><b>Добавить позицию</b>${nomForm({})}<button class="primary" data-act="nomAdd">Добавить</button></div>
+    <div class="card"><b>Добавить из каталога</b><div class="row" style="margin-top:8px"><input id="cq" placeholder="Например: SKF 6205" style="flex:1"><button data-act="catSearch">Найти</button></div><div id="cres"></div></div>
+    <div class="tbl"><table><thead><tr><th>Наименование</th><th>Артикул</th><th>Производитель</th><th>Категория</th><th>Ед.</th><th></th></tr></thead><tbody>` +
+    (n.map(x => `<tr><td>${esc(x.name)}</td><td>${esc(x.article)}</td><td>${esc(x.brand)}</td><td>${esc(x.category)}</td><td>${esc(x.unit)}</td><td class="row"><button data-act="nomEdit" data-id="${x.id}">Изменить</button><button class="no" data-act="nomDel" data-id="${x.id}">Удалить</button></td></tr>`).join('') || '<tr><td colspan="6" class="empty">Пока пусто</td></tr>') + '</tbody></table></div>');
+};
+
+function decisionCard(d, withForm) {
+  return `<div class="card"><div class="top"><div><b>${esc(d.original_name)} × ${d.qty}</b> → <b>${esc(d.analogue_name)}</b>
+    <div class="muted">Заявка ${esc(d.request_number)} · предложил ${esc(d.proposed_by)}, ${fmt(d.proposed_at)}${d.proposal_comment ? ' — «' + esc(d.proposal_comment) + '»' : ''}</div></div>
+    <div style="text-align:right"><div class="score">${d.score}%</div>${pill('v-' + d.verdict_code, d.verdict_text)}</div></div>${cmpTable(d.comparison)}` +
+    (withForm ? `<label class="f">Комментарий${d.verdict_code === 'check' ? ' (обязателен: что проверено)' : ''}<textarea id="c${d.id}" rows="2"></textarea></label>
+      <div class="row"><button class="yes" data-act="decide" data-id="${d.id}" data-d="approved">Согласовать</button><button class="no" data-act="decide" data-id="${d.id}" data-d="rejected">Отклонить</button></div>`
+      : `<div>${pill(d.status === 'approved' ? 'p-approved' : 'p-rejected', d.status === 'approved' ? 'Согласовано' : 'Отклонено')} <span class="muted">${esc(d.decided_by)}, ${fmt(d.decided_at)}${d.decision_comment ? ' — «' + esc(d.decision_comment) + '»' : ''}</span></div>`) + '</div>';
+}
+V.queue = async () => {
+  const q = await api('GET', '/engineer/decisions?status=pending');
+  view(`<div class="page-head"><h1>На согласовании</h1><p>Замены, предложенные сотрудниками снабжения. Решение фиксируется под вашим именем.</p></div>` + (q.map(d => decisionCard(d, true)).join('') || '<div class="card empty">Нет предложений, ожидающих решения</div>'));
+};
+V.history = async () => {
+  const q = await api('GET', '/engineer/decisions?status=history');
+  view(`<div class="page-head"><h1>История решений</h1></div>` + (q.map(d => decisionCard(d, false)).join('') || '<div class="card empty">Решений пока нет</div>'));
+};
+
+V.rfqs = async () => {
+  const q = (await api('GET', '/supplier/rfqs')).filter(i => i.status === 'invited');
+  view(`<div class="page-head"><h1>Запросы КП</h1><p>Запросы коммерческих предложений от заказчиков. Ответьте ценой и сроком поставки.</p></div>` +
+    (q.map(i => `<div class="card"><div class="top"><div><b>${esc(i.item_name)}</b> × ${i.qty}<div class="muted">${esc(i.number)} · от ${esc(i.buyer)} · ответить до ${esc(i.due_date)}${i.buyer_comment ? ' · «' + esc(i.buyer_comment) + '»' : ''}</div></div></div>
+      <div class="grid2" style="margin-top:10px"><label class="f">Цена за единицу, ₽<input type="number" min="1" id="p${i.invite_id}"></label><label class="f">Срок поставки, дн.<input type="number" min="0" id="l${i.invite_id}"></label>
+      <label class="f">КП действительно, дн.<input type="number" min="1" value="14" id="v${i.invite_id}"></label><label class="f">Комментарий<input id="m${i.invite_id}"></label></div>
+      <div class="row"><button class="primary" data-act="quote" data-id="${i.invite_id}">Отправить КП</button><button class="no" data-act="declineQ" data-id="${i.invite_id}">Отказаться</button></div></div>`).join('') || '<div class="card empty">Новых запросов нет</div>'));
+};
+V.answers = async () => {
+  const q = (await api('GET', '/supplier/rfqs')).filter(i => i.status !== 'invited');
+  view(`<div class="page-head"><h1>Мои ответы</h1></div><div class="tbl"><table><thead><tr><th>КП</th><th>Позиция</th><th>Кол-во</th><th>Цена</th><th>Срок, дн.</th><th>Статус</th><th>Ответ</th></tr></thead><tbody>` +
+    (q.map(i => `<tr><td>${esc(i.number)}</td><td>${esc(i.item_name)}</td><td>${i.qty}</td><td>${i.price ? rub(i.price) : '—'}</td><td>${i.status === 'quoted' ? i.lead_days : '—'}</td><td>${i.chosen ? pill('p-selected', 'Вас выбрали') : i.status === 'declined' ? pill('p-rejected', 'Отказ') : pill('p-quoted', 'Ожидает решения заказчика')}</td><td>${fmt(i.responded_at)}</td></tr>`).join('') || '<tr><td colspan="7" class="empty">Ответов пока нет</td></tr>') + '</tbody></table></div>');
+};
+
+/* ---------- действия ---------- */
+const refresh = () => route();
+const ACT = {
+  logout: async () => { await api('POST', '/logout', null, true); location.href = '/'; },
+  doLogin: guard(async d => {
+    ME = await api('POST', '/login', { login: $('#lg') ? $('#lg').value : '', password: $('#pw').value, role: d.role }, true);
+    location.hash = HOME[ME.role];
+  }),
+  close: () => modal(''),
+  createReq: guard(async () => {
+    const lines = [...document.querySelectorAll('.pick:checked')].map(c => ({ nomenclature_id: +c.dataset.id, qty: +$('#q' + c.dataset.id).value || 1 }));
+    if (!lines.length) return toast('Отметьте хотя бы одну позицию', true);
+    const r = await api('POST', '/requests', { title: $('#rt').value, lines });
+    location.hash = '#/request/' + r.id;
+  }),
+  nomAdd: guard(async () => { await api('POST', '/nomenclature', nomBody()); toast('Позиция добавлена'); refresh(); }),
+  nomEdit: d => modal(`<h2>Изменить позицию</h2>${nomForm(window.NOM.find(x => x.id == d.id))}<div class="row"><button class="primary" data-act="nomSave" data-id="${d.id}">Сохранить</button><button data-act="close">Отмена</button></div>`),
+  nomSave: guard(async d => { await api('PUT', '/nomenclature/' + d.id, nomBody()); modal(''); refresh(); }),
+  nomDel: guard(async d => { if (confirm('Удалить позицию из номенклатуры?')) { await api('DELETE', '/nomenclature/' + d.id); refresh(); } }),
+  catSearch: guard(async () => {
+    const r = await api('GET', '/catalog/imports?q=' + encodeURIComponent($('#cq').value));
+    $('#cres').innerHTML = r.map(x => `<div class="row" style="padding:6px 0"><span style="flex:1">${esc(x.name)} <span class="muted">${esc(x.brand)}</span></span><button data-act="catAdd" data-id="${esc(x.id)}">Добавить</button></div>`).join('') || '<p class="muted">Ничего не найдено</p>';
+  }),
+  catAdd: guard(async d => { await api('POST', '/nomenclature/from-catalog/' + d.id); toast('Добавлено в номенклатуру'); refresh(); }),
+  cand: guard(async d => {
+    modal('<p>Подбираем аналоги…</p>');
+    const r = await api('POST', `/lines/${d.id}/candidates`);
+    modal(`<h2>Аналоги для «${esc(r.line)}»</h2><label class="f">Комментарий инженеру (необязательно)<textarea id="pc" rows="2"></textarea></label>` +
+      (r.candidates.map(c => `<div class="card"><div class="top"><div><b>${esc(c.name)}</b><div class="muted">${esc(c.brand)} · ${esc(c.standard)} · ${esc(c.material)}</div></div><div class="score">${c.score}%</div></div>
+        ${pill('v-' + c.verdict.code, c.verdict.text)}${cmpTable(c.comparison)}
+        <button class="primary" data-act="prop" data-line="${d.id}" data-an="${esc(c.id)}" ${['no', 'unknown'].includes(c.verdict.code) ? 'disabled' : ''}>Отправить инженеру</button></div>`).join('') || '<p class="muted">Подходящих аналогов в каталоге нет</p>') + '<button data-act="close">Закрыть</button>');
+  }),
+  prop: guard(async d => { await api('POST', `/lines/${d.line}/propose`, { analogue_id: d.an, comment: $('#pc').value }); modal(''); toast('Отправлено инженеру на согласование'); refresh(); }),
+  rfqForm: guard(async d => {
+    const s = await api('GET', '/suppliers');
+    modal(`<h2>Запрос коммерческих предложений</h2><p class="muted">Выберите поставщиков, которым уйдёт запрос</p>${s.map(x => `<label class="row" style="padding:4px 0"><input type="checkbox" class="sup" value="${x.id}" checked> ${esc(x.name)} <span class="muted">${esc(x.city)}</span></label>`).join('')}
+      <div class="grid2" style="margin-top:10px"><label class="f">Срок ответа, дн.<input type="number" id="rd" min="1" max="30" value="3"></label><label class="f">Комментарий<input id="rc"></label></div>
+      <div class="row"><button class="primary" data-act="rfqSend" data-id="${d.id}">Отправить запрос</button><button data-act="close">Отмена</button></div>`);
+  }),
+  rfqSend: guard(async d => {
+    const ids = [...document.querySelectorAll('.sup:checked')].map(c => +c.value);
+    if (!ids.length) return toast('Выберите хотя бы одного поставщика', true);
+    await api('POST', `/lines/${d.id}/rfq`, { supplier_ids: ids, due_days: +$('#rd').value || 3, comment: $('#rc').value }); modal(''); toast('Запрос КП отправлен'); refresh();
+  }),
+  demo: guard(async d => { await api('POST', `/lines/${d.id}/demo-quotes`); toast('Демо-ответы поставщиков получены'); refresh(); }),
+  pick: guard(async d => { await api('POST', `/invites/${d.id}/select`); toast('Поставщик выбран'); refresh(); }),
+  order: guard(async d => { const r = await api('POST', `/lines/${d.id}/order`); toast('Заказ оформлен: ' + r.order_number); refresh(); }),
+  decide: guard(async d => { await api('POST', `/decisions/${d.id}/decide`, { decision: d.d, comment: $('#c' + d.id).value }); toast(d.d === 'approved' ? 'Замена согласована' : 'Замена отклонена'); refresh(); }),
+  quote: guard(async d => {
+    await api('POST', `/invites/${d.id}/quote`, { price: +$('#p' + d.id).value, lead_days: +$('#l' + d.id).value, valid_days: +$('#v' + d.id).value || 14, comment: $('#m' + d.id).value });
+    toast('КП отправлено заказчику'); refresh();
+  }),
+  declineQ: guard(async d => { if (confirm('Отказаться от запроса?')) { await api('POST', `/invites/${d.id}/decline`, { decision: 'declined', comment: '' }); refresh(); } }),
+};
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-act]'); if (b) { ACT[b.dataset.act](b.dataset); return; }
+  const r = e.target.closest('[data-go]'); if (r) location.hash = r.dataset.go;
+});
+
+/* ---------- маршрутизация ---------- */
+async function route() {
+  const [, name, arg] = (location.hash || '#/').split('/');
+  const bare = name === 'login';
+  $('#shell').classList.toggle('bare', bare || !ME);
+  if (bare) return V.login(arg);
+  if (!ME) { try { ME = await api('GET', '/me', null, true); } catch (e) { location.href = '/'; return; } }
+  $('#shell').classList.remove('bare');
+  if (!ALLOWED[ME.role].includes(name)) { location.hash = HOME[ME.role]; return; }
+  drawMenu();
+  try { await V[name](arg); } catch (e) { view(`<div class="card bad">${esc(e.message)}</div>`); }
+}
+window.addEventListener('hashchange', route);
+$('#menuBtn').onclick = ev => { ev.stopPropagation(); $('#sidebar').classList.toggle('open'); };
+document.addEventListener('click', ev => { if (!$('#sidebar').contains(ev.target)) $('#sidebar').classList.remove('open'); });
+route();
+</script>
+</body>
+</html>

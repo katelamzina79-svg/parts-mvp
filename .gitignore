@@ -5,3 +5,4 @@ __pycache__/
 .vscode/
 data/embeddings_*.npz
 eval_report.json
+data/portal.db

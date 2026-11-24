@@ -268,3 +268,8 @@ async def extract_pdf(file: UploadFile = File(...)):
     res["text_preview"] = text[:400]
     res["filename"] = file.filename
     return res
+
+
+import portal
+app.include_router(portal.router)
+app.include_router(portal.pages)
