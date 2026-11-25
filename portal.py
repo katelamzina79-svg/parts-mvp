@@ -579,4 +579,14 @@ def app_page():
     return FileResponse(WEB / "app.html")
 
 
+BRAND = {"logo.svg", "logo-light.svg", "wordmark.svg", "mark.svg", "favicon.png"}
+
+
+@pages.get("/brand/{name}")
+def brand_file(name: str):
+    if name not in BRAND:
+        raise HTTPException(404, "Нет такого файла")
+    return FileResponse(WEB / name)
+
+
 init()

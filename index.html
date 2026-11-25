@@ -2,15 +2,17 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/brand/mark.svg">
+<link rel="icon" type="image/png" href="/brand/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Платформа КРИТ</title>
+<title>КРИТ — компоненты, решения, импортозамещение, технологии</title>
 <style>
   :root{
     --bg:#f4f6fa; --surface:#fff; --border:#e3e7ef; --text:#18202f; --muted:#667085; --faint:#98a2b3;
-    --primary:#f5b800; --primary-h:#dca600; --primary-soft:#fff6d6; --primary-ink:#7a5600; --on-primary:#1c1500; --link:#946500; --link-h:#6f4b00;
+    --primary:#3d5afe; --primary-h:#2f47d1; --primary-soft:#eef1ff; --primary-ink:#2a3fb5; --on-primary:#fff; --link:#3345c9; --link-h:#25339a;
     --ok:#15803d; --ok-soft:#e8f6ee; --warn:#b45309; --warn-soft:#fff3df; --bad:#c62839; --bad-soft:#fdecee;
     --info:#1d4ed8; --info-soft:#e8f0ff;
-    --side:#121a2c; --side-text:#aab4c8;
+    --side:#101833; --side-text:#aab4c8;
     --radius:12px; --shadow:0 1px 2px rgba(16,24,40,.05),0 1px 3px rgba(16,24,40,.06);
   }
   * { box-sizing: border-box; }
@@ -18,7 +20,8 @@
   a { color:var(--link); text-decoration:none; } a:hover { text-decoration:underline; }
   .app { display:flex; min-height:100vh; }
   .sidebar { width:248px; flex:none; background:var(--side); color:var(--side-text); padding:18px 12px; display:flex; flex-direction:column; position:sticky; top:0; height:100vh; }
-  .side-brand { display:flex; align-items:center; gap:10px; padding:4px 10px 16px; color:#fff; font-weight:600; font-size:16px; }
+  .side-brand { display:block; padding:2px 4px 14px; }
+  .brand-img { display:block; height:auto; max-width:100%; }
   .mark { width:30px; height:30px; border-radius:8px; background:var(--primary); display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:700; color:var(--on-primary); }
   .nav-g { font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#6f7b94; padding:16px 12px 6px; }
   .nav-i { display:flex; align-items:center; gap:10px; padding:9px 12px; border-radius:8px; color:var(--side-text); font-size:14px; }
@@ -46,33 +49,39 @@
   button.primary:hover { background:var(--primary-h); border-color:var(--primary-h); }
   button:disabled { opacity:.5; cursor:not-allowed; }
   input, textarea { font:inherit; color:var(--text); background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:9px 12px; }
-  input:focus, textarea:focus { outline:3px solid #ffeaa6; border-color:var(--primary); }
+  input:focus, textarea:focus { outline:3px solid #d9e0ff; border-color:var(--primary); }
   .muted { color:var(--muted); }
 
   body { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
-  .wrap { width:min(980px,100%); }
-  .hero { text-align:center; margin-bottom:28px; }
-  .hero .mark { margin:0 auto 14px; width:48px; height:48px; border-radius:12px; font-size:22px; }
-  .hero h1 { margin:0 0 8px; font-size:30px; letter-spacing:-.02em; } .hero p { margin:0 auto; color:var(--muted); max-width:560px; font-size:16px; }
-  .roles { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
-  .role { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px; color:var(--text); display:block; transition:transform .15s,border-color .15s; }
-  .role:hover { transform:translateY(-2px); border-color:var(--primary); text-decoration:none; }
-  .role h2 { margin:0 0 6px; font-size:18px; } .role p { margin:0 0 14px; color:var(--muted); font-size:14px; }
-  .role span { color:var(--link); font-weight:600; font-size:14px; }
-  .flow { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:26px; }
-  .flow span { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:4px 14px; font-size:13px; color:var(--muted); }
+  .wrap { width:min(1040px,100%); display:grid; grid-template-columns:minmax(240px,340px) 1fr; gap:36px; align-items:center; }
+  .hero { position:relative; overflow:hidden; border-radius:24px; padding:38px 30px 128px; background:linear-gradient(145deg,#eef3ff 0%,#dfe7ff 52%,#e8ddff 100%); border:1px solid #fff; box-shadow:0 14px 44px rgba(61,90,254,.18); }
+  .hero img { position:relative; z-index:2; width:100%; display:block; }
+  .cube { position:absolute; border-radius:18px; background:linear-gradient(145deg,rgba(124,92,255,.5),rgba(61,90,254,.3)); border:1px solid rgba(255,255,255,.75); }
+  .c1 { width:88px; height:88px; right:26px; bottom:26px; background:linear-gradient(145deg,rgba(124,92,255,.6),rgba(61,90,254,.38)); } .c2 { width:58px; height:58px; right:128px; bottom:40px; opacity:.6; } .c3 { width:40px; height:40px; left:30px; bottom:32px; opacity:.45; }
+  h1 { margin:0 0 8px; font-size:30px; letter-spacing:-.02em; } .lead { margin:0 0 22px; color:var(--muted); font-size:16px; }
+  .roles { display:grid; gap:12px; }
+  .role { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px 20px; color:var(--text); display:flex; align-items:center; gap:16px; transition:transform .15s,border-color .15s; }
+  .role:hover { transform:translateX(3px); border-color:var(--primary); text-decoration:none; }
+  .role div { flex:1; } .role h2 { margin:0 0 3px; font-size:17px; } .role p { margin:0; color:var(--muted); font-size:13px; }
+  .role span { color:var(--link); font-weight:600; font-size:14px; white-space:nowrap; }
+  .flow { display:flex; gap:6px; flex-wrap:wrap; margin-top:20px; }
+  .flow span { background:var(--primary-soft); border-radius:20px; padding:3px 12px; font-size:12px; color:var(--primary-ink); }
+  @media (max-width:760px) { .wrap { grid-template-columns:1fr; gap:22px; } .hero { padding:26px 22px 90px; } }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="hero"><div class="mark">К</div><h1>Платформа КРИТ</h1>
-    <p>Подбор российских аналогов импортных комплектующих: от заявки до заказа. Выберите, в каком кабинете вы работаете.</p></div>
-  <div class="roles">
-    <a class="role" href="/app#/login/buyer"><h2>Сотрудник снабжения</h2><p>Номенклатура организации, заявки, подбор аналогов, запросы КП, выбор поставщика и заказ.</p><span>Войти →</span></a>
-    <a class="role" href="/app#/login/engineer"><h2>Инженер</h2><p>Проверка и согласование замен: сверка характеристик, решение с комментарием и история.</p><span>Войти →</span></a>
-    <a class="role" href="/app#/login/supplier"><h2>Поставщик</h2><p>Входящие запросы коммерческих предложений, ответ ценой и сроком поставки.</p><span>Войти →</span></a>
+  <div class="hero"><img src="/brand/logo.svg" alt="КРИТ: компоненты, решения, импортозамещение, технологии"><span class="cube c1"></span><span class="cube c2"></span><span class="cube c3"></span></div>
+  <div>
+    <h1>Платформа КРИТ</h1>
+    <p class="lead">Подбор российских аналогов импортных комплектующих: от заявки до заказа. Выберите кабинет, в котором вы работаете.</p>
+    <div class="roles">
+      <a class="role" href="/app#/login/buyer"><div><h2>Сотрудник снабжения</h2><p>Номенклатура, заявки, подбор аналогов, запросы КП, заказ</p></div><span>Войти →</span></a>
+      <a class="role" href="/app#/login/engineer"><div><h2>Инженер</h2><p>Проверка и согласование замен, история решений</p></div><span>Войти →</span></a>
+      <a class="role" href="/app#/login/supplier"><div><h2>Поставщик</h2><p>Запросы коммерческих предложений, ответ ценой и сроком</p></div><span>Войти →</span></a>
+    </div>
+    <div class="flow"><span>Заявка</span><span>Подбор аналога</span><span>Согласование инженера</span><span>Запрос КП</span><span>Выбор поставщика</span><span>Заказ</span></div>
   </div>
-  <div class="flow"><span>Заявка</span><span>→ Подбор аналога</span><span>→ Согласование инженера</span><span>→ Запрос КП</span><span>→ Выбор поставщика</span><span>→ Заказ</span></div>
 </div>
 </body>
 </html>

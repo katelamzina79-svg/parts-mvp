@@ -2,15 +2,17 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/brand/mark.svg">
+<link rel="icon" type="image/png" href="/brand/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Платформа КРИТ</title>
 <style>
   :root{
     --bg:#f4f6fa; --surface:#fff; --border:#e3e7ef; --text:#18202f; --muted:#667085; --faint:#98a2b3;
-    --primary:#f5b800; --primary-h:#dca600; --primary-soft:#fff6d6; --primary-ink:#7a5600; --on-primary:#1c1500; --link:#946500; --link-h:#6f4b00;
+    --primary:#3d5afe; --primary-h:#2f47d1; --primary-soft:#eef1ff; --primary-ink:#2a3fb5; --on-primary:#fff; --link:#3345c9; --link-h:#25339a;
     --ok:#15803d; --ok-soft:#e8f6ee; --warn:#b45309; --warn-soft:#fff3df; --bad:#c62839; --bad-soft:#fdecee;
     --info:#1d4ed8; --info-soft:#e8f0ff;
-    --side:#121a2c; --side-text:#aab4c8;
+    --side:#101833; --side-text:#aab4c8;
     --radius:12px; --shadow:0 1px 2px rgba(16,24,40,.05),0 1px 3px rgba(16,24,40,.06);
   }
   * { box-sizing: border-box; }
@@ -18,7 +20,8 @@
   a { color:var(--link); text-decoration:none; } a:hover { text-decoration:underline; }
   .app { display:flex; min-height:100vh; }
   .sidebar { width:248px; flex:none; background:var(--side); color:var(--side-text); padding:18px 12px; display:flex; flex-direction:column; position:sticky; top:0; height:100vh; }
-  .side-brand { display:flex; align-items:center; gap:10px; padding:4px 10px 16px; color:#fff; font-weight:600; font-size:16px; }
+  .side-brand { display:block; padding:2px 4px 14px; }
+  .brand-img { display:block; height:auto; max-width:100%; }
   .mark { width:30px; height:30px; border-radius:8px; background:var(--primary); display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:700; color:var(--on-primary); }
   .nav-g { font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#6f7b94; padding:16px 12px 6px; }
   .nav-i { display:flex; align-items:center; gap:10px; padding:9px 12px; border-radius:8px; color:var(--side-text); font-size:14px; }
@@ -46,7 +49,7 @@
   button.primary:hover { background:var(--primary-h); border-color:var(--primary-h); }
   button:disabled { opacity:.5; cursor:not-allowed; }
   input, textarea { font:inherit; color:var(--text); background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:9px 12px; }
-  input:focus, textarea:focus { outline:3px solid #ffeaa6; border-color:var(--primary); }
+  input:focus, textarea:focus { outline:3px solid #d9e0ff; border-color:var(--primary); }
   .muted { color:var(--muted); }
 
   .bare .sidebar, .bare .menu-btn { display:none; }
@@ -140,7 +143,7 @@ const guard = fn => async (...a) => { try { return await fn(...a); } catch (e) {
 /* ---------- меню ---------- */
 function drawMenu() {
   const items = MENU[ME.role].map(([h, l, b]) => `<a class="nav-i ${location.hash.startsWith(h) ? 'on' : ''}" href="${h}"><span>${l}</span>${b ? '<span class="nav-b" id="nb" style="display:none"></span>' : ''}</a>`).join('');
-  $('#sidebar').innerHTML = `<div class="side-brand"><span class="mark">К</span>Платформа КРИТ</div><div class="nav-g">${ROLE[ME.role]}</div>${items}
+  $('#sidebar').innerHTML = `<a class="side-brand" href="/"><img class="brand-img" style="width:150px" src="/brand/wordmark.svg" alt="КРИТ"></a><div class="nav-g">${ROLE[ME.role]}</div>${items}
     <div class="side-user"><b>${esc(ME.full_name)}</b><span>${esc(ME.org)}</span><button data-act="logout">Выйти</button></div>`;
   api('GET', '/summary').then(s => { const b = $('#nb'); if (b) { b.textContent = s.todo; b.style.display = s.todo ? '' : 'none'; } }).catch(() => {});
 }
@@ -149,7 +152,7 @@ function drawMenu() {
 const V = {};
 V.login = role => {
   if (!ROLE[role]) { location.href = '/'; return; }
-  view(`<div class="login"><h1>${ROLE[role]}</h1><p class="muted">Вход в кабинет Платформы КРИТ</p>
+  view(`<div class="login"><img class="brand-img" style="width:min(300px,100%);margin:0 0 16px" src="/brand/logo.svg" alt="КРИТ: компоненты, решения, импортозамещение, технологии"><h1>${ROLE[role]}</h1><p class="muted">Вход в кабинет Платформы КРИТ</p>
     <div class="hint">Демо-доступ: ${CREDS[role]}</div>
     <label class="f">Логин<input id="lg" autocomplete="username"></label>
     <label class="f">Пароль<input id="pw" type="password" autocomplete="current-password"></label>
